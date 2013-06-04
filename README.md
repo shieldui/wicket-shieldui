@@ -1,7 +1,7 @@
 Wicket-ShieldUI-Chart
 =====================
 
-An [Apache Wicket](http://wicket.apache.org) component leveraging the use of the [Shield UI](http://www.shieldui.com) Chart JavaScript library.
+An [Apache Wicket](http://wicket.apache.org) component leveraging the use of the Shield UI [JavaScript Chart](http://www.shieldui.com) library.
 
 Introduction
 ------------
