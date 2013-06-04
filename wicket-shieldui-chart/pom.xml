@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.shieldui.wicket.chart</groupId>
+	<artifactId>wicket-shieldui-chart</artifactId>
+	<packaging>jar</packaging>
+	<version>1.1-SNAPSHOT</version>
+	<name>wicket-shieldui-chart</name>
+	<description>Apache Wicket component leveraging the use of Shield UI Chart JavaScript library</description>
+	<url></url>
+
+	<organization>
+		<name>Shield UI Ltd.</name>
+		<url>http://www.shieldui.com</url>
+	</organization>
+
+	<properties>
+		<wicket.version>6.5.0</wicket.version>
+		<jetty.version>7.6.3.v20120416</jetty.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<!--  WICKET DEPENDENCIES -->
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-core</artifactId>
+			<version>${wicket.version}</version>
+		</dependency>
+		<!-- OPTIONAL DEPENDENCY
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-extensions</artifactId>
+			<version>${wicket.version}</version>
+		</dependency>
+		-->
+
+		<!--  JUNIT DEPENDENCY FOR TESTING -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

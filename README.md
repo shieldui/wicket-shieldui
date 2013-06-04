@@ -3,6 +3,12 @@ Wicket-ShieldUI-Chart
 
 An [Apache Wicket](http://wicket.apache.org) component leveraging the use of the [Shield UI](http://www.shieldui.com) Chart JavaScript library.
 
+Introduction
+------------
+
+
+Setup
+-----
 
 
 License
