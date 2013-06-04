@@ -1,18 +1,106 @@
 package com.shieldui.wicket.chart;
 
+import com.shieldui.wicket.chart.events.PointSelectEventListener;
+import java.util.Arrays;
+import java.util.HashMap;
+import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
-import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.WebPage;
 
-public class HomePage extends WebPage {
-	private static final long serialVersionUID = 1L;
+public class HomePage extends WebPage
+{
+    private static final long serialVersionUID = 1L;
 
-	public HomePage(final PageParameters parameters) {
-		super(parameters);
-
-		add(new Label("version", getApplication().getFrameworkSettings().getVersion()));
-
-		// TODO Add your page's components here
-
+    public HomePage(final PageParameters parameters) 
+    {
+        super(parameters);
+        
+        // declare the two shield charts and add them to the page
+        final Chart mainChart = new Chart("mainchart");
+        final Chart detailsChart = new Chart("detailschart");
+        add(mainChart);
+        add(detailsChart);
+        
+        // initialize the main chart properties and events
+        
+        // add main title
+        mainChart.getOptions().getPrimaryHeader().setText("Web Server Usage");
+        
+        // add subtitle
+        mainChart.getOptions().getSecondaryHeader().setText("Click on the sectors for details");
+        
+        // set the border color
+        mainChart.getOptions().setBorderColor("red");
+        
+        // set the chart type to PIE
+        mainChart.getOptions().setSeriesType(Options.SeriesType.PIE);
+        
+        // set some custom text formatter
+        mainChart.getOptions().getTooltipSettings().setCustomPointText("{point.pointName}: {point.y:p}");
+        
+        // add some data to the main chart
+        HashMap<String, Object> apache = new HashMap<String, Object>();
+        apache.put("pointName", "Apache");
+        apache.put("y", 0.65);
+        
+        HashMap<String, Object> iis = new HashMap<String, Object>();
+        iis.put("pointName", "IIS");
+        iis.put("y", 0.158);
+        
+        HashMap<String, Object> nginx = new HashMap<String, Object>();
+        nginx.put("pointName", "Nginx");
+        nginx.put("y", 0.144);
+        
+        HashMap<String, Object> other = new HashMap<String, Object>();
+        other.put("pointName", "Other");
+        other.put("y", 0.048);
+        
+        Options.DataSeriesItem dataSeriesItem = new Options.DataSeriesItem();
+        dataSeriesItem.setData(Arrays.asList(new Object[]{apache, iis, nginx, other}));
+        mainChart.getOptions().setDataSeries(Arrays.asList(dataSeriesItem));
+        
+        // allow point selection for the PIE charts and set the cursor to pointer
+        mainChart.getOptions().getSeriesSettings().getPie().setEnablePointSelection(true);
+        mainChart.getOptions().getSeriesSettings().getPie().setCursor("pointer");
+        
+        // register event handlers for the chart's pointSelect and pointDeselect events
+        mainChart.add(new PointSelectEventListener() {
+            @Override
+            protected void handleEvent(AjaxRequestTarget target, Object event) {
+                // update the details chart accordingly to which point was clicked
+                HashMap<String, Object> point = (HashMap<String, Object>) ((HashMap<String, Object>) event).get("point");
+                String pointName = point.get("name").toString();
+                Object[] data = null;
+                if (pointName.equals("Apache")) {
+                    data = new Object[]{65.7, 65.5, 65.2, 64.8, 64.6, 64.6, 64.3, 63.9, 63.5, 62.9, 62.3, 61.8, 65.0};
+                }
+                else if (pointName.equals("IIS")) {
+                    data = new Object[]{18, 17.9, 17.9, 17.8, 17.6, 17.3, 17.1, 16.8, 16.7, 16.7, 16.6, 16.4, 15.8};
+                }
+                else if (pointName.equals("Nginx")) {
+                    data = new Object[]{11.4, 11.6, 12.0, 12.4, 12.8, 13.0, 13.5, 14.1, 14.6, 15.1, 15.7, 16.3, 14.5};
+                }
+                else {  // Other
+                    data = new Object[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+                }
+                
+                detailsChart.getOptions().getPrimaryHeader().setText("Details for " + pointName);
+                
+                Options.DataSeriesItem dsi = new Options.DataSeriesItem();
+                dsi.setData(Arrays.asList(data));
+                detailsChart.getOptions().setDataSeries(Arrays.asList(dsi));
+                
+                // call reInitialize with the AjaxRequestTarget in ordet to update on the client
+                detailsChart.reInitialize(target);
+            }
+        });
+        
+        // initialize some default details chart properties
+        detailsChart.getOptions().setTheme(Options.Theme.DARK);
+        detailsChart.getOptions().setSeriesType(Options.SeriesType.SPLINE);
+        detailsChart.getOptions().getPrimaryHeader().setText("Click on the pie above to populate");
+        detailsChart.getOptions().getAxisX().setCategoricalValues(Arrays.asList(new String[]{"Jun 2012", "Jul 2012", "Aug 2012", "Sep 2012", "Oct 2012", 
+            "Nov 2012", "Dec 2012", "Jan 2013", "Feb 2013", "Mar 2013", "Apr 2013", "May 2013", "Jun 2013"}));
+        
     }
 }

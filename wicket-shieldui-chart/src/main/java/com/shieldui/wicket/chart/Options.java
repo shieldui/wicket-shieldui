@@ -1684,7 +1684,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class Bar extends HashMapSerializable
+        public static final class Bar extends Base
         {
             public ActiveSettings activeSettings = new ActiveSettings();
             public Float barOffset;
@@ -1748,7 +1748,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class Donut extends HashMapSerializable
+        public static final class Donut extends Base
         {
             public ActiveSettings activeSettings = new ActiveSettings();
             public String borderColor;
@@ -1822,7 +1822,7 @@ public final class Options extends HashMapSerializable
             }      
         }
         
-        public static final class Line extends HashMapSerializable
+        public static final class Line extends Base
         {
             public ActiveSettings activeSettings = new ActiveSettings();
             public Float baseValue;
@@ -1906,7 +1906,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class Pie extends HashMapSerializable
+        public static final class Pie extends Base
         {
             public ActiveSettings activeSettings = new ActiveSettings();
             public String borderColor;
@@ -1970,7 +1970,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class Scatter extends HashMapSerializable
+        public static final class Scatter extends Base
         {
             public Float baseValue;
             public String color;
@@ -2004,7 +2004,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class Spline extends HashMapSerializable
+        public static final class Spline extends Base
         {
             public ActiveSettings activeSettings = new ActiveSettings();
             public Float baseValue;
@@ -2088,7 +2088,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class SplineArea extends HashMapSerializable
+        public static final class SplineArea extends Base
         {
             public String color;
             public String drawColor;
@@ -2604,12 +2604,13 @@ public final class Options extends HashMapSerializable
             writer.object();
             
             HashMap<String, Object> dict = this.toHashMap();
-            
-            for (String key : dict.keySet()) {
-                Object value = dict.get(key);
-                if (value != null) {
-                    writer.key(key);
-                    writer.value(value);
+            if (dict != null) {
+                for (String key : dict.keySet()) {
+                    Object value = dict.get(key);
+                    if (value != null) {
+                        writer.key(key);
+                        writer.value(value);
+                    }
                 }
             }
             
