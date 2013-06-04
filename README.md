@@ -5,7 +5,7 @@ An [Apache Wicket](http://wicket.apache.org) component leveraging the use of the
 
 Introduction
 ------------
-
+The component uses the demo version of the ShieldUI charting offering - a light-weight, powerful and fully customizable data visualization tool. If you would like to obtain a commercial license, or are looking for more information about the offering, you can visit https://www.shieldui.com
 
 Setup
 -----
