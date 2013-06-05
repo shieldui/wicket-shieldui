@@ -18,13 +18,13 @@ Usage
 -----
 In your Wicket's page HTML, include the chart resources in the HEAD and add the chart container DIV element somewhere in your BODY:
 ```html
-    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/chart/css/shield-chart.min.css" />
-    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/chart/js/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/chart/js/shield-chart.all.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/chart/css/shield-chart.min.css" />
+<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/chart/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/chart/js/shield-chart.all.min.js"></script>
 
 ...
 
-  <div wicket:id="chart" style="width:600px; height:400px; margin:auto; margin-top:50px;"></div>
+<div wicket:id="chart" style="width:600px; height:400px; margin:auto; margin-top:50px;"></div>
 ```
 
 In the Java code of your page, initialize the chart with something like:
