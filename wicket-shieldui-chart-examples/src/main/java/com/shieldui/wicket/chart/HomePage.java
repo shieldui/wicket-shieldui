@@ -4,16 +4,16 @@ import com.shieldui.wicket.chart.events.PointSelectEventListener;
 import java.util.Arrays;
 import java.util.HashMap;
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 
 public class HomePage extends WebPage
 {
     private static final long serialVersionUID = 1L;
 
-    public HomePage(final PageParameters parameters) 
-    {
-        super(parameters);
+    public HomePage() 
+    {        
+        // add the menu
+        add(new MenuPanel("menu"));
         
         // declare the two shield charts and add them to the page
         final Chart mainChart = new Chart("mainchart");

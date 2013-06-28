@@ -221,14 +221,17 @@ public final class Options extends HashMapSerializable
     
     public enum SeriesType
     {
-        LINE ("line"),
         AREA ("area"),
         BAR ("bar"),
-        SPLINE ("spline"),
-        SPLINE_AREA ("splinearea"),
-        SCATTER ("scatter"),
+        DONUT ("donut"),
+        LINE ("line"),
         PIE ("pie"),
-        DONUT ("donut");
+        RANGE_AREA ("rangearea"),
+        RANGE_BAR ("rangebar"),
+        RANGE_SPLINE_AREA ("rangesplinearea"),
+        SCATTER ("scatter"),
+        SPLINE ("spline"),
+        SPLINE_AREA ("splinearea");
         
         private final String value;
         
@@ -2004,6 +2007,178 @@ public final class Options extends HashMapSerializable
             }
         }
         
+        public static final class RangeArea extends Base
+        {
+            public ActiveSettings activeSettings = new ActiveSettings();
+            public String color;
+            public String drawColor;
+            public Integer drawWidth;
+            public String innerColor;
+            public DashStyle seriesDashStyle;
+            
+            public ActiveSettings getActiveSettings() {
+                return activeSettings;
+            }
+
+            public RangeArea setActiveSettings(ActiveSettings activeSettings) {
+                this.activeSettings = activeSettings;
+                return this;
+            }
+
+            public String getColor() {
+                return color;
+            }
+
+            public RangeArea setColor(String color) {
+                this.color = color;
+                return this;
+            }
+
+            public String getDrawColor() {
+                return drawColor;
+            }
+
+            public RangeArea setDrawColor(String drawColor) {
+                this.drawColor = drawColor;
+                return this;
+            }
+
+            public Integer getDrawWidth() {
+                return drawWidth;
+            }
+
+            public RangeArea setDrawWidth(Integer drawWidth) {
+                this.drawWidth = drawWidth;
+                return this;
+            }
+
+            public String getInnerColor() {
+                return innerColor;
+            }
+
+            public RangeArea setInnerColor(String innerColor) {
+                this.innerColor = innerColor;
+                return this;
+            }
+
+            public DashStyle getSeriesDashStyle() {
+                return seriesDashStyle;
+            }
+
+            public RangeArea setSeriesDashStyle(DashStyle seriesDashStyle) {
+                this.seriesDashStyle = seriesDashStyle;
+                return this;
+            }
+        }
+        
+        public static final class RangeBar extends Base
+        {
+            public ActiveSettings activeSettings = new ActiveSettings();
+            public Float barOffset;
+            public String borderColor;
+            public Integer borderRadius;
+            public Integer borderWidth;
+            public String color;
+            
+            public ActiveSettings getActiveSettings() {
+                return activeSettings;
+            }
+
+            public RangeBar setActiveSettings(ActiveSettings activeSettings) {
+                this.activeSettings = activeSettings;
+                return this;
+            }
+
+            public Float getBarOffset() {
+                return barOffset;
+            }
+
+            public RangeBar setBarOffset(Float barOffset) {
+                this.barOffset = barOffset;
+                return this;
+            }
+
+            public String getBorderColor() {
+                return borderColor;
+            }
+
+            public RangeBar setBorderColor(String borderColor) {
+                this.borderColor = borderColor;
+                return this;
+            }
+
+            public Integer getBorderRadius() {
+                return borderRadius;
+            }
+
+            public RangeBar setBorderRadius(Integer borderRadius) {
+                this.borderRadius = borderRadius;
+                return this;
+            }
+
+            public Integer getBorderWidth() {
+                return borderWidth;
+            }
+
+            public RangeBar setBorderWidth(Integer borderWidth) {
+                this.borderWidth = borderWidth;
+                return this;
+            }
+
+            public String getColor() {
+                return color;
+            }
+
+            public RangeBar setColor(String color) {
+                this.color = color;
+                return this;
+            }
+        }
+        
+        public static final class RangeSplineArea extends Base
+        {
+            public String color;
+            public String drawColor;
+            public String innerColor;
+            public DashStyle seriesDashStyle;
+            
+            public String getColor() {
+                return color;
+            }
+
+            public RangeSplineArea setColor(String color) {
+                this.color = color;
+                return this;
+            }
+
+            public String getDrawColor() {
+                return drawColor;
+            }
+
+            public RangeSplineArea setDrawColor(String drawColor) {
+                this.drawColor = drawColor;
+                return this;
+            }
+
+            public String getInnerColor() {
+                return innerColor;
+            }
+
+            public RangeSplineArea setInnerColor(String innerColor) {
+                this.innerColor = innerColor;
+                return this;
+            }
+
+            public DashStyle getSeriesDashStyle() {
+                return seriesDashStyle;
+            }
+
+            public RangeSplineArea setSeriesDashStyle(DashStyle seriesDashStyle) {
+                this.seriesDashStyle = seriesDashStyle;
+                return this;
+            }
+        }
+        
         public static final class Spline extends Base
         {
             public ActiveSettings activeSettings = new ActiveSettings();
@@ -2180,6 +2355,9 @@ public final class Options extends HashMapSerializable
         public Scatter scatter = new Scatter();
         public Spline spline = new Spline();
         public SplineArea splinearea = new SplineArea();
+        public RangeArea rangearea = new RangeArea();
+        public RangeBar rangebar = new RangeBar();
+        public RangeSplineArea rangesplinearea = new RangeSplineArea();
         
         public Area getArea() {
             return area;
@@ -2250,6 +2428,33 @@ public final class Options extends HashMapSerializable
 
         public SeriesSettings setSplinearea(SplineArea splinearea) {
             this.splinearea = splinearea;
+            return this;
+        }
+        
+        public RangeArea getRangearea() {
+            return rangearea;
+        }
+
+        public SeriesSettings setRangearea(RangeArea rangearea) {
+            this.rangearea = rangearea;
+            return this;
+        }
+
+        public RangeBar getRangebar() {
+            return rangebar;
+        }
+
+        public SeriesSettings setRangebar(RangeBar rangebar) {
+            this.rangebar = rangebar;
+            return this;
+        }
+
+        public RangeSplineArea getRangesplinearea() {
+            return rangesplinearea;
+        }
+
+        public SeriesSettings setRangesplinearea(RangeSplineArea rangesplinearea) {
+            this.rangesplinearea = rangesplinearea;
             return this;
         }
     }
