@@ -23,6 +23,9 @@ public class HomePage extends WebPage
         
         // initialize the main chart properties and events
         
+        // set the theme
+        mainChart.getOptions().setTheme(Options.Theme.BOOTSTRAP);
+        
         // add main title
         mainChart.getOptions().getPrimaryHeader().setText("Web Server Usage");
         
@@ -96,7 +99,6 @@ public class HomePage extends WebPage
         });
         
         // initialize some default details chart properties
-        detailsChart.getOptions().setTheme(Options.Theme.DARK);
         detailsChart.getOptions().setSeriesType(Options.SeriesType.SPLINE);
         detailsChart.getOptions().getPrimaryHeader().setText("Click on the pie above to populate");
         detailsChart.getOptions().getAxisX().setCategoricalValues(Arrays.asList(new String[]{"Jun 2012", "Jul 2012", "Aug 2012", "Sep 2012", "Oct 2012", 

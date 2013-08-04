@@ -203,6 +203,7 @@ public final class Options extends HashMapSerializable
     public enum Theme
     {
         DEFAULT ("default"),
+        BOOTSTRAP ("bootstrap"),
         DARK ("dark");
         
         private final String value;
