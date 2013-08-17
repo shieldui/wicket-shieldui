@@ -13,6 +13,7 @@ public class MenuPanel extends Panel
         super(id);
         
         add(new BookmarkablePageLink("home", HomePage.class));
+        add(new BookmarkablePageLink("bar", BarDemos.class));
         add(new BookmarkablePageLink("range", RangeDemos.class));
     }
 }
