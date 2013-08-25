@@ -15,5 +15,6 @@ public class MenuPanel extends Panel
         add(new BookmarkablePageLink("home", HomePage.class));
         add(new BookmarkablePageLink("bar", BarDemos.class));
         add(new BookmarkablePageLink("range", RangeDemos.class));
+        add(new BookmarkablePageLink("step", StepDemos.class));
     }
 }

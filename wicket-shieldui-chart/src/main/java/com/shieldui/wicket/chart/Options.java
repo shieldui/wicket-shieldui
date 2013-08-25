@@ -232,7 +232,9 @@ public final class Options extends HashMapSerializable
         RANGE_SPLINE_AREA ("rangesplinearea"),
         SCATTER ("scatter"),
         SPLINE ("spline"),
-        SPLINE_AREA ("splinearea");
+        SPLINE_AREA ("splinearea"),
+        STEP_LINE ("stepline"),
+        STEP_AREA ("steparea");
         
         private final String value;
         
@@ -1584,7 +1586,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class Area extends Base
+        public static class Area extends Base
         {
             public ActiveSettings activeSettings = new ActiveSettings();
             public Float baseValue;
@@ -1688,7 +1690,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class Bar extends Base
+        public static class Bar extends Base
         {
             public ActiveSettings activeSettings = new ActiveSettings();
             public Float barOffset;
@@ -1752,7 +1754,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class Donut extends Base
+        public static class Donut extends Base
         {
             public ActiveSettings activeSettings = new ActiveSettings();
             public String borderColor;
@@ -1826,7 +1828,7 @@ public final class Options extends HashMapSerializable
             }      
         }
         
-        public static final class Line extends Base
+        public static class Line extends Base
         {
             public ActiveSettings activeSettings = new ActiveSettings();
             public Float baseValue;
@@ -1910,7 +1912,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class Pie extends Base
+        public static class Pie extends Base
         {
             public ActiveSettings activeSettings = new ActiveSettings();
             public String borderColor;
@@ -1974,7 +1976,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class Scatter extends Base
+        public static class Scatter extends Base
         {
             public Float baseValue;
             public String color;
@@ -2008,7 +2010,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class RangeArea extends Base
+        public static class RangeArea extends Base
         {
             public ActiveSettings activeSettings = new ActiveSettings();
             public String color;
@@ -2072,7 +2074,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class RangeBar extends Base
+        public static class RangeBar extends Base
         {
             public ActiveSettings activeSettings = new ActiveSettings();
             public Float barOffset;
@@ -2136,7 +2138,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class RangeSplineArea extends Base
+        public static class RangeSplineArea extends Base
         {
             public String color;
             public String drawColor;
@@ -2180,7 +2182,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class Spline extends Base
+        public static class Spline extends Base
         {
             public ActiveSettings activeSettings = new ActiveSettings();
             public Float baseValue;
@@ -2264,7 +2266,7 @@ public final class Options extends HashMapSerializable
             }
         }
         
-        public static final class SplineArea extends Base
+        public static class SplineArea extends Base
         {
             public String color;
             public String drawColor;
@@ -2348,6 +2350,14 @@ public final class Options extends HashMapSerializable
             }
         }
         
+        public static class StepLine extends Line
+        {
+        }
+        
+        public static class StepArea extends Area
+        {
+        }
+        
         public Area area = new Area();
         public Bar bar = new Bar();
         public Donut donut = new Donut();
@@ -2359,6 +2369,8 @@ public final class Options extends HashMapSerializable
         public RangeArea rangearea = new RangeArea();
         public RangeBar rangebar = new RangeBar();
         public RangeSplineArea rangesplinearea = new RangeSplineArea();
+        public StepLine stepline = new StepLine();
+        public StepArea steparea = new StepArea();
         
         public Area getArea() {
             return area;
@@ -2457,6 +2469,22 @@ public final class Options extends HashMapSerializable
         public SeriesSettings setRangesplinearea(RangeSplineArea rangesplinearea) {
             this.rangesplinearea = rangesplinearea;
             return this;
+        }
+        
+        public StepLine getStepline() {
+            return stepline;
+        }
+
+        public void setStepline(StepLine stepline) {
+            this.stepline = stepline;
+        }
+
+        public StepArea getSteparea() {
+            return steparea;
+        }
+
+        public void setSteparea(StepArea steparea) {
+            this.steparea = steparea;
         }
     }
 
