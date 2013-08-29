@@ -1,7 +1,6 @@
 package com.shieldui.wicket.chart;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import org.apache.wicket.markup.html.WebPage;
 
 public class StepDemos extends WebPage

@@ -234,7 +234,13 @@ public final class Options extends HashMapSerializable
         SPLINE ("spline"),
         SPLINE_AREA ("splinearea"),
         STEP_LINE ("stepline"),
-        STEP_AREA ("steparea");
+        STEP_AREA ("steparea"),
+        POLAR_LINE ("polarline"),
+        POLAR_AREA ("polararea"),
+        POLAR_BAR ("polarbar"),
+        POLAR_SPLINE ("polarspline"),
+        POLAR_SPLINE_AREA ("polarsplinearea"),
+        POLAR_SCATTER ("polarscatter");
         
         private final String value;
         
@@ -2358,6 +2364,30 @@ public final class Options extends HashMapSerializable
         {
         }
         
+        public static class PolarLine extends Line
+        {
+        }
+        
+        public static class PolarArea extends Area
+        {
+        }
+        
+        public static class PolarBar extends Bar
+        {
+        }
+        
+        public static class PolarSpline extends Spline
+        {
+        }
+        
+        public static class PolarSplineArea extends SplineArea
+        {
+        }
+        
+        public static class PolarScatter extends Scatter
+        {
+        }
+        
         public Area area = new Area();
         public Bar bar = new Bar();
         public Donut donut = new Donut();
@@ -2371,6 +2401,12 @@ public final class Options extends HashMapSerializable
         public RangeSplineArea rangesplinearea = new RangeSplineArea();
         public StepLine stepline = new StepLine();
         public StepArea steparea = new StepArea();
+        public PolarLine polarline = new PolarLine();
+        public PolarArea polararea = new PolarArea();
+        public PolarBar polarbar = new PolarBar();
+        public PolarSpline polarspline = new PolarSpline();
+        public PolarSplineArea polarsplinearea = new PolarSplineArea();
+        public PolarScatter polarscatter = new PolarScatter();
         
         public Area getArea() {
             return area;
@@ -2475,16 +2511,72 @@ public final class Options extends HashMapSerializable
             return stepline;
         }
 
-        public void setStepline(StepLine stepline) {
+        public SeriesSettings setStepline(StepLine stepline) {
             this.stepline = stepline;
+            return this;
         }
 
         public StepArea getSteparea() {
             return steparea;
         }
 
-        public void setSteparea(StepArea steparea) {
+        public SeriesSettings setSteparea(StepArea steparea) {
             this.steparea = steparea;
+            return this;
+        }
+        
+        public PolarLine getPolarline() {
+            return polarline;
+        }
+
+        public SeriesSettings setPolarline(PolarLine polarline) {
+            this.polarline = polarline;
+            return this;
+        }
+
+        public PolarArea getPolararea() {
+            return polararea;
+        }
+
+        public SeriesSettings setPolararea(PolarArea polararea) {
+            this.polararea = polararea;
+            return this;
+        }
+
+        public PolarBar getPolarbar() {
+            return polarbar;
+        }
+
+        public SeriesSettings setPolarbar(PolarBar polarbar) {
+            this.polarbar = polarbar;
+            return this;
+        }
+
+        public PolarSpline getPolarspline() {
+            return polarspline;
+        }
+
+        public SeriesSettings setPolarspline(PolarSpline polarspline) {
+            this.polarspline = polarspline;
+            return this;
+        }
+
+        public PolarSplineArea getPolarsplinearea() {
+            return polarsplinearea;
+        }
+
+        public SeriesSettings setPolarsplinearea(PolarSplineArea polarsplinearea) {
+            this.polarsplinearea = polarsplinearea;
+            return this;
+        }
+
+        public PolarScatter getPolarscatter() {
+            return polarscatter;
+        }
+
+        public SeriesSettings setPolarscatter(PolarScatter polarscatter) {
+            this.polarscatter = polarscatter;
+            return this;
         }
     }
 

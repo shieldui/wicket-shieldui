@@ -8,6 +8,8 @@ import org.apache.wicket.markup.html.panel.Panel;
 
 public class MenuPanel extends Panel
 {
+    private static final long serialVersionUID = 1L;
+    
     public MenuPanel(String id)
     {
         super(id);
@@ -16,5 +18,6 @@ public class MenuPanel extends Panel
         add(new BookmarkablePageLink("bar", BarDemos.class));
         add(new BookmarkablePageLink("range", RangeDemos.class));
         add(new BookmarkablePageLink("step", StepDemos.class));
+        add(new BookmarkablePageLink("polar", PolarDemos.class));
     }
 }
