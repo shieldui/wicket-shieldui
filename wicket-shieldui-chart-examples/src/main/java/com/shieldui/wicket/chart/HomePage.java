@@ -1,7 +1,6 @@
 package com.shieldui.wicket.chart;
 
 import com.shieldui.wicket.chart.events.PointSelectEventListener;
-import java.util.Arrays;
 import java.util.HashMap;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.WebPage;
@@ -59,8 +58,8 @@ public class HomePage extends WebPage
         other.put("y", 0.048);
         
         Options.DataSeriesItem dataSeriesItem = new Options.DataSeriesItem();
-        dataSeriesItem.setData(Arrays.asList(new Object[]{apache, iis, nginx, other}));
-        mainChart.getOptions().setDataSeries(Arrays.asList(dataSeriesItem));
+        dataSeriesItem.setData(apache, iis, nginx, other);
+        mainChart.getOptions().setDataSeries(dataSeriesItem);
         
         // allow point selection for the PIE charts and set the cursor to pointer
         mainChart.getOptions().getSeriesSettings().getPie().setEnablePointSelection(true);
@@ -90,8 +89,8 @@ public class HomePage extends WebPage
                 detailsChart.getOptions().getPrimaryHeader().setText("Details for " + pointName);
                 
                 Options.DataSeriesItem dsi = new Options.DataSeriesItem();
-                dsi.setData(Arrays.asList(data));
-                detailsChart.getOptions().setDataSeries(Arrays.asList(dsi));
+                dsi.setData(data);
+                detailsChart.getOptions().setDataSeries(dsi);
                 
                 // call reInitialize with the AjaxRequestTarget in ordet to update on the client
                 detailsChart.reInitialize(target);
@@ -101,8 +100,8 @@ public class HomePage extends WebPage
         // initialize some default details chart properties
         detailsChart.getOptions().setSeriesType(Options.SeriesType.SPLINE);
         detailsChart.getOptions().getPrimaryHeader().setText("Click on the pie above to populate");
-        detailsChart.getOptions().getAxisX().setCategoricalValues(Arrays.asList(new String[]{"Jun 2012", "Jul 2012", "Aug 2012", "Sep 2012", "Oct 2012", 
-            "Nov 2012", "Dec 2012", "Jan 2013", "Feb 2013", "Mar 2013", "Apr 2013", "May 2013", "Jun 2013"}));
+        detailsChart.getOptions().getAxisX().setCategoricalValues("Jun 2012", "Jul 2012", "Aug 2012", "Sep 2012", "Oct 2012", 
+            "Nov 2012", "Dec 2012", "Jan 2013", "Feb 2013", "Mar 2013", "Apr 2013", "May 2013", "Jun 2013");
         
     }
 }

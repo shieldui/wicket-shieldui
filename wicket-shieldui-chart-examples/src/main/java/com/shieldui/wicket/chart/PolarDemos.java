@@ -24,21 +24,21 @@ public class PolarDemos extends WebPage
         
         polarbar.getOptions().setSeriesType(Options.SeriesType.POLAR_BAR);
         polarbar.getOptions().getPrimaryHeader().setText("Polar Bar");
-        polarbar.getOptions().getAxisX().setCategoricalValues(Arrays.asList("Jan", "Feb", "Mar", "Apr", "May", "Jun"));
+        polarbar.getOptions().getAxisX().setCategoricalValues("Jan", "Feb", "Mar", "Apr", "May", "Jun");
         
         Options.DataSeriesItem dataSeriesItem1 = new Options.DataSeriesItem();
         dataSeriesItem1.setCollectionAlias("Total Visits");
-        dataSeriesItem1.setData(Arrays.asList(565000, 630400, 1170200, 910200, 1170200, 1383000));
+        dataSeriesItem1.setData(565000, 630400, 1170200, 910200, 1170200, 1383000);
         
         Options.DataSeriesItem dataSeriesItem2 = new Options.DataSeriesItem();
         dataSeriesItem2.setCollectionAlias("Unique Visits");
-        dataSeriesItem2.setData(Arrays.asList(152000, 234000, 123000, 348000, 167000, 283000));
+        dataSeriesItem2.setData(152000, 234000, 123000, 348000, 167000, 283000);
         
-        polarbar.getOptions().setDataSeries(Arrays.asList(dataSeriesItem1, dataSeriesItem2));
+        polarbar.getOptions().setDataSeries(dataSeriesItem1, dataSeriesItem2);
         
         // add a dropdown menu to update the polarchart stack mode
         final DropDownChoice<String> polarbar_select = 
-                new DropDownChoice("polarbar_select", new Model("none"), Arrays.asList("none", "normal", "percent"));
+            new DropDownChoice("polarbar_select", new Model("none"), Arrays.asList("none", "normal", "percent"));
         add(polarbar_select);
         
         polarbar_select.add(new AjaxFormComponentUpdatingBehavior("onchange") {
@@ -67,10 +67,8 @@ public class PolarDemos extends WebPage
             getOptions()
                 .setSeriesType(Options.SeriesType.POLAR_LINE)
                 .setDataSeries(
-                    Arrays.asList(
-                        new Options.DataSeriesItem().setData(
-                            Arrays.asList(1, 3, 4, 5, 2, 5, 8, 7, 4, 3, 4, 5)
-                        )
+                    new Options.DataSeriesItem().setData(
+                        1, 3, 4, 5, 2, 5, 8, 7, 4, 3, 4, 5
                     )
                 )
                 .getPrimaryHeader().setText("Polar Line");
@@ -81,10 +79,8 @@ public class PolarDemos extends WebPage
             getOptions()
                 .setSeriesType(Options.SeriesType.POLAR_SPLINE_AREA)
                 .setDataSeries(
-                    Arrays.asList(
-                        new Options.DataSeriesItem().setData(
-                            Arrays.asList(2, 3, 4, 5, 1, 5)
-                        )
+                    new Options.DataSeriesItem().setData(
+                        2, 3, 4, 5, 1, 5
                     )
                 )
                 .getPrimaryHeader().setText("Polar Spline Area");
@@ -108,27 +104,23 @@ public class PolarDemos extends WebPage
                     .setAxisTickText(new Axis.AxisTickText().setEnabled(false))
                 )
                 .setDataSeries(
-                    Arrays.asList(
-                        new Options.DataSeriesItem().setData(
-                            Arrays.asList(
-                                new HashMap() {{
-                                    put("x", 70);
-                                    put("y", 100);
-                                }},
-                                new HashMap() {{
-                                    put("x", 150);
-                                    put("y", 50);
-                                }},
-                                new HashMap() {{
-                                    put("x", 240);
-                                    put("y", 70);
-                                }},
-                                new HashMap() {{
-                                    put("x", 330);
-                                    put("y", 110);
-                                }}
-                            )
-                        )
+                    new Options.DataSeriesItem().setData(
+                        new HashMap() {{
+                            put("x", 70);
+                            put("y", 100);
+                        }},
+                        new HashMap() {{
+                            put("x", 150);
+                            put("y", 50);
+                        }},
+                        new HashMap() {{
+                            put("x", 240);
+                            put("y", 70);
+                        }},
+                        new HashMap() {{
+                            put("x", 330);
+                            put("y", 110);
+                        }}
                     )
                 )
                 .getPrimaryHeader().setText("Polar Scatter");

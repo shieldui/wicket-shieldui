@@ -1,6 +1,7 @@
 package com.shieldui.wicket.chart;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import org.apache.wicket.ajax.json.JSONException;
@@ -458,6 +459,11 @@ public final class Options extends HashMapSerializable
 
         public Axis setCategoricalValues(List<String> categoricalValues) {
             this.categoricalValues = categoricalValues;
+            return this;
+        }
+        
+        public Axis setCategoricalValues(String ... categoricalValues) {
+            this.categoricalValues = Arrays.asList(categoricalValues);
             return this;
         }
 
@@ -923,8 +929,9 @@ public final class Options extends HashMapSerializable
         }
     }
     
-    public static final class DataSeriesItem extends HashMapSerializable
+    public static class DataSeriesItem extends HashMapSerializable
     {
+        public Integer axisY;
         public String collectionAlias;
         public List data;
         public Float dataStart;
@@ -933,6 +940,15 @@ public final class Options extends HashMapSerializable
         public Integer orderIndex;
         public SeriesType seriesType;
         public Integer stackIndex;
+        
+        public Integer getAxisY() {
+            return axisY;
+        }
+
+        public DataSeriesItem setAxisY(Integer axisY) {
+            this.axisY = axisY;
+            return this;
+        }
         
         public Float getDataStart() {
             return dataStart;
@@ -1003,6 +1019,11 @@ public final class Options extends HashMapSerializable
 
         public DataSeriesItem setData(List data) {
             this.data = data;
+            return this;
+        }
+        
+        public DataSeriesItem setData(Object ... items) {
+            this.data = Arrays.asList(items);
             return this;
         }
     }
@@ -1230,6 +1251,7 @@ public final class Options extends HashMapSerializable
         }
         
         public AxisMarkers axisMarkers = new AxisMarkers();
+        public Boolean chartBound;
         public String customHeaderText;
         public String customPointText;
         public Boolean enabled;
@@ -1241,6 +1263,15 @@ public final class Options extends HashMapSerializable
 
         public TooltipSettings setAxisMarkers(AxisMarkers axisMarkers) {
             this.axisMarkers = axisMarkers;
+            return this;
+        }
+        
+        public Boolean getChartBound() {
+            return chartBound;
+        }
+
+        public TooltipSettings setChartBound(Boolean chartBound) {
+            this.chartBound = chartBound;
             return this;
         }
 
@@ -2775,6 +2806,11 @@ public final class Options extends HashMapSerializable
 
     public Options setDataSeries(List<DataSeriesItem> dataSeries) {
         this.dataSeries = dataSeries;
+        return this;
+    }
+    
+    public Options setDataSeries(DataSeriesItem ... dataSeries) {
+        this.dataSeries = Arrays.asList(dataSeries);
         return this;
     }
 
