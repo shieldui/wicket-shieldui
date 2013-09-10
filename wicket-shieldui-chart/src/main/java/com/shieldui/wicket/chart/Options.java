@@ -289,6 +289,7 @@ public final class Options extends HashMapSerializable
         public static final class AxisTickText extends HashMapSerializable
         {
             public Boolean enabled;
+            public Object format;
             public Integer step;
             public Style style = new Style();
             public Integer textAngle;
@@ -301,6 +302,20 @@ public final class Options extends HashMapSerializable
 
             public AxisTickText setEnabled(Boolean enabled) {
                 this.enabled = enabled;
+                return this;
+            }
+            
+            public Object getFormat() {
+                return format;
+            }
+
+            public AxisTickText setFormat(String format) {
+                this.format = format;
+                return this;
+            }
+            
+            public AxisTickText setFormat(JsonFunction format) {
+                this.format = format;
                 return this;
             }
 
@@ -1252,8 +1267,8 @@ public final class Options extends HashMapSerializable
         
         public AxisMarkers axisMarkers = new AxisMarkers();
         public Boolean chartBound;
-        public String customHeaderText;
-        public String customPointText;
+        public Object customHeaderText;
+        public Object customPointText;
         public Boolean enabled;
         public JsonFunction position;
         
@@ -1275,7 +1290,7 @@ public final class Options extends HashMapSerializable
             return this;
         }
 
-        public String getCustomHeaderText() {
+        public Object getCustomHeaderText() {
             return customHeaderText;
         }
 
@@ -1283,12 +1298,22 @@ public final class Options extends HashMapSerializable
             this.customHeaderText = customHeaderText;
             return this;
         }
+        
+        public TooltipSettings setCustomHeaderText(JsonFunction customHeaderText) {
+            this.customHeaderText = customHeaderText;
+            return this;
+        }
 
-        public String getCustomPointText() {
+        public Object getCustomPointText() {
             return customPointText;
         }
 
         public TooltipSettings setCustomPointText(String customPointText) {
+            this.customPointText = customPointText;
+            return this;
+        }
+        
+        public TooltipSettings setCustomPointText(JsonFunction customPointText) {
             this.customPointText = customPointText;
             return this;
         }
@@ -1321,6 +1346,7 @@ public final class Options extends HashMapSerializable
         public String color;
         public Integer distance;
         public Boolean enabled;
+        public Object format;
         public Integer padding;
         public String style;
         public Integer x;
@@ -1387,6 +1413,18 @@ public final class Options extends HashMapSerializable
         public DataPointText setEnabled(Boolean enabled) {
             this.enabled = enabled;
             return this;
+        }
+        
+        public Object getFormat() {
+            return format;
+        }
+
+        public void setFormat(String format) {
+            this.format = format;
+        }
+        
+        public void setFormat(JsonFunction format) {
+            this.format = format;
         }
 
         public Integer getPadding() {

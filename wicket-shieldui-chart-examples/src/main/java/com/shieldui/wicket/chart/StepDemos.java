@@ -1,6 +1,5 @@
 package com.shieldui.wicket.chart;
 
-import java.util.Arrays;
 import org.apache.wicket.markup.html.WebPage;
 
 public class StepDemos extends WebPage
@@ -14,6 +13,9 @@ public class StepDemos extends WebPage
         
         final Chart step = new Chart("step");
         add(step);
+        
+        step.getOptions().getSeriesSettings().getStepline().getDataPointText().setEnabled(true);
+        step.getOptions().getSeriesSettings().getStepline().getDataPointText().setFormat("{point.y:c0}");
         
         Options.DataSeriesItem dataSeriesItem1 = new Options.DataSeriesItem();
         dataSeriesItem1.setCollectionAlias("Total Visits");

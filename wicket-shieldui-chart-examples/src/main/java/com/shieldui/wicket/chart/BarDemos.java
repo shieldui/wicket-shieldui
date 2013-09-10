@@ -1,6 +1,7 @@
 package com.shieldui.wicket.chart;
 
 import java.util.HashMap;
+import org.apache.wicket.ajax.json.JsonFunction;
 import org.apache.wicket.markup.html.WebPage;
 
 public class BarDemos extends WebPage
@@ -18,8 +19,12 @@ public class BarDemos extends WebPage
         bar.getOptions().setTheme(Options.Theme.BOOTSTRAP);
         bar.getOptions().setSeriesType(Options.SeriesType.BAR);
         bar.getOptions().getPrimaryHeader().setText("Internet usage statistics");
-        bar.getOptions().getAxisX().setCategoricalValues("Jan", "Feb", "Mar", "Apr", "May", "Jun");
+        bar.getOptions().getAxisX().getAxisTickText().setFormat(new JsonFunction("function(text) { return text + '%%'; }"));
         bar.getOptions().getAxisY().getTitle().setText("Visitor statistics");
+        bar.getOptions().getAxisY().getAxisTickText().setFormat("{text:c}");
+        bar.getOptions().getTooltipSettings().setCustomHeaderText(new JsonFunction("function() { return '<b>HEADER</b>'; }"));
+        bar.getOptions().getSeriesSettings().getBar().getDataPointText().setEnabled(true);
+        bar.getOptions().getSeriesSettings().getBar().getDataPointText().setFormat("{point.y} / {point.x}");
         
         Options.DataSeriesItem dataSeriesItem1 = new Options.DataSeriesItem();
         dataSeriesItem1.setCollectionAlias("Total Visits");
