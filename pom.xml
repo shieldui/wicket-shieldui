@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.shieldui.wicket.chart</groupId>
-	<artifactId>wicket-shieldui-chart-parent</artifactId>
+	<groupId>com.shieldui.wicket.parent</groupId>
+	<artifactId>wicket-shieldui-parent</artifactId>
 	<packaging>pom</packaging>
 	<version>1.1-SNAPSHOT</version>
-	<name>Wicket ShieldUI Chart Parent</name>
-	<description>Apache Wicket component leveraging the use of Shield UI Chart JavaScript library</description>
+	<name>Wicket ShieldUI Parent Project</name>
+	<description>Apache Wicket component leveraging the use of Shield UI JavaScript library</description>
 	<url></url>
 
 	<organization>
@@ -22,8 +22,8 @@
 	</properties>
 
 	<modules>
-		<module>wicket-shieldui-chart</module>
-		<module>wicket-shieldui-chart-examples</module>
+		<module>wicket-shieldui</module>
+		<module>wicket-shieldui-examples</module>
 	</modules>
 
 </project>

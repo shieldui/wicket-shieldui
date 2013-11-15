@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Barcode Demo | Shield UI Barcode Wicket Examples</title>
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    
+    <style>
+        input[type="text"] { width:100px; }
+        form * div { margin-top:10px; }
+    </style>
+</head>
+<body>
+    <div wicket:id="menu"></div>
+
+    <form wicket:id="form" style="display:inline;">
+        <div style="width:900px; margin:auto; display:block; margin-top:50px;">
+            <div style="width:300px; height:400px; float:left;">
+                <div>value <input type="text" wicket:id="value" /></div>
+                <div>type <select wicket:id="type"></select></div>
+                <div>checksum <input type="checkbox" wicket:id="checksum" /></div>
+                <div>width <input type="text" wicket:id="width" maxlength="4" /></div>
+                <div>height <input type="text" wicket:id="height" maxlength="4" /></div>
+            </div>
+            <div style="width:300px; height:400px; float:left;">
+                <div>style.background <input type="text" wicket:id="background" /></div>
+                <div>style.borderColor <input type="text" wicket:id="borderColor" /></div>
+                <div>style.borderStyle <input type="text" wicket:id="borderStyle" /></div>
+                <div>style.borderWidth <input type="text" wicket:id="borderWidth" /></div>
+                <div>style.color <input type="text" wicket:id="color" /></div>
+                <div>style.paddingTop <input type="text" wicket:id="paddingTop" /></div>
+                <div>style.paddingLeft <input type="text" wicket:id="paddingLeft" /></div>
+                <div>style.paddingRight <input type="text" wicket:id="paddingRight" /></div>
+                <div>style.paddingBottom <input type="text" wicket:id="paddingBottom" /></div>
+            </div>
+            <div style="width:300px; height:400px; float:left;">
+                <div>text.enabled <input type="checkbox" wicket:id="textEnabled" /></div>
+                <div>text.checksum <input type="checkbox" wicket:id="textChecksum" /></div>
+                <div>text.style.color <input type="text" wicket:id="textColor" /></div>
+                <div>text.style.fontFamily <input type="text" wicket:id="textFontFamily" /></div>
+                <div>text.style.fontSize <input type="text" wicket:id="textFontSize" /></div>
+                <div>text.style.paddingTop <input type="text" wicket:id="textPaddingTop" /></div>
+                <div>text.style.paddingBottom <input type="text" wicket:id="textPaddingBottom" /></div>
+            </div>
+            <div style="margin-top:20px; clear:both;"><input type="submit" value="Update" /></div>
+            
+            <div wicket:id="barcode" style="clear:both; width:300px; height:100px; margin:auto;"></div>
+        </div>
+    </form>
+</body>
+</html>

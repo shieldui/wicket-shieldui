@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>QRCode Demo | Shield UI QRCode Wicket Examples</title>
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    
+    <style>
+        input[type="text"] { width:100px; }
+        form * div { margin-top:10px; }
+    </style>
+</head>
+<body>
+    <div wicket:id="menu"></div>
+
+    <form wicket:id="form" style="display:inline;">
+        <div style="width:800px; margin:auto; display:block; margin-top:50px;">
+            <div style="width:400px; height:300px; float:left;">
+                <div>value <input type="text" wicket:id="value" style="width:200px;"/></div>
+                <div>mode <select wicket:id="mode"></select></div>
+                <div>errorLevel <select wicket:id="errorLevel"></select></div>
+                <div>size <input type="text" wicket:id="size" /></div>
+            </div>
+            <div style="width:400px; height:300px; float:left;">
+                <div>style.background <input type="text" wicket:id="background" /></div>
+                <div>style.borderColor <input type="text" wicket:id="borderColor" /></div>
+                <div>style.borderStyle <input type="text" wicket:id="borderStyle" /></div>
+                <div>style.borderWidth <input type="text" wicket:id="borderWidth" /></div>
+                <div>style.color <input type="text" wicket:id="color" /></div>
+                <div>style.padding <input type="text" wicket:id="padding" /></div>
+            </div>
+            <div style="margin-top:20px; clear:both;"><input type="submit" value="Update" /></div>
+            
+            <div wicket:id="qrcode" style="clear:both; width:300px; height:100px; margin:auto;"></div>
+        </div>
+    </form>
+</body>
+</html>

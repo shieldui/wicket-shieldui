@@ -1,33 +1,39 @@
-Wicket-ShieldUI-Chart
+Wicket-ShieldUI
 =====================
 
-An [Apache Wicket](http://wicket.apache.org) component leveraging the use of the Shield UI [JavaScript Chart](http://www.shieldui.com) library.
+An [Apache Wicket](http://wicket.apache.org) component leveraging the use of the [Shield UI](http://www.shieldui.com) JavaScript library.
 
 Introduction
 ------------
-The component uses the demo version of the ShieldUI charting offering - a light-weight, powerful and fully customizable data visualization tool. 
+The component uses the demo version of the Shield UI framework - a set of light-weight, powerful and fully customizable tools. 
 If you would like to obtain a commercial license for the JavaScript code, or get more information about it, you can visit http://www.shieldui.com
+
+Supported Widgets
+-----------------
+- Charts
+- Barcode
+- QR Code
 
 Setup
 -----
 You should be able to run the examples project alone, as it includes the component library as dependencies in its POM.
 
-If you cannot run it, you might need to rebuild the parent pom.xml configuration, which will rebuild both the chart wrappers and the example Wicket application.
+If you cannot run it, you might need to rebuild the parent pom.xml configuration, which will rebuild both the wrappers and the example Wicket application.
 
 Usage
 -----
-In your Wicket's page HTML, include the chart resources in the HEAD and add the chart container DIV element somewhere in your BODY:
+In your Wicket's page HTML, include the resources in the HEAD and add a container DIV element somewhere in your BODY:
 ```html
-<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/chart/css/shield-chart.min.css" />
-<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/chart/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/chart/js/shield-chart.all.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/shieldui-all.min.css" />
+<script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 
 ...
 
 <div wicket:id="chart" style="width:600px; height:400px; margin:auto; margin-top:50px;"></div>
 ```
 
-In the Java code of your page, initialize the chart with something like:
+In the Java code of your page, initialize the component of your choice with something like:
 ```java
   final Chart chart = new Chart("chart");
   
@@ -36,15 +42,15 @@ In the Java code of your page, initialize the chart with something like:
   
   // add some data
   Options.DataSeriesItem dsi = new Options.DataSeriesItem();
-  dsi.setData(Arrays.asList(new Object[]{20, 15, 45, 10, 5, 5}));
-  chart.getOptions().setDataSeries(Arrays.asList(dsi));
+  dsi.setData(20, 15, 45, 10, 5, 5);
+  chart.getOptions().setDataSeries(dsi);
   
   add(chart);
 ```
 
-More examples of using this library can be found in the wicket-shieldui-chart-examples module part of this repository.
+More examples of using this library can be found in the wicket-shieldui-examples module part of this repository.
 
-Detailed Chart functionality and settings can be found in the [Shield UI Documentation](https://www.shieldui.com/documentation) section.
+Detailed widget functionality and settings can be found in the [Shield UI Documentation](https://www.shieldui.com/documentation) section.
 
 License
 -------
