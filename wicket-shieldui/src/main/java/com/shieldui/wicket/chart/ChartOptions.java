@@ -232,6 +232,7 @@ public final class ChartOptions extends OptionsBase
         RANGE_BAR ("rangebar"),
         RANGE_SPLINE_AREA ("rangesplinearea"),
         SCATTER ("scatter"),
+        BUBBLE ("bubble"),
         SPLINE ("spline"),
         SPLINE_AREA ("splinearea"),
         STEP_LINE ("stepline"),
@@ -2457,12 +2458,17 @@ public final class ChartOptions extends OptionsBase
         {
         }
         
+        public static class Bubble extends Scatter
+        {
+        }
+        
         public Area area = new Area();
         public Bar bar = new Bar();
         public Donut donut = new Donut();
         public Line line = new Line();
         public Pie pie = new Pie();
         public Scatter scatter = new Scatter();
+        public Bubble bubble = new Bubble();
         public Spline spline = new Spline();
         public SplineArea splinearea = new SplineArea();
         public RangeArea rangearea = new RangeArea();
@@ -2528,6 +2534,15 @@ public final class ChartOptions extends OptionsBase
 
         public SeriesSettings setScatter(Scatter scatter) {
             this.scatter = scatter;
+            return this;
+        }
+        
+        public Bubble getBubble() {
+            return bubble;
+        }
+
+        public SeriesSettings setBubble(Bubble bubble) {
+            this.bubble = bubble;
             return this;
         }
 
