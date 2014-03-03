@@ -28,6 +28,7 @@ public class StepDemos extends WebPage
         dataSeriesItem2.setCollectionAlias("Unique Visits");
         dataSeriesItem2.setData(152000, 234000, 123000, 348000, 167000, 283000);
         dataSeriesItem2.setSeriesType(ChartOptions.SeriesType.STEP_AREA);
+        dataSeriesItem2.setVisible(false);
         
         step.getOptions().setDataSeries(dataSeriesItem1, dataSeriesItem2);
     }

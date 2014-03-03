@@ -956,6 +956,7 @@ public final class ChartOptions extends OptionsBase
         public Integer orderIndex;
         public SeriesType seriesType;
         public Integer stackIndex;
+        public Boolean visible;
         
         public Integer getAxisY() {
             return axisY;
@@ -1040,6 +1041,15 @@ public final class ChartOptions extends OptionsBase
         
         public DataSeriesItem setData(Object ... items) {
             this.data = Arrays.asList(items);
+            return this;
+        }
+        
+        public Boolean isVisible() {
+            return visible;
+        }
+
+        public DataSeriesItem setVisible(Boolean visible) {
+            this.visible = visible;
             return this;
         }
     }
@@ -1473,6 +1483,7 @@ public final class ChartOptions extends OptionsBase
             public String cursor;
             public DataPointText dataPointText = new DataPointText();
             public Boolean enablePointSelection;
+            public Boolean visible;
 
             public Boolean getAddToLegend() {
                 return addToLegend;
@@ -1516,6 +1527,15 @@ public final class ChartOptions extends OptionsBase
 
             public Base setEnablePointSelection(Boolean enablePointSelection) {
                 this.enablePointSelection = enablePointSelection;
+                return this;
+            }
+            
+            public Boolean isVisible() {
+                return visible;
+            }
+
+            public Base setVisible(Boolean visible) {
+                this.visible = visible;
                 return this;
             }
         }
