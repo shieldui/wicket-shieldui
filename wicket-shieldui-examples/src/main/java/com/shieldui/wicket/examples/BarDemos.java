@@ -24,6 +24,12 @@ public class BarDemos extends WebPage
         bar.getOptions().getAxisX().getAxisTickText().setFormat(new JsonFunction("function(text) { return text + '%%'; }"));
         bar.getOptions().getAxisY().getTitle().setText("Visitor statistics");
         bar.getOptions().getAxisY().getAxisTickText().setFormat("{text:c}");
+        bar.getOptions().getAxisY().setPlotLines(
+                new ChartOptions.Axis.PlotLine()
+                    .setDrawColor("red")
+                    .setDrawWidth(3)
+                    .setStart(1000000)
+        );
         bar.getOptions().getTooltipSettings().setCustomHeaderText(new JsonFunction("function() { return '<b>HEADER</b>'; }"));
         bar.getOptions().getSeriesSettings().getBar().getDataPointText().setEnabled(true);
         bar.getOptions().getSeriesSettings().getBar().getDataPointText().setFormat("{point.y} / {point.x}");

@@ -79,5 +79,19 @@ public class BubbleDemos extends WebPage
                     }}
                 )
         );
+        
+        bubble.getOptions().getAxisY().setPlotBands(
+                new ChartOptions.Axis.PlotBand()
+                    .setDrawColor("pink")
+                    .setStart(0)
+                    .setEnd(50)
+        );
+        
+        bubble.getOptions().axisX.setPlotLines(
+                new ChartOptions.Axis.PlotLine()
+                    .setDrawColor("red")
+                    .setDrawWidth(2)
+                    .setStart(150)
+        );
     }
 }

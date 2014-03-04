@@ -366,6 +366,94 @@ public final class ChartOptions extends OptionsBase
             }
         }
         
+        public static final class PlotBand extends HashMapSerializable
+        {
+            public String drawColor;
+            public Object end;
+            public Object start;
+            public Integer zIndex;
+            
+            public String getDrawColor() {
+                return drawColor;
+            }
+
+            public PlotBand setDrawColor(String drawColor) {
+                this.drawColor = drawColor;
+                return this;
+            }
+
+            public Object getEnd() {
+                return end;
+            }
+
+            public PlotBand setEnd(Object end) {
+                this.end = end;
+                return this;
+            }
+
+            public Object getStart() {
+                return start;
+            }
+
+            public PlotBand setStart(Object start) {
+                this.start = start;
+                return this;
+            }
+
+            public Integer getzIndex() {
+                return zIndex;
+            }
+
+            public PlotBand setzIndex(Integer zIndex) {
+                this.zIndex = zIndex;
+                return this;
+            }
+        }
+        
+        public static final class PlotLine extends HashMapSerializable
+        {
+            public String drawColor;
+            public Integer drawWidth;
+            public Object start;
+            public Integer zIndex;
+            
+            public String getDrawColor() {
+                return drawColor;
+            }
+
+            public PlotLine setDrawColor(String drawColor) {
+                this.drawColor = drawColor;
+                return this;
+            }
+            
+            public Integer getDrawWidth() {
+                return drawWidth;
+            }
+
+            public PlotLine setDrawWidth(Integer drawWidth) {
+                this.drawWidth = drawWidth;
+                return this;
+            }
+
+            public Object getStart() {
+                return start;
+            }
+
+            public PlotLine setStart(Object start) {
+                this.start = start;
+                return this;
+            }
+
+            public Integer getzIndex() {
+                return zIndex;
+            }
+
+            public PlotLine setzIndex(Integer zIndex) {
+                this.zIndex = zIndex;
+                return this;
+            }
+        }
+        
         public static final class Title extends HashMapSerializable
         {
             public Align align;
@@ -438,7 +526,9 @@ public final class ChartOptions extends OptionsBase
         public Integer minorTicksHeight;
         public Float minorTicksRepeat;
         public Integer minorTicksWidth;
-        public Integer offset;
+        public Integer offset;        
+        public List<PlotBand> plotBands = new ArrayList<PlotBand>();
+        public List<PlotLine> plotLines = new ArrayList<PlotLine>();
         public String plotStripColor;
         public DashStyle plotStripDashStyle;
         public Integer plotStripWidth;
@@ -624,6 +714,24 @@ public final class ChartOptions extends OptionsBase
 
         public Axis setOffset(Integer offset) {
             this.offset = offset;
+            return this;
+        }
+        
+        public List<PlotBand> getPlotBands() {
+            return plotBands;
+        }
+
+        public Axis setPlotBands(PlotBand ... plotBands) {
+            this.plotBands = Arrays.asList(plotBands);
+            return this;
+        }
+
+        public List<PlotLine> getPlotLines() {
+            return plotLines;
+        }
+
+        public Axis setPlotLines(PlotLine ... plotLines) {
+            this.plotLines = Arrays.asList(plotLines);
             return this;
         }
 
