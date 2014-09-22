@@ -1,5 +1,6 @@
 package com.shieldui.wicket.chart.events;
 
+import com.shieldui.wicket.AbstractEventListenerBehavior;
 import com.shieldui.wicket.chart.ChartOptions;
 
 public abstract class SeriesMouseOverEventListener extends AbstractEventListenerBehavior
@@ -8,7 +9,7 @@ public abstract class SeriesMouseOverEventListener extends AbstractEventListener
     
     public SeriesMouseOverEventListener()
     {
-        super(ChartOptions.Event.SERIES_MOUSE_OVER);
+        super(ChartOptions.Event.SERIES_MOUSE_OVER.toString());
     }
     
     @Override

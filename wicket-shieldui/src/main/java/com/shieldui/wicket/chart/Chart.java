@@ -8,16 +8,9 @@ public class Chart extends WidgetBase
 
     private final ChartOptions options = new ChartOptions();
     
-    // Chart class
     public Chart(String id)
     {
-        super(id);
-    }
-    
-    @Override
-    public String getWidgetName()
-    {
-        return "shieldChart";
+        super(id, "shieldChart");
     }
     
     @Override

@@ -1,5 +1,6 @@
 package com.shieldui.wicket.chart.events;
 
+import com.shieldui.wicket.AbstractEventListenerBehavior;
 import com.shieldui.wicket.chart.ChartOptions;
 
 public abstract class SeriesVisibilityChangeEventListener extends AbstractEventListenerBehavior
@@ -8,7 +9,7 @@ public abstract class SeriesVisibilityChangeEventListener extends AbstractEventL
     
     public SeriesVisibilityChangeEventListener()
     {
-        super(ChartOptions.Event.SERIES_VISIBILITY_CHANGE);
+        super(ChartOptions.Event.SERIES_VISIBILITY_CHANGE.toString());
     }
     
     @Override

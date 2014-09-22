@@ -1,5 +1,6 @@
 package com.shieldui.wicket.chart.events;
 
+import com.shieldui.wicket.AbstractEventListenerBehavior;
 import com.shieldui.wicket.chart.ChartOptions;
 
 public abstract class PointDeselectEventListener extends AbstractEventListenerBehavior
@@ -8,7 +9,7 @@ public abstract class PointDeselectEventListener extends AbstractEventListenerBe
     
     public PointDeselectEventListener()
     {
-        super(ChartOptions.Event.POINT_DESELECT);
+        super(ChartOptions.Event.POINT_DESELECT.toString());
     }
     
     @Override

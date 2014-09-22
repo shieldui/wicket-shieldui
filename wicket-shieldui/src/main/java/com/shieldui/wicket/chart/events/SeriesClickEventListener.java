@@ -1,5 +1,6 @@
 package com.shieldui.wicket.chart.events;
 
+import com.shieldui.wicket.AbstractEventListenerBehavior;
 import com.shieldui.wicket.chart.ChartOptions;
 
 public abstract class SeriesClickEventListener extends AbstractEventListenerBehavior
@@ -8,7 +9,7 @@ public abstract class SeriesClickEventListener extends AbstractEventListenerBeha
     
     public SeriesClickEventListener()
     {
-        super(ChartOptions.Event.SERIES_CLICK);
+        super(ChartOptions.Event.SERIES_CLICK.toString());
     }
     
     @Override

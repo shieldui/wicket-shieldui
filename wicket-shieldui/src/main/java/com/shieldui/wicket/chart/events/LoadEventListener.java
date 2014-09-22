@@ -1,5 +1,6 @@
 package com.shieldui.wicket.chart.events;
 
+import com.shieldui.wicket.AbstractEventListenerBehavior;
 import com.shieldui.wicket.chart.ChartOptions;
 
 public abstract class LoadEventListener extends AbstractEventListenerBehavior
@@ -8,6 +9,6 @@ public abstract class LoadEventListener extends AbstractEventListenerBehavior
     
     public LoadEventListener()
     {
-        super(ChartOptions.Event.LOAD);
+        super(ChartOptions.Event.LOAD.toString());
     }
 }

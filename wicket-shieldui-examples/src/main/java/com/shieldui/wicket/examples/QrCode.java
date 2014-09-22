@@ -1,7 +1,9 @@
 package com.shieldui.wicket.examples;
 
+import com.shieldui.wicket.button.ClickEventListener;
 import com.shieldui.wicket.qrcode.QRCodeOptions;
 import java.util.Arrays;
+import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
@@ -52,6 +54,17 @@ public class QrCode extends WebPage
         form.add(new TextField("padding", new PropertyModel(options.style, "padding")));
         
         form.add(qrcode);
+        
+        // add an Update button to the form, which will resubmit it
+        final com.shieldui.wicket.button.Button updateButton = new com.shieldui.wicket.button.Button("update");
+        updateButton.add(new ClickEventListener() {
+            @Override
+            protected void handleEvent(AjaxRequestTarget target, Object event) {
+                System.err.println("xxx");
+            }
+        });
+        form.add(updateButton);
+        
         add(form);
     }
 }

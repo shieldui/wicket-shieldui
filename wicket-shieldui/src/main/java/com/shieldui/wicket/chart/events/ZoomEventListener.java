@@ -1,5 +1,6 @@
 package com.shieldui.wicket.chart.events;
 
+import com.shieldui.wicket.AbstractEventListenerBehavior;
 import com.shieldui.wicket.chart.ChartOptions;
 
 public abstract class ZoomEventListener extends AbstractEventListenerBehavior
@@ -8,6 +9,6 @@ public abstract class ZoomEventListener extends AbstractEventListenerBehavior
     
     public ZoomEventListener()
     {
-        super(ChartOptions.Event.ZOOM);
+        super(ChartOptions.Event.ZOOM.toString());
     }
 }

@@ -10,13 +10,7 @@ public class Barcode extends WidgetBase
     
     public Barcode(String id)
     {
-        super(id);
-    }
-    
-    @Override
-    public String getWidgetName()
-    {
-        return "shieldBarcode";
+        super(id, "shieldBarcode");
     }
     
     @Override

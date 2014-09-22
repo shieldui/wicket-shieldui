@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <title>QRCode Demo | Shield UI QRCode Wicket Examples</title>
+    <link rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/shieldui-all.min.css" />
+    <link rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
     <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
     
@@ -14,7 +16,7 @@
 <body>
     <div wicket:id="menu"></div>
 
-    <form wicket:id="form" style="display:inline;">
+    <form wicket:id="form" name="form" style="display:inline;">
         <div style="width:800px; margin:auto; display:block; margin-top:50px;">
             <div style="width:400px; height:300px; float:left;">
                 <div>value <input type="text" wicket:id="value" style="width:200px;"/></div>
@@ -30,7 +32,8 @@
                 <div>style.color <input type="text" wicket:id="color" /></div>
                 <div>style.padding <input type="text" wicket:id="padding" /></div>
             </div>
-            <div style="margin-top:20px; clear:both;"><input type="submit" value="Update" /></div>
+            
+            <div style="margin-top:20px; clear:both;"><button wicket:id="update">Update</button></div>
             
             <div wicket:id="qrcode" style="clear:both; width:300px; height:100px; margin:auto;"></div>
         </div>

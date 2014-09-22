@@ -10,23 +10,30 @@ public abstract class WidgetBase extends WebMarkupContainer
 {
     private static final long serialVersionUID = 1L;
     
-    public WidgetBase(String id)
+    private final String widgetName;
+    
+    public WidgetBase(String id, String name)
     {
         super(id);
+        widgetName = name;
         setOutputMarkupId(true);
     }
     
     public abstract OptionsBase getOptions();
-    public abstract String getWidgetName();
     
-    public String getInitializationJS()
+    protected String getWidgetName()
     {
-        return "$('#" + getMarkupId() + "')." + getWidgetName() + "(" + getOptions().toJson() + ");";
+        return widgetName;
     }
     
-    public String getDestroyJS()
+    protected String jsClosure(String code)
     {
-        return "var sw = $('#" + getMarkupId() + "').swidget(); if (sw) { sw.destroy(); }";
+        return "(function($){" + code + "})(jQuery);";
+    }
+    
+    protected String getInitializationJS()
+    {
+        return "$('#" + getMarkupId() + "')." + getWidgetName() + "(" + getOptions().toJson() + ");";
     }
     
     @Override
@@ -34,16 +41,26 @@ public abstract class WidgetBase extends WebMarkupContainer
     {
         super.renderHead(response);
         
-        // insert the initialization javascript in the head only if not ajax (i.e. when page reload)
+        // insert the initialization javascript in the head only if not ajax request (i.e. when page reloads)
         if (!((WebRequest)getRequest()).isAjax()) {
-            response.render(OnDomReadyHeaderItem.forScript("$(document).ready(function(){" + getInitializationJS() + "});"));
+            response.render(OnDomReadyHeaderItem.forScript("jQuery(function($){" + getInitializationJS() + "});"));
         }
     }
     
     public void reInitialize(AjaxRequestTarget target)
     {
         target.add(this);
-        target.prependJavaScript(getDestroyJS());
-        target.appendJavaScript(getInitializationJS());
+        target.prependJavaScript(jsClosure("var sw = $('#" + getMarkupId() + "').swidget(); if (sw) { sw.destroy(); }"));
+        target.appendJavaScript(jsClosure(getInitializationJS()));
+    }
+    
+    public void setVisible(AjaxRequestTarget target, Boolean visible)
+    {
+        //target.add(this);
+        target.appendJavaScript(
+                jsClosure(
+                        "var sw = $('#" + getMarkupId() + "').swidget(); if (sw) { sw.visible(" + (visible ? "true" : "false") + "); }"
+                )
+        );
     }
 }

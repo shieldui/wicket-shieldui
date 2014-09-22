@@ -8,16 +8,9 @@ public class QRCode extends WidgetBase
 
     private final QRCodeOptions options = new QRCodeOptions();
     
-    // Chart class
     public QRCode(String id)
     {
-        super(id);
-    }
-    
-    @Override
-    public String getWidgetName()
-    {
-        return "shieldQRcode";
+        super(id, "shieldQRcode");
     }
     
     @Override
