@@ -60,7 +60,7 @@ public class QrCode extends WebPage
         updateButton.add(new ClickEventListener() {
             @Override
             protected void handleEvent(AjaxRequestTarget target, Object event) {
-                System.err.println("xxx");
+                System.err.println("Update button was clicked");
             }
         });
         form.add(updateButton);
