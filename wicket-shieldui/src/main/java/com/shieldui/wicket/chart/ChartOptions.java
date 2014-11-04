@@ -1901,6 +1901,7 @@ public final class ChartOptions extends OptionsBase
             public String borderColor;
             public Integer borderRadius;
             public Integer borderWidth;
+            public Boolean divideSeries;
             public StackMode stackMode;
             
             public ActiveSettings getActiveSettings() {
@@ -1945,6 +1946,15 @@ public final class ChartOptions extends OptionsBase
 
             public Bar setBorderWidth(Integer borderWidth) {
                 this.borderWidth = borderWidth;
+                return this;
+            }
+            
+            public Boolean getDivideSeries() {
+                return divideSeries;
+            }
+
+            public Bar setDivideSeries(Boolean divideSeries) {
+                this.divideSeries = divideSeries;
                 return this;
             }
 
