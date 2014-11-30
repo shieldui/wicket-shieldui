@@ -3,11 +3,21 @@ package com.shieldui.wicket.examples;
 import com.shieldui.wicket.button.ClickEventListener;
 import java.util.HashMap;
 import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.form.AjaxFormSubmitBehavior;
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.model.Model;
+import org.apache.wicket.model.PropertyModel;
 
 public class Button extends WebPage
 {
     private static final long serialVersionUID = 1L;
+    
+    private static int counter = 0;
+    
+    private int increment = 1;
     
     public Button()
     {
@@ -69,5 +79,31 @@ public class Button extends WebPage
         
         // add the four buttons to the page
         add(checkedButton, enabledButton, visibleButton, sampleButton);
+        
+        // add a form
+        final Form form = new Form("myform") {
+            @Override
+            protected void onSubmit() {
+                counter += increment;
+            }
+        };
+        
+        final com.shieldui.wicket.button.Button formButton = new com.shieldui.wicket.button.Button("button");
+        
+        form.add(new AjaxFormSubmitBehavior(form, "onsubmit") {
+            @Override
+            protected void onSubmit(AjaxRequestTarget target) {
+                target.add(form);
+                formButton.reInitialize(target);
+            }
+        });
+        
+        form.add(new Label("counter", new PropertyModel(this, "counter")));
+        
+        form.add(new TextField("increment", new PropertyModel(this, "increment")));
+        
+        form.add(formButton);
+        
+        add(form);
     }
 }
