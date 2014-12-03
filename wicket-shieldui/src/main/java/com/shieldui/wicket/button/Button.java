@@ -22,7 +22,6 @@ public class Button extends WidgetBase
     
     public void setEnabled(AjaxRequestTarget target, Boolean enabled)
     {
-        //target.add(this);
         target.appendJavaScript(
                 jsClosure(
                         "var sw = $('#" + getMarkupId() + "').swidget(); if (sw) { sw.enabled(" + (enabled ? "true" : "false") + "); }"
@@ -32,7 +31,6 @@ public class Button extends WidgetBase
     
     public void setChecked(AjaxRequestTarget target, Boolean checked)
     {
-        //target.add(this);
         target.appendJavaScript(
                 jsClosure(
                         "var sw = $('#" + getMarkupId() + "').swidget(); if (sw) { sw.checked(" + (checked ? "true" : "false") + "); }"

@@ -1538,12 +1538,14 @@ public final class ChartOptions extends OptionsBase
             return format;
         }
 
-        public void setFormat(String format) {
+        public DataPointText setFormat(String format) {
             this.format = format;
+            return this;
         }
         
-        public void setFormat(JsonFunction format) {
+        public DataPointText setFormat(JsonFunction format) {
             this.format = format;
+            return this;
         }
 
         public Integer getPadding() {

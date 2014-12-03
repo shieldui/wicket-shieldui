@@ -25,5 +25,6 @@ public class MenuPanel extends Panel
         add(new BookmarkablePageLink("qrcode", QrCode.class));
         
         add(new BookmarkablePageLink("button", Button.class));
+        add(new BookmarkablePageLink("progressbar", ProgressBar.class));
     }
 }
