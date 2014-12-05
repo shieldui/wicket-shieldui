@@ -10,4 +10,14 @@ public abstract class ClickEventListener extends AbstractEventListenerBehavior
     {
         super(ButtonOptions.Event.CLICK.toString());
     }
+    
+    @Override
+    protected String toJson(String varName)
+    {
+        return "{" +
+                "\"visible\":" + eventVarName + ".target.visible()," + 
+                "\"enabled\":" + eventVarName + ".target.enabled()," + 
+                "\"checked\":" + eventVarName + ".target.checked()" +
+                "}";
+    }
 }
