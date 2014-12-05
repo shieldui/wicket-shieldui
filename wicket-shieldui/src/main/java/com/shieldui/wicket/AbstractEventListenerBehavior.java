@@ -1,6 +1,5 @@
 package com.shieldui.wicket;
 
-import com.shieldui.wicket.chart.ChartOptions;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
