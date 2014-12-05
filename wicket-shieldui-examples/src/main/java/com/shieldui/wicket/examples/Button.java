@@ -1,9 +1,11 @@
 package com.shieldui.wicket.examples;
 
+import com.shieldui.wicket.button.ButtonOptions;
 import com.shieldui.wicket.button.ClickEventListener;
 import java.util.HashMap;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormSubmitBehavior;
+import org.apache.wicket.ajax.json.JsonFunction;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
@@ -25,7 +27,10 @@ public class Button extends WebPage
         
         // initialize the four buttons
         final com.shieldui.wicket.button.Button checkedButton = new com.shieldui.wicket.button.Button("checked");
-        checkedButton.getOptions().setToggle(true);
+        checkedButton.getOptions()
+                .setToggle(true)
+                .getEvents()
+                    .put(ButtonOptions.Event.CLICK, new JsonFunction("function(e) { console.log(\"check button clicked\"); }"));
         
         final com.shieldui.wicket.button.Button enabledButton = new com.shieldui.wicket.button.Button("enabled");
         enabledButton.getOptions()
@@ -40,39 +45,28 @@ public class Button extends WebPage
         final com.shieldui.wicket.button.Button sampleButton = new com.shieldui.wicket.button.Button("sample");
         sampleButton.getOptions().setToggle(true);
         
-        // initialize a hashmap to store the state of the sample button,
-        // which we will access from the event handlers below
-        final HashMap<String, Boolean> sampleButtonState = new HashMap<String, Boolean>() {{
-            put("checked", false);
-            put("enabled", true);
-            put("visible", true);
-        }};
-        
         // add event handlers for the click events of the first three buttons
         checkedButton.add(new ClickEventListener() {
             @Override
             protected void handleEvent(AjaxRequestTarget target, Object event) {
-                // toggle the check on the sample button
-                sampleButtonState.put("checked", !sampleButtonState.get("checked"));
-                sampleButton.setChecked(target, sampleButtonState.get("checked"));
+                // set the check on the sample button
+                sampleButton.setChecked(target, ((HashMap<String, Boolean>)event).get("checked"));
             }
         });
         
         enabledButton.add(new ClickEventListener() {
             @Override
             protected void handleEvent(AjaxRequestTarget target, Object event) {
-                // toggle the enabled on the sample button
-                sampleButtonState.put("enabled", !sampleButtonState.get("enabled"));
-                sampleButton.setEnabled(target, sampleButtonState.get("enabled"));
+                // set the enabled on the sample button
+                sampleButton.setEnabled(target, ((HashMap<String, Boolean>)event).get("checked"));
             }
         });
         
         visibleButton.add(new ClickEventListener() {
             @Override
             protected void handleEvent(AjaxRequestTarget target, Object event) {
-                // toggle the visibility on the sample button
-                sampleButtonState.put("visible", !sampleButtonState.get("visible"));
-                sampleButton.setVisible(target, sampleButtonState.get("visible"));
+                // set the visibility on the sample button
+                sampleButton.setVisible(target, ((HashMap<String, Boolean>)event).get("checked"));
             }
         });
         

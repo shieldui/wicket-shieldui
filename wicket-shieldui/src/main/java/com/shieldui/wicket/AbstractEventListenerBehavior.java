@@ -42,7 +42,7 @@ public abstract class AbstractEventListenerBehavior extends AbstractDefaultAjaxB
     {
         super.onConfigure(component);
         String callback = getCallbackFunction(CallbackParameter.converted(eventVarName, "JSON.stringify(" + toJson(eventVarName) + ")")).toString();
-        ((WidgetBase) component).getOptions().getEvents().put(eventName, new JsonFunction(callback));
+        ((WidgetBase) component).setServerEvent(eventName, new JsonFunction(callback));
     }
     
     @Override

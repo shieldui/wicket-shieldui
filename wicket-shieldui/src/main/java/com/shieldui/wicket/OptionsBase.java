@@ -7,11 +7,6 @@ import org.apache.wicket.ajax.json.JSONStringer;
 public abstract class OptionsBase extends HashMapSerializable
 {
     private static final long serialVersionUID = 1L;
-    
-    public HashMap getEvents()
-    {
-        return null;
-    }
 
     // toJson method to serialize all the settings in json
     public CharSequence toJson() 

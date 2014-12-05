@@ -1,6 +1,8 @@
 package com.shieldui.wicket;
 
+import java.util.HashMap;
 import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.json.JsonFunction;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -11,6 +13,7 @@ public abstract class WidgetBase extends WebMarkupContainer
     private static final long serialVersionUID = 1L;
     
     private final String widgetName;
+    private HashMap<String, JsonFunction> serverEvents = new HashMap<String, JsonFunction>();
     
     public WidgetBase(String id, String name)
     {
@@ -20,6 +23,11 @@ public abstract class WidgetBase extends WebMarkupContainer
     }
     
     public abstract OptionsBase getOptions();
+    
+    public void setServerEvent(String eventName, JsonFunction jsonFunc)
+    {
+        serverEvents.put(eventName, jsonFunc);
+    }
     
     protected String getWidgetName()
     {
@@ -33,7 +41,17 @@ public abstract class WidgetBase extends WebMarkupContainer
     
     protected String getInitializationJS()
     {
-        return "$('#" + getMarkupId() + "')." + getWidgetName() + "(" + getOptions().toJson() + ");";
+        String javascript = "$('#" + getMarkupId() + "')." + getWidgetName() + "(" + getOptions().toJson() + ")";
+        
+        // add all server events if any
+        if (serverEvents.size() > 0) {
+            javascript += ".swidget()";
+            for (String event : serverEvents.keySet()) {
+                javascript += ".on(\"" + event + "\", " + serverEvents.get(event) + ")";
+            }
+        }        
+        
+        return javascript + ";";
     }
     
     @Override
@@ -56,7 +74,6 @@ public abstract class WidgetBase extends WebMarkupContainer
     
     public void setVisible(AjaxRequestTarget target, Boolean visible)
     {
-        //target.add(this);
         target.appendJavaScript(
                 jsClosure(
                         "var sw = $('#" + getMarkupId() + "').swidget(); if (sw) { sw.visible(" + (visible ? "true" : "false") + "); }"
