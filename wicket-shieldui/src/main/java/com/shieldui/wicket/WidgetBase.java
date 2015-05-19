@@ -29,6 +29,11 @@ public abstract class WidgetBase extends WebMarkupContainer
         serverEvents.put(eventName, jsonFunc);
     }
     
+    protected String getWidgetType()
+    {
+        return widgetName.replace("shield", "");
+    }
+    
     protected String getWidgetName()
     {
         return widgetName;
@@ -45,7 +50,7 @@ public abstract class WidgetBase extends WebMarkupContainer
         
         // add all server events if any
         if (serverEvents.size() > 0) {
-            javascript += ".swidget()";
+            javascript += ".swidget(\"" + getWidgetType() + "\")";
             for (String event : serverEvents.keySet()) {
                 javascript += ".on(\"" + event + "\", " + serverEvents.get(event) + ")";
             }
@@ -68,16 +73,16 @@ public abstract class WidgetBase extends WebMarkupContainer
     public void reInitialize(AjaxRequestTarget target)
     {
         target.add(this);
-        target.prependJavaScript(jsClosure("var sw = $('#" + getMarkupId() + "').swidget(); if (sw) { sw.destroy(); }"));
+        target.prependJavaScript(jsClosure("var sw = $('#" + getMarkupId() + "').swidget(\"" + getWidgetType() + "\"); if (sw) { sw.destroy(); }"));
         target.appendJavaScript(jsClosure(getInitializationJS()));
     }
     
     public void setVisible(AjaxRequestTarget target, Boolean visible)
     {
         target.appendJavaScript(
-                jsClosure(
-                        "var sw = $('#" + getMarkupId() + "').swidget(); if (sw) { sw.visible(" + (visible ? "true" : "false") + "); }"
-                )
+            jsClosure(
+                "var sw = $('#" + getMarkupId() + "').swidget(\"" + getWidgetType() + "\"); if (sw) { sw.visible(" + (visible ? "true" : "false") + "); }"
+            )
         );
     }
 }

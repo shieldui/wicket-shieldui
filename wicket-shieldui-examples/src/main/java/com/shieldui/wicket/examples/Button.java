@@ -2,6 +2,7 @@ package com.shieldui.wicket.examples;
 
 import com.shieldui.wicket.button.ButtonOptions;
 import com.shieldui.wicket.button.ClickEventListener;
+import com.shieldui.wicket.tooltip.Tooltip;
 import java.util.HashMap;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormSubmitBehavior;
@@ -32,6 +33,13 @@ public class Button extends WebPage
                 .getEvents()
                     .put(ButtonOptions.Event.CLICK, new JsonFunction("function(e) { console.log(\"check button clicked\"); }"));
         
+        final Tooltip checkedTooltip = new Tooltip("#" + checkedButton.getMarkupId());
+        checkedTooltip.getOptions()
+                .setWidth(300)
+                .setHeight(300)
+                .setDelay(0);
+        add(checkedTooltip);
+        
         final com.shieldui.wicket.button.Button enabledButton = new com.shieldui.wicket.button.Button("enabled");
         enabledButton.getOptions()
                 .setToggle(true)
@@ -59,6 +67,7 @@ public class Button extends WebPage
             protected void handleEvent(AjaxRequestTarget target, Object event) {
                 // set the enabled on the sample button
                 sampleButton.setEnabled(target, ((HashMap<String, Boolean>)event).get("checked"));
+                checkedTooltip.setEnabled(target, ((HashMap<String, Boolean>)event).get("checked"));
             }
         });
         
@@ -67,6 +76,7 @@ public class Button extends WebPage
             protected void handleEvent(AjaxRequestTarget target, Object event) {
                 // set the visibility on the sample button
                 sampleButton.setVisible(target, ((HashMap<String, Boolean>)event).get("checked"));
+                checkedTooltip.setVisible(target, ((HashMap<String, Boolean>)event).get("checked"));
             }
         });
         
