@@ -2,8 +2,10 @@ package com.shieldui.wicket.examples;
 
 import com.shieldui.wicket.button.ButtonOptions;
 import com.shieldui.wicket.button.ClickEventListener;
+import com.shieldui.wicket.toggle.Switch;
 import com.shieldui.wicket.tooltip.Tooltip;
 import java.util.HashMap;
+import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormSubmitBehavior;
 import org.apache.wicket.ajax.json.JsonFunction;
@@ -108,5 +110,29 @@ public class Button extends WebPage
         form.add(formButton);
         
         add(form);
+        
+        // add a switch and a label
+        final Label swlbl = new Label("switchlbl");
+        swlbl.setOutputMarkupId(true);
+        
+        final Switch sw = new Switch("switch");
+        sw.getOptions()
+                .setOnText("YES")
+                .setOffText("NO");
+        
+        sw.add(new com.shieldui.wicket.toggle.ClickEventListener() {
+            @Override
+            protected void handleEvent(AjaxRequestTarget target, Object event) {
+                target.add(swlbl);
+                swlbl.add(
+                        new AttributeModifier(
+                                "style", 
+                                "display:" + (((HashMap<String, Boolean>)event).get("checked") ? "block" : "none")
+                        )
+                );
+            }
+        });
+        
+        add(swlbl, sw);
     }
 }

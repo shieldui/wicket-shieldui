@@ -1,21 +1,21 @@
-package com.shieldui.wicket.button;
+package com.shieldui.wicket.toggle;
 
 import com.shieldui.wicket.WidgetBase;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-public class Button extends WidgetBase
+public class Switch extends WidgetBase
 {
     private static final long serialVersionUID = 1L;
     
-    private final ButtonOptions options = new ButtonOptions();
+    private final SwitchOptions options = new SwitchOptions();
     
-    public Button(String id)
+    public Switch(String id)
     {
-        super(id, "shieldButton");
+        super(id, "shieldSwitch");
     }
     
     @Override
-    public ButtonOptions getOptions()
+    public SwitchOptions getOptions()
     {
         return options;
     }

@@ -24,7 +24,7 @@ public class ProgressBar extends WidgetBase
     {
         target.appendJavaScript(
                 jsClosure(
-                        "var sw = $('#" + getMarkupId() + "').swidget(); if (sw) { sw.enabled(" + (enabled ? "true" : "false") + "); }"
+                        "var sw = $('#" + getMarkupId() + "').swidget(\"" + getWidgetType() + "\"); if (sw) { sw.enabled(" + (enabled ? "true" : "false") + "); }"
                 )
         );
     }
@@ -48,7 +48,7 @@ public class ProgressBar extends WidgetBase
     {
         target.appendJavaScript(
                 jsClosure(
-                        "var sw = $('#" + getMarkupId() + "').swidget(); if (sw) { sw.value(" + value + "); }"
+                        "var sw = $('#" + getMarkupId() + "').swidget(\"" + getWidgetType() + "\"); if (sw) { sw.value(" + value + "); }"
                 )
         );
     }

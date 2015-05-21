@@ -7,6 +7,15 @@
     <link rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
     <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    
+    <style>
+        .swlbl { 
+            width: 200px;
+            height: 40px;
+            background-color: red;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
     <div wicket:id="menu"></div>
@@ -27,6 +36,13 @@
             <br /><br />
             <button wicket:id="button" type="submit">Increment</button> by <input wicket:id="increment" />
         </form>
+    </div>
+    
+    <div style="margin:auto; margin-top:50px; display:block; text-align:center;">
+        Visible: <input type="checkbox" wicket:id="switch" checked="checked" />
+        <br /><br />
+        <div wicket:id="switchlbl" class="swlbl"></div>
+        <br />
     </div>
 </body>
 </html>
