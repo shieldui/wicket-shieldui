@@ -10,9 +10,18 @@ If you would like to obtain a commercial license for the JavaScript code, or get
 
 Supported Widgets
 -----------------
-- Charts
-- Barcode
-- QR Code
+#### Data Visualization
+- [Charts](https://www.shieldui.com/products/chart)
+- [Barcode](https://www.shieldui.com/products/barcode)
+- [QR Code](https://www.shieldui.com/products/qrcode)
+
+#### Layout
+- [ProgressBar](https://www.shieldui.com/products/progressbar)
+- [Tooltip](https://www.shieldui.com/products/tooltip)
+
+#### Editors
+- [Button](https://www.shieldui.com/products/button)
+- [Switch](https://www.shieldui.com/products/switch)
 
 Setup
 -----
