@@ -21,6 +21,7 @@ Supported Widgets
 
 #### Editors
 - [Button](https://www.shieldui.com/products/button)
+- [Calendar](https://www.shieldui.com/products/calendar)
 - [Switch](https://www.shieldui.com/products/switch)
 
 Setup
@@ -33,7 +34,7 @@ Usage
 -----
 In your Wicket's page HTML, include the resources in the HEAD and add a container DIV element somewhere in your BODY:
 ```html
-<link rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/shieldui-all.min.css" />
+<link rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
 <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 

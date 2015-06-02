@@ -26,5 +26,7 @@ public class MenuPanel extends Panel
         
         add(new BookmarkablePageLink("button", Button.class));
         add(new BookmarkablePageLink("progressbar", ProgressBar.class));
+        add(new BookmarkablePageLink("calendar", Calendar.class));
+        
     }
 }
