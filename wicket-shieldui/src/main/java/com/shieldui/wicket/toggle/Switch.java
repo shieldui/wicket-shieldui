@@ -1,9 +1,9 @@
 package com.shieldui.wicket.toggle;
 
-import com.shieldui.wicket.WidgetBase;
+import com.shieldui.wicket.WidgetComponentBase;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-public class Switch extends WidgetBase
+public class Switch extends WidgetComponentBase
 {
     private static final long serialVersionUID = 1L;
     
@@ -11,7 +11,7 @@ public class Switch extends WidgetBase
     
     public Switch(String id)
     {
-        super(id, "shieldSwitch");
+        super(id, "Switch");
     }
     
     @Override

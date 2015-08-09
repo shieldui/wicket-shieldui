@@ -2,6 +2,7 @@ package com.shieldui.wicket;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -38,19 +39,51 @@ public class HashMapSerializable implements Serializable
             }
             
             // override value in certain cases
-            if (HashMap.class.isAssignableFrom(type)) {                
-                // if empty hashmap, make it null so it does not get serialized
-                if (value != null && ((HashMap) value).keySet().size() <= 0) {
+            if (HashMap.class.isAssignableFrom(type)) {
+                HashMap cast = ((HashMap) value);
+                
+                if (value != null && cast.keySet().size() <= 0) {
+                    // if empty hashmap, make it null so it does not get serialized
                     value = null;
                 }
+                else {
+                    // convert any HashMapSerializable items in the HashMap to HashMaps
+                    HashMap newValue = new HashMap();
+                    for (Object key : cast.keySet()) {
+                        Object val = cast.get(key);
+                        if (HashMapSerializable.class.isAssignableFrom(val.getClass())) {
+                            newValue.put(key, ((HashMapSerializable) val).toHashMap());
+                        }
+                        else {
+                            newValue.put(key, val);
+                        }
+                    }
+                    value = newValue;
+                }
             }
-            else if (List.class.isAssignableFrom(type)) {                
+            else if (List.class.isAssignableFrom(type)) {
+                List cast = ((List) value);
+                
                 // if empty list, make it null so it does not get serialized
-                if (value != null && ((List) value).size() <= 0) {
+                if (value != null && cast.size() <= 0) {
                     value = null;
                 }
+                else {
+                    // convert any HashMapSerializable items in the List to HashMaps
+                    List newValue = new ArrayList();
+                    for (int i=0; i<cast.size(); i++) {
+                        Object val = cast.get(i);
+                        if (HashMapSerializable.class.isAssignableFrom(val.getClass())) {
+                            newValue.add(((HashMapSerializable) val).toHashMap());
+                        }
+                        else {
+                            newValue.add(val);
+                        }
+                    }
+                    value = newValue;
+                }
             }
-            else if (HashMapSerializable.class.isAssignableFrom(type)) {                
+            else if (HashMapSerializable.class.isAssignableFrom(type)) {
                 // if type is a successor of HashMapSerializable,
                 // make the value the serialized hashmap
                 if (value != null) {

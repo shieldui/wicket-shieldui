@@ -12,7 +12,7 @@ public class HomePage extends WebPage
     private static final long serialVersionUID = 1L;
 
     public HomePage() 
-    {        
+    {
         // add the menu
         add(new MenuPanel("menu"));
         

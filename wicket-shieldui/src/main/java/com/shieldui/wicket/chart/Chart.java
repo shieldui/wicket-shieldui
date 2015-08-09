@@ -1,8 +1,8 @@
 package com.shieldui.wicket.chart;
 
-import com.shieldui.wicket.WidgetBase;
+import com.shieldui.wicket.WidgetComponentBase;
 
-public class Chart extends WidgetBase
+public class Chart extends WidgetComponentBase
 {
     private static final long serialVersionUID = 1L;
 
@@ -10,7 +10,7 @@ public class Chart extends WidgetBase
     
     public Chart(String id)
     {
-        super(id, "shieldChart");
+        super(id, "Chart");
     }
     
     @Override

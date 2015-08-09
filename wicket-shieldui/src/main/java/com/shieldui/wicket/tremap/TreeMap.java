@@ -1,21 +1,21 @@
-package com.shieldui.wicket.calendar;
+package com.shieldui.wicket.tremap;
 
 import com.shieldui.wicket.WidgetComponentBase;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-public class Calendar extends WidgetComponentBase
+public class TreeMap extends WidgetComponentBase
 {
     private static final long serialVersionUID = 1L;
     
-    private final CalendarOptions options = new CalendarOptions();
+    private final TreeMapOptions options = new TreeMapOptions();
     
-    public Calendar(String id)
+    public TreeMap(String id)
     {
-        super(id, "Calendar");
+        super(id, "TreeMap");
     }
-
+    
     @Override
-    public CalendarOptions getOptions()
+    public TreeMapOptions getOptions()
     {
         return options;
     }

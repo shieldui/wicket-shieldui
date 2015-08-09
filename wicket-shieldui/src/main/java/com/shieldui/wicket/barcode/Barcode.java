@@ -1,8 +1,8 @@
 package com.shieldui.wicket.barcode;
 
-import com.shieldui.wicket.WidgetBase;
+import com.shieldui.wicket.WidgetComponentBase;
 
-public class Barcode extends WidgetBase
+public class Barcode extends WidgetComponentBase
 {
     private static final long serialVersionUID = 1L;
 
@@ -10,7 +10,7 @@ public class Barcode extends WidgetBase
     
     public Barcode(String id)
     {
-        super(id, "shieldBarcode");
+        super(id, "Barcode");
     }
     
     @Override

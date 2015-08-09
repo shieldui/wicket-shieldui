@@ -1,8 +1,8 @@
 package com.shieldui.wicket.qrcode;
 
-import com.shieldui.wicket.WidgetBase;
+import com.shieldui.wicket.WidgetComponentBase;
 
-public class QRCode extends WidgetBase
+public class QRCode extends WidgetComponentBase
 {
     private static final long serialVersionUID = 1L;
 
@@ -10,7 +10,7 @@ public class QRCode extends WidgetBase
     
     public QRCode(String id)
     {
-        super(id, "shieldQRcode");
+        super(id, "QRcode");
     }
     
     @Override

@@ -14,6 +14,8 @@ Supported Widgets
 - [Charts](https://www.shieldui.com/products/chart)
 - [Barcode](https://www.shieldui.com/products/barcode)
 - [QR Code](https://www.shieldui.com/products/qrcode)
+- [TagCloud](https://www.shieldui.com/products/tagcloud)
+- [TreeMap](https://www.shieldui.com/products/treemap)
 
 #### Layout
 - [ProgressBar](https://www.shieldui.com/products/progressbar)
@@ -23,6 +25,9 @@ Supported Widgets
 - [Button](https://www.shieldui.com/products/button)
 - [Calendar](https://www.shieldui.com/products/calendar)
 - [Switch](https://www.shieldui.com/products/switch)
+
+#### Framework
+- [DataSource](https://www.shieldui.com/products/datasource)
 
 Setup
 -----

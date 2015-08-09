@@ -8,35 +8,33 @@ import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.request.http.WebRequest;
 
-public abstract class WidgetBase extends WebMarkupContainer
+public abstract class WidgetComponentBase extends WebMarkupContainer implements IWidget
 {
     private static final long serialVersionUID = 1L;
     
-    private final String widgetName;
-    private HashMap<String, JsonFunction> serverEvents = new HashMap<String, JsonFunction>();
+    private final String widgetType;
+    private final HashMap<String, JsonFunction> serverEvents = new HashMap<String, JsonFunction>();
     
-    public WidgetBase(String id, String name)
+    public WidgetComponentBase(String id, String type)
     {
         super(id);
-        widgetName = name;
+        widgetType = type;
         setOutputMarkupId(true);
     }
-    
-    public abstract OptionsBase getOptions();
     
     public void setServerEvent(String eventName, JsonFunction jsonFunc)
     {
         serverEvents.put(eventName, jsonFunc);
     }
     
-    protected String getWidgetType()
+    public HashMap<String, JsonFunction> getServerEvents()
     {
-        return widgetName.replace("shield", "");
+        return serverEvents;
     }
     
-    protected String getWidgetName()
+    protected String getWidgetType()
     {
-        return widgetName;
+        return widgetType;
     }
     
     protected String jsClosure(String code)
@@ -46,15 +44,16 @@ public abstract class WidgetBase extends WebMarkupContainer
     
     protected String getInitializationJS()
     {
-        String javascript = "$('#" + getMarkupId() + "')." + getWidgetName() + "(" + getOptions().toJson() + ")";
+        String javascript = "$('#" + getMarkupId() + "').shield" + getWidgetType() + "(" + getOptions().toJson() + ")";
         
         // add all server events if any
-        if (serverEvents.size() > 0) {
-            javascript += ".swidget(\"" + getWidgetType() + "\")";
-            for (String event : serverEvents.keySet()) {
-                javascript += ".on(\"" + event + "\", " + serverEvents.get(event) + ")";
+        HashMap<String, JsonFunction> events = getServerEvents();
+        if (events.size() > 0) {
+            javascript += ".swidget('" + getWidgetType() + "')";
+            for (String event : events.keySet()) {
+                javascript += ".on('" + event + "', " + events.get(event) + ")";
             }
-        }        
+        }
         
         return javascript + ";";
     }
@@ -73,7 +72,7 @@ public abstract class WidgetBase extends WebMarkupContainer
     public void reInitialize(AjaxRequestTarget target)
     {
         target.add(this);
-        target.prependJavaScript(jsClosure("var sw = $('#" + getMarkupId() + "').swidget(\"" + getWidgetType() + "\"); if (sw) { sw.destroy(); }"));
+        target.prependJavaScript(jsClosure("var sw = $('#" + getMarkupId() + "').swidget('" + getWidgetType() + "'); if (sw) { sw.destroy(); }"));
         target.appendJavaScript(jsClosure(getInitializationJS()));
     }
     
@@ -81,7 +80,7 @@ public abstract class WidgetBase extends WebMarkupContainer
     {
         target.appendJavaScript(
             jsClosure(
-                "var sw = $('#" + getMarkupId() + "').swidget(\"" + getWidgetType() + "\"); if (sw) { sw.visible(" + (visible ? "true" : "false") + "); }"
+                "var sw = $('#" + getMarkupId() + "').swidget('" + getWidgetType() + "'); if (sw) { sw.visible(" + (visible ? "true" : "false") + "); }"
             )
         );
     }

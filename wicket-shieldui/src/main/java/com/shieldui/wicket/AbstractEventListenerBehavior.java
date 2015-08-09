@@ -41,8 +41,11 @@ public abstract class AbstractEventListenerBehavior extends AbstractDefaultAjaxB
     public void onConfigure(Component component)
     {
         super.onConfigure(component);
-        String callback = getCallbackFunction(CallbackParameter.converted(eventVarName, "JSON.stringify(" + toJson(eventVarName) + ")")).toString();
-        ((WidgetBase) component).setServerEvent(eventName, new JsonFunction(callback));
+        
+        if (IWidget.class.isAssignableFrom(component.getClass())) {
+            String callback = getCallbackFunction(CallbackParameter.converted(eventVarName, "JSON.stringify(" + toJson(eventVarName) + ")")).toString();
+            ((IWidget) component).setServerEvent(eventName, new JsonFunction(callback));
+        }
     }
     
     @Override
@@ -65,6 +68,10 @@ public abstract class AbstractEventListenerBehavior extends AbstractDefaultAjaxB
      */
     protected Object fromJson(String json)
     {
+        if (json == null) {
+            return null;
+        }
+        
         // the object serialized can be null or an object
         if (json.equals("null")) {
             return null;

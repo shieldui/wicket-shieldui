@@ -1,9 +1,9 @@
 package com.shieldui.wicket.progressbar;
 
-import com.shieldui.wicket.WidgetBase;
+import com.shieldui.wicket.WidgetComponentBase;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-public class ProgressBar extends WidgetBase
+public class ProgressBar extends WidgetComponentBase
 {
     private static final long serialVersionUID = 1L;
     
@@ -11,7 +11,7 @@ public class ProgressBar extends WidgetBase
     
     public ProgressBar(String id)
     {
-        super(id, "shieldProgressBar");
+        super(id, "ProgressBar");
     }
     
     @Override

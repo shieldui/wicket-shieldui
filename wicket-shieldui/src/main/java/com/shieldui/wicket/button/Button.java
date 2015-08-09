@@ -1,9 +1,9 @@
 package com.shieldui.wicket.button;
 
-import com.shieldui.wicket.WidgetBase;
+import com.shieldui.wicket.WidgetComponentBase;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-public class Button extends WidgetBase
+public class Button extends WidgetComponentBase
 {
     private static final long serialVersionUID = 1L;
     
@@ -11,7 +11,7 @@ public class Button extends WidgetBase
     
     public Button(String id)
     {
-        super(id, "shieldButton");
+        super(id, "Button");
     }
     
     @Override
