@@ -69,6 +69,6 @@ Detailed widget functionality and settings can be found in the [Shield UI Docume
 
 License
 -------
-Copyright 2013 Shield UI Ltd.
+Copyright 2013-2015 Shield UI Ltd.
 
 http://www.shieldui.com/eula
