@@ -26,6 +26,7 @@ public class MenuPanel extends Panel
         add(new BookmarkablePageLink("tagcloud", TagCloudDemo.class));
         add(new BookmarkablePageLink("treemap", TreeMapDemo.class));
         
+        add(new BookmarkablePageLink("datasource", DataSourceDemo.class));        
         add(new BookmarkablePageLink("button", Button.class));
         add(new BookmarkablePageLink("progressbar", ProgressBar.class));
         add(new BookmarkablePageLink("calendar", Calendar.class));
