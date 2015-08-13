@@ -680,6 +680,11 @@ public class DataSourceOptions extends OptionsBase
         return this;
     }
     
+    public DataSourceOptions setFilter(FilterGroup... filters) {
+        this.filter = Arrays.asList(filters);
+        return this;
+    }
+    
     public List<GroupOption> getGroup() {
         return group;
     }
