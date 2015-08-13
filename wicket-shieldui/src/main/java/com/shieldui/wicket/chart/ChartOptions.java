@@ -1152,7 +1152,7 @@ public final class ChartOptions extends OptionsBase
             return this;
         }
         
-        public Boolean isVisible() {
+        public Boolean getVisible() {
             return visible;
         }
 
@@ -1640,7 +1640,7 @@ public final class ChartOptions extends OptionsBase
                 return this;
             }
             
-            public Boolean isVisible() {
+            public Boolean getVisible() {
                 return visible;
             }
 

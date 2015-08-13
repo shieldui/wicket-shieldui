@@ -18,10 +18,12 @@ Supported Widgets
 - [TreeMap](https://www.shieldui.com/products/treemap)
 
 #### Layout
+- [Accordion](https://www.shieldui.com/products/accordion)
 - [ProgressBar](https://www.shieldui.com/products/progressbar)
 - [Tooltip](https://www.shieldui.com/products/tooltip)
 
 #### Editors
+- [AutoComplete](https://www.shieldui.com/products/autocomplete)
 - [Button](https://www.shieldui.com/products/button)
 - [Calendar](https://www.shieldui.com/products/calendar)
 - [Switch](https://www.shieldui.com/products/switch)
