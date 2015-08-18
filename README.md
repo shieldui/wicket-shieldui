@@ -21,12 +21,14 @@ Supported Widgets
 - [Accordion](https://www.shieldui.com/products/accordion)
 - [ProgressBar](https://www.shieldui.com/products/progressbar)
 - [Tooltip](https://www.shieldui.com/products/tooltip)
+- [Splitter](https://www.shieldui.com/products/splitter)
 
 #### Editors
 - [AutoComplete](https://www.shieldui.com/products/autocomplete)
 - [Button](https://www.shieldui.com/products/button)
 - [Calendar](https://www.shieldui.com/products/calendar)
 - [Switch](https://www.shieldui.com/products/switch)
+- [Slider](https://www.shieldui.com/products/slider)
 
 #### Framework
 - [DataSource](https://www.shieldui.com/products/datasource)
