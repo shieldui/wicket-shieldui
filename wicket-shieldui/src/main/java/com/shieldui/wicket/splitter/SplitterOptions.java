@@ -1,22 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.shieldui.wicket.splitter;
 
 import com.shieldui.wicket.HashMapSerializable;
 import com.shieldui.wicket.OptionsBase;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import org.apache.wicket.ajax.json.JsonFunction;
 
-/**
- *
- * @author Lyubo
- */
-public class SplitterOptions extends OptionsBase {
+public class SplitterOptions extends OptionsBase
+{
     private static final long serialVersionUID = 1L;
     
     // client events
@@ -59,14 +52,15 @@ public class SplitterOptions extends OptionsBase {
         }
     }
     
-    public static final class PaneOptions extends HashMapSerializable {
+    public static final class PaneOptions extends HashMapSerializable
+    {
         public Boolean collapsed;
         public Boolean collapsible;
         public Boolean resizable;
         public Boolean scrollable;
-        public Integer size;
-        public Integer min;
-        public Integer max;
+        public String size;
+        public String min;
+        public String max;
 
         public Boolean getCollapsed() {
             return collapsed;
@@ -104,29 +98,44 @@ public class SplitterOptions extends OptionsBase {
             return this;
         }
 
-        public Integer getSize() {
+        public String getSize() {
             return size;
         }
 
         public PaneOptions setSize(Integer size) {
+            this.size = size.toString();
+            return this;
+        }
+        
+        public PaneOptions setSize(String size) {
             this.size = size;
             return this;
         }
 
-        public Integer getMin() {
+        public String getMin() {
             return min;
         }
 
         public PaneOptions setMin(Integer min) {
-            this.min = min;
+            this.min = min.toString();
+            return this;
+        }
+        
+        public PaneOptions setMin(String min) {
+            this.min = size;
             return this;
         }
 
-        public Integer getMax() {
+        public String getMax() {
             return max;
         }
 
         public PaneOptions setMax(Integer max) {
+            this.max = max.toString();
+            return this;
+        }
+        
+        public PaneOptions setMax(String max) {
             this.max = max;
             return this;
         }
@@ -161,6 +170,11 @@ public class SplitterOptions extends OptionsBase {
 
     public SplitterOptions setPanes(List<PaneOptions> panes) {
         this.panes = panes;
+        return this;
+    }
+    
+    public SplitterOptions setPanes(PaneOptions... panes) {
+        this.panes = Arrays.asList(panes);
         return this;
     }
     

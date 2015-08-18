@@ -1,26 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.shieldui.wicket.examples;
 
 import com.shieldui.wicket.slider.SliderOptions;
 import com.shieldui.wicket.slider.Slider;
-import com.shieldui.wicket.slider.BlurEventListener;
-import com.shieldui.wicket.slider.FocusEventListener;
-import com.shieldui.wicket.slider.SlideEventListener;
-import com.shieldui.wicket.slider.ChangeEventListener;
 import org.apache.wicket.markup.html.WebPage;
 
-/**
- *
- * @author Lyubo
- */
-public class SliderDemo extends WebPage {
+public class SliderDemo extends WebPage
+{
     private static final long serialVersionUID = 1L;
     
-    public SliderDemo() {
+    public SliderDemo()
+    {
         // add the menu
         add(new MenuPanel("menu"));
         
