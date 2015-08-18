@@ -28,7 +28,9 @@ public class MenuPanel extends Panel
         add(new BookmarkablePageLink("slider", SliderDemo.class));
         add(new BookmarkablePageLink("splitter", SplitterDemo.class));
         
-        add(new BookmarkablePageLink("datasource", DataSourceDemo.class));        
+        add(new BookmarkablePageLink("datasource", DataSourceDemo.class));
+        add(new BookmarkablePageLink("input", InputDemos.class));
+        add(new BookmarkablePageLink("layout", LayoutDemos.class));
         add(new BookmarkablePageLink("button", Button.class));
         add(new BookmarkablePageLink("progressbar", ProgressBar.class));
         add(new BookmarkablePageLink("calendar", Calendar.class));

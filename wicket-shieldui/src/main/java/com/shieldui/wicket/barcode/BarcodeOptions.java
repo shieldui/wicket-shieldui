@@ -225,7 +225,7 @@ public class BarcodeOptions extends OptionsBase
         return this;
     }
 
-    public Boolean isChecksum() {
+    public Boolean getChecksum() {
         return checksum;
     }
 

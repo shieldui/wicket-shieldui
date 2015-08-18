@@ -222,7 +222,7 @@ public class TooltipOptions extends OptionsBase
         return this;
     }
 
-    public Boolean isAutoHide() {
+    public Boolean getAutoHide() {
         return autoHide;
     }
 
@@ -231,7 +231,7 @@ public class TooltipOptions extends OptionsBase
         return this;
     }
 
-    public Boolean isCallout() {
+    public Boolean getCallout() {
         return callout;
     }
 
