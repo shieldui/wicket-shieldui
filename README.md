@@ -32,6 +32,8 @@ Supported Widgets
 - [RadioButton](https://www.shieldui.com/products/radiobutton)
 - [CheckBox](https://www.shieldui.com/products/checkbox)
 - [TextBox](https://www.shieldui.com/products/textbox)
+- [MaskedTextBox](https://www.shieldui.com/products/maskedtextbox)
+- [ListBox](https://www.shieldui.com/products/listbox)
 
 #### Framework
 - [DataSource](https://www.shieldui.com/products/datasource)
