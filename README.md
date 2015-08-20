@@ -20,20 +20,20 @@ Supported Widgets
 #### Layout
 - [Accordion](https://www.shieldui.com/products/accordion)
 - [ProgressBar](https://www.shieldui.com/products/progressbar)
-- [Tooltip](https://www.shieldui.com/products/tooltip)
 - [Splitter](https://www.shieldui.com/products/splitter)
+- [Tooltip](https://www.shieldui.com/products/tooltip)
 
 #### Editors
 - [AutoComplete](https://www.shieldui.com/products/autocomplete)
 - [Button](https://www.shieldui.com/products/button)
 - [Calendar](https://www.shieldui.com/products/calendar)
+- [CheckBox](https://www.shieldui.com/products/checkbox)
+- [ListBox](https://www.shieldui.com/products/listbox)
+- [MaskedTextBox](https://www.shieldui.com/products/maskedtextbox)
+- [RadioButton](https://www.shieldui.com/products/radiobutton)
 - [Switch](https://www.shieldui.com/products/switch)
 - [Slider](https://www.shieldui.com/products/slider)
-- [RadioButton](https://www.shieldui.com/products/radiobutton)
-- [CheckBox](https://www.shieldui.com/products/checkbox)
 - [TextBox](https://www.shieldui.com/products/textbox)
-- [MaskedTextBox](https://www.shieldui.com/products/maskedtextbox)
-- [ListBox](https://www.shieldui.com/products/listbox)
 
 #### Framework
 - [DataSource](https://www.shieldui.com/products/datasource)
