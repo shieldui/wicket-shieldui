@@ -29,6 +29,9 @@ Supported Widgets
 - [Calendar](https://www.shieldui.com/products/calendar)
 - [Switch](https://www.shieldui.com/products/switch)
 - [Slider](https://www.shieldui.com/products/slider)
+- [RadioButton](https://www.shieldui.com/products/radiobutton)
+- [CheckBox](https://www.shieldui.com/products/checkbox)
+- [TextBox](https://www.shieldui.com/products/textbox)
 
 #### Framework
 - [DataSource](https://www.shieldui.com/products/datasource)
