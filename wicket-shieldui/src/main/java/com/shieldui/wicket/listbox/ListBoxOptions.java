@@ -75,6 +75,11 @@ public class ListBoxOptions extends OptionsBase {
         this.dataSource = dataSource;
         return this;
     }
+    
+    public ListBoxOptions setDataSource(DataSource dataSourceObject) {
+        this.dataSource = new JsonFunction("window." + dataSourceObject.getJsVariableName());
+        return this;
+    }
 
     public Boolean getReadDataSource() {
         return readDataSource;
