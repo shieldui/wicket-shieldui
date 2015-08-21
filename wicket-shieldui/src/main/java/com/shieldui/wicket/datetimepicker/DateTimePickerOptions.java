@@ -1,8 +1,8 @@
-package com.shieldui.wicket.timepicker;
+package com.shieldui.wicket.datetimepicker;
 
 import com.shieldui.wicket.listbox.ListBoxOptions;
 
-public class TimePickerOptions extends com.shieldui.wicket.datepicker.DatePickerOptions {
+public class DateTimePickerOptions extends com.shieldui.wicket.datepicker.DatePickerOptions {
     private static final long serialVersionUID = 1L;
     
     public ListBoxOptions listBox = new ListBoxOptions();
@@ -11,7 +11,7 @@ public class TimePickerOptions extends com.shieldui.wicket.datepicker.DatePicker
         return listBox;
     }
 
-    public TimePickerOptions setListBox(ListBoxOptions listBox) {
+    public DateTimePickerOptions setListBox(ListBoxOptions listBox) {
         this.listBox = listBox;
         return this;
     }
