@@ -36,6 +36,7 @@ public class MenuPanel extends Panel
         add(new BookmarkablePageLink("combobox", ComboBoxDemo.class));
         add(new BookmarkablePageLink("dropdown", DropDownDemo.class));
         add(new BookmarkablePageLink("datepicker", DatePickerDemo.class));
+        add(new BookmarkablePageLink("monthyearpicker", MonthYearPickerDemo.class));
         
         add(new BookmarkablePageLink("datasource", DataSourceDemo.class));
         add(new BookmarkablePageLink("input", InputDemos.class));

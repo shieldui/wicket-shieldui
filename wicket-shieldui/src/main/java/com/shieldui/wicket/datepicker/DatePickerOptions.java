@@ -2,6 +2,7 @@ package com.shieldui.wicket.datepicker;
 
 import com.shieldui.wicket.HashMapSerializable;
 import com.shieldui.wicket.OptionsBase;
+import com.shieldui.wicket.calendar.CalendarOptions;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -52,7 +53,7 @@ public class DatePickerOptions extends OptionsBase {
         }
     }
     
-    public Object calendar;
+    public CalendarOptions calendar = new CalendarOptions();
     public String format;
     public Object textTemplate;
     public Date value;
@@ -66,11 +67,11 @@ public class DatePickerOptions extends OptionsBase {
     public MessagesOptions messages = new MessagesOptions();
     public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
 
-    public Object getCalendar() {
+    public CalendarOptions getCalendar() {
         return calendar;
     }
 
-    public DatePickerOptions setCalendar(Object calendar) {
+    public DatePickerOptions setCalendar(CalendarOptions calendar) {
         this.calendar = calendar;
         return this;
     }
