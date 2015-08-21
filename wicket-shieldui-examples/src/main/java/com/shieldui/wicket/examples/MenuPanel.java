@@ -33,6 +33,7 @@ public class MenuPanel extends Panel
         add(new BookmarkablePageLink("radiobutton", RadioButtonDemo.class));
         add(new BookmarkablePageLink("checkbox", CheckBoxDemo.class));
         add(new BookmarkablePageLink("textbox", TextBoxDemo.class));
+        add(new BookmarkablePageLink("combobox", ComboBoxDemo.class));
         
         add(new BookmarkablePageLink("datasource", DataSourceDemo.class));
         add(new BookmarkablePageLink("input", InputDemos.class));

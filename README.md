@@ -28,6 +28,7 @@ Supported Widgets
 - [Button](https://www.shieldui.com/products/button)
 - [Calendar](https://www.shieldui.com/products/calendar)
 - [CheckBox](https://www.shieldui.com/products/checkbox)
+- [ComboBox](https://www.shieldui.com/products/combobox)
 - [ListBox](https://www.shieldui.com/products/listbox)
 - [MaskedTextBox](https://www.shieldui.com/products/maskedtextbox)
 - [RadioButton](https://www.shieldui.com/products/radiobutton)
