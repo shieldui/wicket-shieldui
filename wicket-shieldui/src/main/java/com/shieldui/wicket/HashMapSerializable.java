@@ -38,11 +38,24 @@ public class HashMapSerializable implements Serializable
                 continue;
             }
             
+            serializeVariable(type, name, value, result);
+        }
+        
+        // add parent fields if class has superclass and it is not HashMapSerializable
+        Class parent = cls.getSuperclass();
+        if (parent != null && !parent.equals(HashMapSerializable.class)) {
+            addClassFields(parent, result);
+        }
+    }
+    
+    protected void serializeVariable(Class type, String name, Object value, HashMap<String, Object> result)
+    {
+        if (value != null) {
             // override value in certain cases
             if (HashMap.class.isAssignableFrom(type)) {
                 HashMap cast = ((HashMap) value);
-                
-                if (value != null && cast.keySet().size() <= 0) {
+
+                if (cast.keySet().size() <= 0) {
                     // if empty hashmap, make it null so it does not get serialized
                     value = null;
                 }
@@ -63,9 +76,9 @@ public class HashMapSerializable implements Serializable
             }
             else if (List.class.isAssignableFrom(type)) {
                 List cast = ((List) value);
-                
+
                 // if empty list, make it null so it does not get serialized
-                if (value != null && cast.size() <= 0) {
+                if (cast.size() <= 0) {
                     value = null;
                 }
                 else {
@@ -86,20 +99,12 @@ public class HashMapSerializable implements Serializable
             else if (HashMapSerializable.class.isAssignableFrom(type)) {
                 // if type is a successor of HashMapSerializable,
                 // make the value the serialized hashmap
-                if (value != null) {
-                    value = ((HashMapSerializable) value).toHashMap();
-                }
+                value = ((HashMapSerializable) value).toHashMap();
             }
-            
+
             if (value != null) {
                 result.put(name, value);
             }
-        }
-        
-        // add parent fields if class has superclass and it is not HashMapSerializable
-        Class parent = cls.getSuperclass();
-        if (parent != null && !parent.equals(HashMapSerializable.class)) {
-            addClassFields(parent, result);
         }
     }
 }

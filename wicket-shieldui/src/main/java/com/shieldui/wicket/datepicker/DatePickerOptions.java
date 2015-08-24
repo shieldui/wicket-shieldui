@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.ArrayList;
 import org.apache.wicket.ajax.json.JsonFunction;
 
-public class DatePickerOptions extends OptionsBase {
+public class DatePickerOptions extends OptionsBase
+{
     private static final long serialVersionUID = 1L;
     
     public enum Event
@@ -50,6 +51,19 @@ public class DatePickerOptions extends OptionsBase {
         public MessagesOptions setButtonText(String buttonText) {
             this.buttonText = buttonText;
             return this;
+        }
+    }
+    
+    // override the serializeVariable to handle serialization of some settings that deai with dates
+    @Override
+    protected void serializeVariable(Class type, String name, Object value, HashMap<String, Object> result)
+    {
+        if (value != null && (name.equals("value") || name.equals("min") || name.equals("max"))) {
+            result.put(name, new JsonFunction("new Date(" + ((Date)value).getTime() + ")"));
+        }
+        else {
+            // default functionality
+            super.serializeVariable(type, name, value, result);
         }
     }
     
@@ -107,6 +121,11 @@ public class DatePickerOptions extends OptionsBase {
         this.value = value;
         return this;
     }
+    
+    public DatePickerOptions setValue(java.util.Calendar calendar) {
+        this.value = calendar.getTime();
+        return this;
+    }
 
     public List<String> getParseFormats() {
         return parseFormats;
@@ -161,6 +180,11 @@ public class DatePickerOptions extends OptionsBase {
         this.min = min;
         return this;
     }
+    
+    public DatePickerOptions setMin(java.util.Calendar calendar) {
+        this.min = calendar.getTime();
+        return this;
+    }
 
     public Date getMax() {
         return max;
@@ -168,6 +192,11 @@ public class DatePickerOptions extends OptionsBase {
 
     public DatePickerOptions setMax(Date max) {
         this.max = max;
+        return this;
+    }
+    
+    public DatePickerOptions setMax(java.util.Calendar calendar) {
+        this.max = calendar.getTime();
         return this;
     }
 

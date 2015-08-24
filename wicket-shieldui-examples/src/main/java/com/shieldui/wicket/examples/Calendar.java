@@ -1,9 +1,9 @@
 package com.shieldui.wicket.examples;
 
 import com.shieldui.wicket.calendar.ChangeEventListener;
+import java.util.Date;
 import java.util.HashMap;
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.json.JsonFunction;
 import org.apache.wicket.markup.html.WebPage;
 
 public class Calendar extends WebPage
@@ -18,10 +18,16 @@ public class Calendar extends WebPage
         final com.shieldui.wicket.calendar.Calendar calendar = new com.shieldui.wicket.calendar.Calendar("calendar");
         add(calendar);
         
+        java.util.Calendar min = java.util.Calendar.getInstance();
+        min.set(2000, 1, 1);
+        
+        java.util.Calendar max = java.util.Calendar.getInstance();
+        max.set(2039, 3, 1);
+        
         calendar.getOptions()
-                .setMin(new JsonFunction("new Date(\"2009/2/23\")"))
-                .setMax(new JsonFunction("new Date(\"2039/3/1\")"))
-                .setValue(new JsonFunction("new Date()"))
+                .setMin(min)
+                .setMax(max)
+                .setValue(new Date())
                 .getFooter()
                     .setEnabled(true)
                     .setFooterTemplate("{0:dd.MM.yy}");        

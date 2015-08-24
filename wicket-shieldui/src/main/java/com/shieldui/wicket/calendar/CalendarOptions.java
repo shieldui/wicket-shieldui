@@ -2,6 +2,7 @@ package com.shieldui.wicket.calendar;
 
 import com.shieldui.wicket.HashMapSerializable;
 import com.shieldui.wicket.OptionsBase;
+import java.util.Date;
 import java.util.HashMap;
 import org.apache.wicket.ajax.json.JsonFunction;
 
@@ -107,6 +108,19 @@ public class CalendarOptions extends OptionsBase
         public Depth depth;
         public Depth start;
     }
+
+    // override the serializeVariable to handle serialization of some settings that deai with dates
+    @Override
+    protected void serializeVariable(Class type, String name, Object value, HashMap<String, Object> result)
+    {
+        if (value != null && (name.equals("value") || name.equals("min") || name.equals("max"))) {
+            result.put(name, new JsonFunction("new Date(" + ((Date)value).getTime() + ")"));
+        }
+        else {
+            // default functionality
+            super.serializeVariable(type, name, value, result);
+        }
+    }
     
     public Object dateTooltipTemplate;
     public Object dayTemplate;
@@ -116,12 +130,12 @@ public class CalendarOptions extends OptionsBase
     public Footer footer = new Footer();
     public Boolean hover;
     public Labels labels = new Labels();
-    public JsonFunction max;
-    public JsonFunction min;
+    public Date max;
+    public Date min;
     public Object otherMonthDayTemplate;
     public Object outOfRangeDayTemplate;
     public Boolean readOnly;
-    public JsonFunction value;
+    public Date value;
     public View view = new View();
     
     public Object getDateTooltipTemplate() {
@@ -206,21 +220,31 @@ public class CalendarOptions extends OptionsBase
         return this;
     }
 
-    public JsonFunction getMax() {
+    public Date getMax() {
         return max;
     }
 
-    public CalendarOptions setMax(JsonFunction max) {
+    public CalendarOptions setMax(Date max) {
         this.max = max;
         return this;
     }
+    
+    public CalendarOptions setMax(java.util.Calendar calendar) {
+        this.max = calendar.getTime();
+        return this;
+    }
 
-    public JsonFunction getMin() {
+    public Date getMin() {
         return min;
     }
 
-    public CalendarOptions setMin(JsonFunction min) {
+    public CalendarOptions setMin(Date min) {
         this.min = min;
+        return this;
+    }
+    
+    public CalendarOptions setMin(java.util.Calendar calendar) {
+        this.min = calendar.getTime();
         return this;
     }
 
@@ -261,12 +285,17 @@ public class CalendarOptions extends OptionsBase
         return this;
     }
 
-    public JsonFunction getValue() {
+    public Date getValue() {
         return value;
     }
 
-    public CalendarOptions setValue(JsonFunction value) {
+    public CalendarOptions setValue(Date value) {
         this.value = value;
+        return this;
+    }
+    
+    public CalendarOptions setValue(java.util.Calendar calendar) {
+        this.value = calendar.getTime();
         return this;
     }
 

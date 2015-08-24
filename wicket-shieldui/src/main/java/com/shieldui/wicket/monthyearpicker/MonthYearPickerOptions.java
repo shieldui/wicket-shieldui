@@ -1,5 +1,8 @@
 package com.shieldui.wicket.monthyearpicker;
 
-public class MonthYearPickerOptions extends com.shieldui.wicket.datepicker.DatePickerOptions {
+import com.shieldui.wicket.datepicker.DatePickerOptions;
+
+public class MonthYearPickerOptions extends DatePickerOptions
+{
     private static final long serialVersionUID = 1L;
 }
