@@ -37,6 +37,7 @@ Supported Widgets
 - [MaskedTextBox](https://www.shieldui.com/products/maskedtextbox)
 - [MonthYearPicker](https://www.shieldui.com/products/monthyearpicker)
 - [RadioButton](https://www.shieldui.com/products/radiobutton)
+- [Rating](https://www.shieldui.com/products/rating)
 - [Switch](https://www.shieldui.com/products/switch)
 - [Slider](https://www.shieldui.com/products/slider)
 - [TextBox](https://www.shieldui.com/products/textbox)
