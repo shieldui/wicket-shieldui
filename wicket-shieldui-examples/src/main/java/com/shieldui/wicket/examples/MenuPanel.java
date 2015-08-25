@@ -41,6 +41,7 @@ public class MenuPanel extends Panel
         add(new BookmarkablePageLink("datetimepicker", DateTimePickerDemo.class));
         add(new BookmarkablePageLink("loadingpanel", LoadingPanelDemo.class));
         add(new BookmarkablePageLink("rating", RatingDemo.class));
+        add(new BookmarkablePageLink("pager", PagerDemo.class));
         
         add(new BookmarkablePageLink("datasource", DataSourceDemo.class));
         add(new BookmarkablePageLink("input", InputDemos.class));
