@@ -19,6 +19,7 @@ Supported Widgets
 
 #### Layout
 - [Accordion](https://www.shieldui.com/products/accordion)
+- [LoadingPanel](https://www.shieldui.com/products/loadingpanel)
 - [ProgressBar](https://www.shieldui.com/products/progressbar)
 - [Splitter](https://www.shieldui.com/products/splitter)
 - [Tooltip](https://www.shieldui.com/products/tooltip)
