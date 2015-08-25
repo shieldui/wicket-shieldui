@@ -30,13 +30,16 @@ Supported Widgets
 - [CheckBox](https://www.shieldui.com/products/checkbox)
 - [ComboBox](https://www.shieldui.com/products/combobox)
 - [DatePicker](https://www.shieldui.com/products/datepicker)
+- [DateTimePicker](https://www.shieldui.com/products/datetimepicker)
 - [DropDown](https://www.shieldui.com/products/dropdown)
 - [ListBox](https://www.shieldui.com/products/listbox)
 - [MaskedTextBox](https://www.shieldui.com/products/maskedtextbox)
+- [MonthYearPicker](https://www.shieldui.com/products/monthyearpicker)
 - [RadioButton](https://www.shieldui.com/products/radiobutton)
 - [Switch](https://www.shieldui.com/products/switch)
 - [Slider](https://www.shieldui.com/products/slider)
 - [TextBox](https://www.shieldui.com/products/textbox)
+- [TimePicker](https://www.shieldui.com/products/timepicker)
 
 #### Framework
 - [DataSource](https://www.shieldui.com/products/datasource)
