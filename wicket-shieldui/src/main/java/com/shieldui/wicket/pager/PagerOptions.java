@@ -5,7 +5,8 @@ import com.shieldui.wicket.OptionsBase;
 import org.apache.wicket.ajax.json.JsonFunction;
 import java.util.HashMap;
 
-public class PagerOptions extends OptionsBase {
+public class PagerOptions extends OptionsBase
+{
     private static final long serialVersionUID = 1L;
     
     // client events
@@ -27,7 +28,8 @@ public class PagerOptions extends OptionsBase {
         }
     }
     
-    public static final class MessagesOptions extends HashMapSerializable {
+    public static final class MessagesOptions extends HashMapSerializable
+    {
         public String infoBarTemplate;
         public String previousText;
         public String nextText;
