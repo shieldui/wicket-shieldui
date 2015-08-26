@@ -2,7 +2,8 @@ package com.shieldui.wicket.pager;
 
 import com.shieldui.wicket.AbstractEventListenerBehavior;
 
-public abstract class ChangeEventListener extends AbstractEventListenerBehavior {
+public abstract class ChangeEventListener extends AbstractEventListenerBehavior
+{
     private static final long serialVersionUID = 1L;
     
     public ChangeEventListener()
@@ -15,7 +16,7 @@ public abstract class ChangeEventListener extends AbstractEventListenerBehavior 
     {
         return "{" +                                
                 "\"value\":" + eventVarName + ".currentPage," + 
-                "\"enabled\":" + eventVarName + ".pageSize," + 
+                "\"enabled\":" + eventVarName + ".pageSize" + 
                 "}";
     }
 }

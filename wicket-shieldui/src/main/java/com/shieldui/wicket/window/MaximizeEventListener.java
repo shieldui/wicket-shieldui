@@ -2,7 +2,8 @@ package com.shieldui.wicket.window;
 
 import com.shieldui.wicket.AbstractEventListenerBehavior;
 
-public abstract class MaximizeEventListener extends AbstractEventListenerBehavior {
+public abstract class MaximizeEventListener extends AbstractEventListenerBehavior
+{
     private static final long serialVersionUID = 1L;
     
     public MaximizeEventListener()
@@ -14,7 +15,7 @@ public abstract class MaximizeEventListener extends AbstractEventListenerBehavio
     protected String toJson(String varName)
     {
         return "{" +
-                "\"maximized\":" + eventVarName + ".maximized," + 
+                "\"maximized\":" + eventVarName + ".maximized" + 
                 "}";
     }
 }

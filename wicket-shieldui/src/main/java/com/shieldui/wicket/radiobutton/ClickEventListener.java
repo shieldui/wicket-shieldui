@@ -2,7 +2,8 @@ package com.shieldui.wicket.radiobutton;
 
 import com.shieldui.wicket.AbstractEventListenerBehavior;
 
-public abstract class ClickEventListener extends AbstractEventListenerBehavior {
+public abstract class ClickEventListener extends AbstractEventListenerBehavior
+{
     private static final long serialVersionUID = 1L;
     
     public ClickEventListener()

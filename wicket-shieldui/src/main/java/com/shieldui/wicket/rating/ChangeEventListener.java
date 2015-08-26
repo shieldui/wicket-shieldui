@@ -2,7 +2,8 @@ package com.shieldui.wicket.rating;
 
 import com.shieldui.wicket.AbstractEventListenerBehavior;
 
-public abstract class ChangeEventListener extends AbstractEventListenerBehavior {
+public abstract class ChangeEventListener extends AbstractEventListenerBehavior
+{
     private static final long serialVersionUID = 1L;
     
     public ChangeEventListener()
