@@ -186,9 +186,9 @@ public class WindowOptions extends OptionsBase {
     public Integer height;
     public Boolean draggable;
     public Boolean appendToBody;
-    public ContentOptions content;
-    public ResizableOptions resizable;
-    public PositionOptions position;
+    public ContentOptions content = new ContentOptions();
+    public ResizableOptions resizable = new ResizableOptions();
+    public PositionOptions position = new PositionOptions();
     public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
 
     public String getCls() {

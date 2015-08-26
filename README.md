@@ -13,6 +13,7 @@ Supported Widgets
 #### Data Visualization
 - [Charts](https://www.shieldui.com/products/chart)
 - [Barcode](https://www.shieldui.com/products/barcode)
+- [Pager](https://www.shieldui.com/products/pager)
 - [QR Code](https://www.shieldui.com/products/qrcode)
 - [TagCloud](https://www.shieldui.com/products/tagcloud)
 - [TreeMap](https://www.shieldui.com/products/treemap)
@@ -23,12 +24,14 @@ Supported Widgets
 - [ProgressBar](https://www.shieldui.com/products/progressbar)
 - [Splitter](https://www.shieldui.com/products/splitter)
 - [Tooltip](https://www.shieldui.com/products/tooltip)
+- [Window](https://www.shieldui.com/products/window)
 
 #### Editors
 - [AutoComplete](https://www.shieldui.com/products/autocomplete)
 - [Button](https://www.shieldui.com/products/button)
 - [Calendar](https://www.shieldui.com/products/calendar)
 - [CheckBox](https://www.shieldui.com/products/checkbox)
+- [ColorPicker](https://www.shieldui.com/products/colorpicker)
 - [ComboBox](https://www.shieldui.com/products/combobox)
 - [DatePicker](https://www.shieldui.com/products/datepicker)
 - [DateTimePicker](https://www.shieldui.com/products/datetimepicker)

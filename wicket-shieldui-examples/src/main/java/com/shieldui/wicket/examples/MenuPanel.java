@@ -43,6 +43,7 @@ public class MenuPanel extends Panel
         add(new BookmarkablePageLink("rating", RatingDemo.class));
         add(new BookmarkablePageLink("pager", PagerDemo.class));
         add(new BookmarkablePageLink("window", WindowDemo.class));
+        add(new BookmarkablePageLink("colorpicker", ColorPickerDemo.class));
         
         add(new BookmarkablePageLink("datasource", DataSourceDemo.class));
         add(new BookmarkablePageLink("input", InputDemos.class));
