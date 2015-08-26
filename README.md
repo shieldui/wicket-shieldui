@@ -19,9 +19,12 @@ Supported Widgets
 - [TreeMap](https://www.shieldui.com/products/treemap)
 
 #### Layout
+- [Grid](https://www.shieldui.com/products/grid)
 - [Accordion](https://www.shieldui.com/products/accordion)
 - [LoadingPanel](https://www.shieldui.com/products/loadingpanel)
+- [Pager](https://www.shieldui.com/products/pager)
 - [ProgressBar](https://www.shieldui.com/products/progressbar)
+- [Rating](https://www.shieldui.com/products/rating)
 - [Splitter](https://www.shieldui.com/products/splitter)
 - [Tooltip](https://www.shieldui.com/products/tooltip)
 - [Window](https://www.shieldui.com/products/window)
@@ -39,10 +42,10 @@ Supported Widgets
 - [ListBox](https://www.shieldui.com/products/listbox)
 - [MaskedTextBox](https://www.shieldui.com/products/maskedtextbox)
 - [MonthYearPicker](https://www.shieldui.com/products/monthyearpicker)
+- [NumericTextBox](https://www.shieldui.com/products/numerictextbox)
 - [RadioButton](https://www.shieldui.com/products/radiobutton)
-- [Rating](https://www.shieldui.com/products/rating)
-- [Switch](https://www.shieldui.com/products/switch)
 - [Slider](https://www.shieldui.com/products/slider)
+- [Switch](https://www.shieldui.com/products/switch)
 - [TextBox](https://www.shieldui.com/products/textbox)
 - [TimePicker](https://www.shieldui.com/products/timepicker)
 
