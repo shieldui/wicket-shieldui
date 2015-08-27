@@ -6,11 +6,51 @@
     <link rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
     <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    
+    <script src="//demos.shieldui.com/Content/Json/gridData.js"></script>
+    
+    <style>
+        .bigicon {
+            font-size:27px;
+            color:#47C611;
+            padding-left:10px;
+            padding-right:10px;
+            display: block;
+            float: left;
+        }
+        .text {
+            adding-top: 6px;    
+            display: block;
+        }   
+    </style>
 </head>
 <body>
     <div wicket:id="menu"></div>
     
+    <script id="template1" type="text/x-shield-template">
+        <div id="People" class="header">                   
+            <i class="fa fa-user bigicon"></i>
+            <span class="text">Person Name</span>
+        </div>
+    </script>
+    <script id="template2" type="text/x-shield-template">
+        <div id="Phone" class="header">                   
+            <i class="fa fa-mobile-phone bigicon"></i>
+            <span class="text">Phone</span>
+        </div>
+    </script>
+    <script id="template3" type="text/x-shield-template">
+        <div id="Email" class="header">                   
+            <i class="fa fa-envelope-o bigicon"></i>
+            <span class="text">Email</span>
+        </div>
+    </script>
     
+    <br /><br /><br />
+    
+    <div wicket:id="grid1" style="width:600px;"></div>
 
+    <br /><br /><br /><br /><br /><br />
+    
 </body>
 </html>
