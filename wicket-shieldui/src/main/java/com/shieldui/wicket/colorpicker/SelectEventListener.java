@@ -2,7 +2,8 @@ package com.shieldui.wicket.colorpicker;
 
 import com.shieldui.wicket.AbstractEventListenerBehavior;
 
-public abstract class SelectEventListener extends AbstractEventListenerBehavior {
+public abstract class SelectEventListener extends AbstractEventListenerBehavior
+{
     private static final long serialVersionUID = 1L;
     
     public SelectEventListener()
@@ -15,7 +16,7 @@ public abstract class SelectEventListener extends AbstractEventListenerBehavior 
     {
         return "{" +                                
                 "\"value\":" + eventVarName + "target.value()," + 
-                "\"enabled\":" + eventVarName + ".target.enabled()," + 
+                "\"enabled\":" + eventVarName + ".target.enabled()" + 
                 "}";
     }
 }

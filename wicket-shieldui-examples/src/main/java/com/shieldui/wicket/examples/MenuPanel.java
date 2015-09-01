@@ -23,6 +23,7 @@ public class MenuPanel extends Panel
         
         add(new BookmarkablePageLink("barcode", Barcode.class));
         add(new BookmarkablePageLink("qrcode", QrCode.class));
+        add(new BookmarkablePageLink("grid", GridDemos.class));
         add(new BookmarkablePageLink("tagcloud", TagCloudDemo.class));
         add(new BookmarkablePageLink("treemap", TreeMapDemo.class));
         add(new BookmarkablePageLink("slider", SliderDemo.class));

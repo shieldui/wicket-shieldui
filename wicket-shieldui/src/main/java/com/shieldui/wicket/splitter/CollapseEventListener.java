@@ -15,7 +15,7 @@ public abstract class CollapseEventListener extends AbstractEventListenerBehavio
     protected String toJson(String varName)
     {
         return "{" +                                
-                "\"paneIndex\":" + eventVarName + ".paneIndex," +                
+                "\"paneIndex\":" + eventVarName + ".paneIndex" +                
                 "}";
     }
 }

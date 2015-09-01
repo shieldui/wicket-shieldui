@@ -15,7 +15,7 @@ public abstract class ResizeEventListener extends AbstractEventListenerBehavior
     protected String toJson(String varName)
     {
         return "{" +                                
-                "\"paneIndex\":" + eventVarName + ".paneIndex," +                
+                "\"paneIndex\":" + eventVarName + ".paneIndex" +                
                 "}";
     }
 }

@@ -2,7 +2,8 @@ package com.shieldui.wicket.window;
 
 import com.shieldui.wicket.AbstractEventListenerBehavior;
 
-public abstract class MinimizeEventListener extends AbstractEventListenerBehavior {
+public abstract class MinimizeEventListener extends AbstractEventListenerBehavior
+{
     private static final long serialVersionUID = 1L;
     
     public MinimizeEventListener()
@@ -14,7 +15,7 @@ public abstract class MinimizeEventListener extends AbstractEventListenerBehavio
     protected String toJson(String varName)
     {
         return "{" +
-                "\"minimized\":" + eventVarName + ".minimized," + 
+                "\"minimized\":" + eventVarName + ".minimized" + 
                 "}";
     }
 }
