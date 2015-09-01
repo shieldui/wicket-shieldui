@@ -1,6 +1,5 @@
 package com.shieldui.wicket.examples;
 
-import com.shieldui.wicket.radiobutton.RadioButtonOptions;
 import com.shieldui.wicket.radiobutton.RadioButton;
 import org.apache.wicket.markup.html.WebPage;
 
