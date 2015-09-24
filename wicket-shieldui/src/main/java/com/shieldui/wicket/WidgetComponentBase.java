@@ -84,4 +84,13 @@ public abstract class WidgetComponentBase extends WebMarkupContainer implements 
             )
         );
     }
+    
+    public void focus(AjaxRequestTarget target)
+    {
+        target.appendJavaScript(
+            jsClosure(
+                "var sw = $('#" + getMarkupId() + "').swidget('" + getWidgetType() + "'); if (sw) { sw.focus(); }"
+            )
+        );
+    }
 }

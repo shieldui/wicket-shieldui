@@ -3,7 +3,8 @@ package com.shieldui.wicket.dropdown;
 import com.shieldui.wicket.WidgetComponentBase;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-public class DropDown extends WidgetComponentBase {
+public class DropDown extends WidgetComponentBase
+{
     private static final long serialVersionUID = 1L;
     
     private final DropDownOptions options = new DropDownOptions();

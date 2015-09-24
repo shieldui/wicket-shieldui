@@ -126,7 +126,6 @@ public class ComboBoxOptions extends OptionsBase {
     public Integer dropDownWidth;
     public Integer dropDownHeight;
     public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
-    
     public AutoCompleteOptions autoComplete = new AutoCompleteOptions();
     public AnimationOptions animation = new AnimationOptions();
 

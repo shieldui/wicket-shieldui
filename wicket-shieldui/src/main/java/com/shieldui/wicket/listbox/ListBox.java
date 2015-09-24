@@ -3,7 +3,8 @@ package com.shieldui.wicket.listbox;
 import com.shieldui.wicket.WidgetComponentBase;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-public class ListBox extends WidgetComponentBase {
+public class ListBox extends WidgetComponentBase
+{
     private static final long serialVersionUID = 1L;
     
     private final ListBoxOptions options = new ListBoxOptions();

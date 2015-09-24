@@ -7,7 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import org.apache.wicket.ajax.json.JsonFunction;
 
-public class ListBoxOptions extends OptionsBase {
+public class ListBoxOptions extends OptionsBase
+{
     private static final long serialVersionUID = 1L;
     
     public enum Event
