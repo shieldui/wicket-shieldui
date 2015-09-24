@@ -3,7 +3,9 @@
  */
 package com.shieldui.wicket.examples;
 
-import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import com.shieldui.wicket.datasource.DataSourceOptions;
+import com.shieldui.wicket.menu.Menu;
+import java.util.HashMap;
 import org.apache.wicket.markup.html.panel.Panel;
 
 public class MenuPanel extends Panel
@@ -14,44 +16,89 @@ public class MenuPanel extends Panel
     {
         super(id);
         
-        add(new BookmarkablePageLink("home", HomePage.class));
-        add(new BookmarkablePageLink("bar", BarDemos.class));
-        add(new BookmarkablePageLink("bubble", BubbleDemos.class));
-        add(new BookmarkablePageLink("range", RangeDemos.class));
-        add(new BookmarkablePageLink("step", StepDemos.class));
-        add(new BookmarkablePageLink("polar", PolarDemos.class));
+        final Menu menu = new Menu("menu");
+        add(menu);
         
-        add(new BookmarkablePageLink("barcode", Barcode.class));
-        add(new BookmarkablePageLink("qrcode", QrCode.class));
-        add(new BookmarkablePageLink("grid", GridDemos.class));
-        add(new BookmarkablePageLink("tagcloud", TagCloudDemo.class));
-        add(new BookmarkablePageLink("treemap", TreeMapDemo.class));
-        add(new BookmarkablePageLink("slider", SliderDemo.class));
-        add(new BookmarkablePageLink("splitter", SplitterDemo.class));
-        add(new BookmarkablePageLink("maskedtextbox", MaskedTextBoxDemo.class));
-        add(new BookmarkablePageLink("numerictextbox", NumericTextBoxDemo.class));
-        add(new BookmarkablePageLink("listbox", ListBoxDemo.class));
-        add(new BookmarkablePageLink("radiobutton", RadioButtonDemo.class));
-        add(new BookmarkablePageLink("checkbox", CheckBoxDemo.class));
-        add(new BookmarkablePageLink("textbox", TextBoxDemo.class));
-        add(new BookmarkablePageLink("combobox", ComboBoxDemo.class));
-        add(new BookmarkablePageLink("dropdown", DropDownDemo.class));
-        add(new BookmarkablePageLink("datepicker", DatePickerDemo.class));
-        add(new BookmarkablePageLink("monthyearpicker", MonthYearPickerDemo.class));
-        add(new BookmarkablePageLink("timepicker", TimePickerDemo.class));
-        add(new BookmarkablePageLink("datetimepicker", DateTimePickerDemo.class));
-        add(new BookmarkablePageLink("loadingpanel", LoadingPanelDemo.class));
-        add(new BookmarkablePageLink("rating", RatingDemo.class));
-        add(new BookmarkablePageLink("pager", PagerDemo.class));
-        add(new BookmarkablePageLink("window", WindowDemo.class));
-        add(new BookmarkablePageLink("colorpicker", ColorPickerDemo.class));
-        
-        add(new BookmarkablePageLink("datasource", DataSourceDemo.class));
-        add(new BookmarkablePageLink("input", InputDemos.class));
-        add(new BookmarkablePageLink("layout", LayoutDemos.class));
-        add(new BookmarkablePageLink("button", Button.class));
-        add(new BookmarkablePageLink("progressbar", ProgressBar.class));
-        add(new BookmarkablePageLink("calendar", Calendar.class));
-        
+        menu.getOptions()
+                .setCls("topmenu")
+                .setDataSource(new DataSourceOptions()
+                    .setData(
+                        new HashMap<String, Object>() {{
+                            put("content", "Data Visualization");
+                            put("items", new Object[] {
+                                getUrlItem("Miscellaneous", HomePage.class),
+                                getUrlItem("Bar Charts", BarDemos.class),
+                                getUrlItem("Bubble Charts", BubbleDemos.class),
+                                getUrlItem("Range Charts", RangeDemos.class),
+                                getUrlItem("Step Charts", StepDemos.class),
+                                getUrlItem("Polar Charts", PolarDemos.class),
+                                getSeparatorItem(),
+                                getUrlItem("Barcode", Barcode.class),
+                                getUrlItem("QR Code", QrCode.class),
+                                getSeparatorItem(),
+                                getUrlItem("TagCloud", TagCloudDemo.class),
+                                getUrlItem("TreeMap", TreeMapDemo.class)
+                            });
+                        }},
+                        new HashMap<String, Object>() {{
+                            put("content", "Layout");
+                            put("items", new Object[] {
+                                getUrlItem("Grid", GridDemos.class),
+                                getSeparatorItem(),
+                                getUrlItem("Miscellaneous", LayoutDemos.class),
+                                getUrlItem("LoadingPanel", LoadingPanelDemo.class),
+                                getUrlItem("Pager", PagerDemo.class),
+                                getUrlItem("ProgressBar", ProgressBar.class),
+                                getUrlItem("Rating", RatingDemo.class),
+                                getUrlItem("Splitter", SplitterDemo.class),
+                                getUrlItem("Window", WindowDemo.class),
+                            });
+                        }},
+                        new HashMap<String, Object>() {{
+                            put("content", "Editors");
+                            put("items", new Object[] {
+                                getUrlItem("Inputs", InputDemos.class),
+                                getUrlItem("Button", Button.class),
+                                getUrlItem("CheckBox", CheckBoxDemo.class),
+                                getUrlItem("ColorPicker", ColorPickerDemo.class),
+                                getUrlItem("ComboBox", ComboBoxDemo.class),
+                                getUrlItem("DropDown", DropDownDemo.class),
+                                getUrlItem("ListBox", ListBoxDemo.class),
+                                getUrlItem("MaskedTextBox", MaskedTextBoxDemo.class),
+                                getUrlItem("NumericTextBox", NumericTextBoxDemo.class),
+                                getUrlItem("RadioButton", RadioButtonDemo.class),
+                                getUrlItem("Slider", SliderDemo.class),
+                                getUrlItem("TextBox", TextBoxDemo.class),
+                                getSeparatorItem(),
+                                getUrlItem("Calendar", Calendar.class),
+                                getUrlItem("DatePicker", DatePickerDemo.class),
+                                getUrlItem("DateTimePicker", DateTimePickerDemo.class),
+                                getUrlItem("MonthYearPicker", MonthYearPickerDemo.class),
+                                getUrlItem("TimePicker", TimePickerDemo.class)
+                            });
+                        }},
+                        new HashMap<String, Object>() {{
+                            put("content", "Framework");
+                            put("items", new Object[] {
+                                getUrlItem("DataSource", DataSourceDemo.class)
+                            });
+                        }}
+                    )
+                );
+    }
+    
+    private HashMap<String, Object> getUrlItem(final String name, final Class cls)
+    {
+        return new HashMap<String, Object>() {{
+            put("content", name);
+            put("href", urlFor(cls, null));
+        }};
+    }
+    
+    private HashMap<String, Object> getSeparatorItem()
+    {
+        return new HashMap<String, Object>() {{
+            put("separator", true);
+        }};
     }
 }
