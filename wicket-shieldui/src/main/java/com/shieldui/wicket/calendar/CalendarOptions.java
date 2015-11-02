@@ -109,7 +109,7 @@ public class CalendarOptions extends OptionsBase
         public Depth start;
     }
 
-    // override the serializeVariable to handle serialization of some settings that deai with dates
+    // override the serializeVariable to handle serialization of some settings that deal with dates
     @Override
     protected void serializeVariable(Class type, String name, Object value, HashMap<String, Object> result)
     {

@@ -33,6 +33,21 @@ public class GridDemos extends WebPage
         grid1.getOptions().setColumnReorder(true);
         grid1.getOptions().setResizing(true);
         
+        // export to excel options
+        grid1.getOptions().addToolbar(
+                new GridOptions.ToolbarOptions()
+                    .addButton(
+                            new GridOptions.ToolbarButtonOption()
+                                    .setCommandName(GridOptions.ToolbarButtonCommand.EXCEL)
+                                    .setCaption("Export to Excel")
+                                
+                    )
+        );
+        grid1.getOptions().getExportOptions().getExcel()
+                .setDataSource(new DataSourceOptions().setData(new JsonFunction("gridData")))
+                .setReadDataSource(true)
+                .setAuthor("Shield UI Demo Author")
+                .setColumnFields("name", "email");
         
         grid1.add(new ColumnReorderEventListener() {
             @Override

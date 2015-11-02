@@ -6,6 +6,7 @@ import com.shieldui.wicket.datasource.DataSourceOptions;
 import com.shieldui.wicket.pager.PagerOptions.MessagesOptions;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import org.apache.wicket.ajax.json.JsonFunction;
@@ -171,6 +172,7 @@ public class GridOptions extends OptionsBase
     {
         SAVE ("save"),
         INSERT ("insert"),
+        EXCEL ("excel"),
         CANCEL ("cancel");
         
         private final String value;
@@ -195,6 +197,65 @@ public class GridOptions extends OptionsBase
         private final String value;
         
         private ToolbarPosition(String val)
+        {
+            value = val;
+        }
+        
+        @Override
+        public String toString()
+        {
+            return value;
+        }
+    }
+    
+    public enum ExcelCellHorizontalAlignment
+    {
+        LEFT ("left"),
+        RIGHT ("right"),
+        CENTER ("center");
+        
+        private final String value;
+        
+        private ExcelCellHorizontalAlignment(String val)
+        {
+            value = val;
+        }
+        
+        @Override
+        public String toString()
+        {
+            return value;
+        }
+    }
+    
+    public enum ExcelCellVerticalAlignment
+    {
+        TOP ("top"),
+        BOTTOM ("bottom"),
+        CENTER ("center");
+        
+        private final String value;
+        
+        private ExcelCellVerticalAlignment(String val)
+        {
+            value = val;
+        }
+        
+        @Override
+        public String toString()
+        {
+            return value;
+        }
+    }
+    
+    public enum ExcelFileFormat
+    {
+        XML ("xml"),
+        XLSX ("xlsx");
+        
+        private final String value;
+        
+        private ExcelFileFormat(String val)
         {
             value = val;
         }
@@ -893,6 +954,16 @@ public class GridOptions extends OptionsBase
             this.buttons = buttons;
             return this;
         }
+        
+        public ToolbarOptions setButtons(ToolbarButtonOption ... buttons) {
+            this.buttons = Arrays.asList(buttons);
+            return this;
+        }
+        
+        public ToolbarOptions addButton(ToolbarButtonOption button) {
+            this.buttons.add(button);
+            return this;
+        }
 
         public ToolbarPosition getPosition() {
             return position;
@@ -914,6 +985,532 @@ public class GridOptions extends OptionsBase
         
         public ToolbarOptions setTemplate(JsonFunction template) {
             this.template = template;
+            return this;
+        }
+    }
+    
+    public static final class WorksheetColumnOptions extends HashMapSerializable
+    {
+        public Boolean autoWidth;
+        public Integer index;
+        public Integer width;
+
+        public Boolean getAutoWidth() {
+            return autoWidth;
+        }
+
+        public WorksheetColumnOptions setAutoWidth(Boolean autoWidth) {
+            this.autoWidth = autoWidth;
+            return this;
+        }
+
+        public Integer getIndex() {
+            return index;
+        }
+
+        public WorksheetColumnOptions setIndex(Integer index) {
+            this.index = index;
+            return this;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public WorksheetColumnOptions setWidth(Integer width) {
+            this.width = width;
+            return this;
+        }
+    }
+    
+    public static final class WorksheetCellStyle extends HashMapSerializable
+    {
+        public ExcelCellHorizontalAlignment textAlign;
+        public ExcelCellVerticalAlignment verticalAlign;
+        public Boolean wrap;
+        public String format;
+        public Boolean bold;
+        public Boolean italic;
+        public String color;
+        public String fontName;
+        public Integer fontSize;
+
+        public ExcelCellHorizontalAlignment getTextAlign() {
+            return textAlign;
+        }
+
+        public WorksheetCellStyle setTextAlign(ExcelCellHorizontalAlignment textAlign) {
+            this.textAlign = textAlign;
+            return this;
+        }
+
+        public ExcelCellVerticalAlignment getVerticalAlign() {
+            return verticalAlign;
+        }
+
+        public WorksheetCellStyle setVerticalAlign(ExcelCellVerticalAlignment verticalAlign) {
+            this.verticalAlign = verticalAlign;
+            return this;
+        }
+
+        public Boolean getWrap() {
+            return wrap;
+        }
+
+        public WorksheetCellStyle setWrap(Boolean wrap) {
+            this.wrap = wrap;
+            return this;
+        }
+
+        public String getFormat() {
+            return format;
+        }
+
+        public WorksheetCellStyle setFormat(String format) {
+            this.format = format;
+            return this;
+        }
+
+        public Boolean getBold() {
+            return bold;
+        }
+
+        public WorksheetCellStyle setBold(Boolean bold) {
+            this.bold = bold;
+            return this;
+        }
+
+        public Boolean getItalic() {
+            return italic;
+        }
+
+        public WorksheetCellStyle setItalic(Boolean italic) {
+            this.italic = italic;
+            return this;
+        }
+
+        public String getColor() {
+            return color;
+        }
+
+        public WorksheetCellStyle setColor(String color) {
+            this.color = color;
+            return this;
+        }
+
+        public String getFontName() {
+            return fontName;
+        }
+
+        public WorksheetCellStyle setFontName(String fontName) {
+            this.fontName = fontName;
+            return this;
+        }
+
+        public Integer getFontSize() {
+            return fontSize;
+        }
+
+        public WorksheetCellStyle setFontSize(Integer fontSize) {
+            this.fontSize = fontSize;
+            return this;
+        }
+    }
+    
+    public static final class WorksheetCellOptions extends HashMapSerializable
+    {
+        public WorksheetCellStyle style = new WorksheetCellStyle();
+        public DataSourceOptions.SchemaFieldType type;
+        public Object value;
+        public Integer index;
+        public Integer colSpan;
+        public Integer rowSpan;
+
+        public WorksheetCellStyle getStyle() {
+            return style;
+        }
+
+        public WorksheetCellOptions setStyle(WorksheetCellStyle style) {
+            this.style = style;
+            return this;
+        }
+
+        public DataSourceOptions.SchemaFieldType getType() {
+            return type;
+        }
+
+        public WorksheetCellOptions setType(DataSourceOptions.SchemaFieldType type) {
+            this.type = type;
+            return this;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public WorksheetCellOptions setValue(Object value) {
+            this.value = value;
+            return this;
+        }
+
+        public Integer getIndex() {
+            return index;
+        }
+
+        public WorksheetCellOptions setIndex(Integer index) {
+            this.index = index;
+            return this;
+        }
+
+        public Integer getColSpan() {
+            return colSpan;
+        }
+
+        public WorksheetCellOptions setColSpan(Integer colSpan) {
+            this.colSpan = colSpan;
+            return this;
+        }
+
+        public Integer getRowSpan() {
+            return rowSpan;
+        }
+
+        public WorksheetCellOptions setRowSpan(Integer rowSpan) {
+            this.rowSpan = rowSpan;
+            return this;
+        }
+    }
+    
+    public static final class WorksheetRowOptions extends HashMapSerializable
+    {
+        public Integer index;
+        public Integer height;
+        public List<WorksheetCellOptions> cells = new ArrayList<WorksheetCellOptions>();
+
+        public Integer getIndex() {
+            return index;
+        }
+
+        public WorksheetRowOptions setIndex(Integer index) {
+            this.index = index;
+            return this;
+        }
+
+        public Integer getHeight() {
+            return height;
+        }
+
+        public WorksheetRowOptions setHeight(Integer height) {
+            this.height = height;
+            return this;
+        }
+
+        public List<WorksheetCellOptions> getCells() {
+            return cells;
+        }
+
+        public WorksheetRowOptions setCells(List<WorksheetCellOptions> cells) {
+            this.cells = cells;
+            return this;
+        }
+        
+        public WorksheetRowOptions setCells(WorksheetCellOptions ... cells) {
+            this.cells = Arrays.asList(cells);
+            return this;
+        }
+        
+        public WorksheetRowOptions addCell(WorksheetCellOptions cell) {
+            this.cells.add(cell);
+            return this;
+        }
+    }
+    
+    public static final class WorksheetOptions extends HashMapSerializable
+    {
+        public String name;
+        public List<WorksheetColumnOptions> columns = new ArrayList<WorksheetColumnOptions>();
+        public List<WorksheetRowOptions> rows = new ArrayList<WorksheetRowOptions>();
+
+        public String getName() {
+            return name;
+        }
+
+        public WorksheetOptions setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public List<WorksheetColumnOptions> getColumns() {
+            return columns;
+        }
+
+        public WorksheetOptions setColumns(List<WorksheetColumnOptions> columns) {
+            this.columns = columns;
+            return this;
+        }
+        
+        public WorksheetOptions setColumns(WorksheetColumnOptions ... columns) {
+            this.columns = Arrays.asList(columns);
+            return this;
+        }
+        
+        public WorksheetOptions addColumn(WorksheetColumnOptions column) {
+            this.columns.add(column);
+            return this;
+        }
+
+        public List<WorksheetRowOptions> getRows() {
+            return rows;
+        }
+
+        public WorksheetOptions setRows(List<WorksheetRowOptions> rows) {
+            this.rows = rows;
+            return this;
+        }
+        
+        public WorksheetOptions setRows(WorksheetRowOptions ... rows) {
+            this.rows = Arrays.asList(rows);
+            return this;
+        }
+        
+        public WorksheetOptions addRow(WorksheetRowOptions row) {
+            this.rows.add(row);
+            return this;
+        }
+    }
+    
+    public static final class ExcelOptionsHeader extends HashMapSerializable
+    {
+        public Boolean enabled;
+        public WorksheetCellStyle style = new WorksheetCellStyle();
+        public List<WorksheetCellOptions> cells = new ArrayList<WorksheetCellOptions>();
+
+        public Boolean getEnabled() {
+            return enabled;
+        }
+
+        public ExcelOptionsHeader setEnabled(Boolean enabled) {
+            this.enabled = enabled;
+            return this;
+        }
+
+        public WorksheetCellStyle getStyle() {
+            return style;
+        }
+
+        public ExcelOptionsHeader setStyle(WorksheetCellStyle style) {
+            this.style = style;
+            return this;
+        }
+
+        public List<WorksheetCellOptions> getCells() {
+            return cells;
+        }
+
+        public ExcelOptionsHeader setCells(List<WorksheetCellOptions> cells) {
+            this.cells = cells;
+            return this;
+        }
+        
+        public ExcelOptionsHeader setCells(WorksheetCellOptions ... cells) {
+            this.cells = Arrays.asList(cells);
+            return this;
+        }
+        
+        public ExcelOptionsHeader addCell(WorksheetCellOptions cell) {
+            this.cells.add(cell);
+            return this;
+        }
+    }
+    
+    public static final class ExcelOptions extends HashMapSerializable
+    {
+        // override the serializeVariable to handle serialization of some settings that deal with dates
+        @Override
+        protected void serializeVariable(Class type, String name, Object value, HashMap<String, Object> result)
+        {
+            if (value != null && name.equals("created")) {
+                result.put(name, new JsonFunction("new Date(" + ((Date)value).getTime() + ")"));
+            }
+            else {
+                // default functionality
+                super.serializeVariable(type, name, value, result);
+            }
+        }
+        
+        public String fileName;
+        public ExcelFileFormat fileFormat;
+        public Boolean noLegacyFallback;
+        public Date created;
+        public String author;
+        public Object dataSource;
+        public Boolean readDataSource;
+        public List<String> columnFields = new ArrayList<String>();
+        public ExcelOptionsHeader header = new ExcelOptionsHeader();
+        public WorksheetOptions worksheet = new WorksheetOptions();
+        public List<WorksheetOptions> worksheets = new ArrayList<WorksheetOptions>();
+        public Integer worksheetIndex;
+
+        public String getFileName() {
+            return fileName;
+        }
+
+        public ExcelOptions setFileName(String fileName) {
+            this.fileName = fileName;
+            return this;
+        }
+
+        public ExcelFileFormat getFileFormat() {
+            return fileFormat;
+        }
+
+        public ExcelOptions setFileFormat(ExcelFileFormat fileFormat) {
+            this.fileFormat = fileFormat;
+            return this;
+        }
+
+        public Boolean getNoLegacyFallback() {
+            return noLegacyFallback;
+        }
+
+        public ExcelOptions setNoLegacyFallback(Boolean noLegacyFallback) {
+            this.noLegacyFallback = noLegacyFallback;
+            return this;
+        }
+
+        public Date getCreated() {
+            return created;
+        }
+
+        public ExcelOptions setCreated(Date created) {
+            this.created = created;
+            return this;
+        }
+        
+        public ExcelOptions setCreated(java.util.Calendar created) {
+            this.created = created.getTime();
+            return this;
+        }
+
+        public String getAuthor() {
+            return author;
+        }
+
+        public ExcelOptions setAuthor(String author) {
+            this.author = author;
+            return this;
+        }
+
+        public Object getDataSource() {
+            return dataSource;
+        }
+
+        public ExcelOptions setDataSource(DataSourceOptions dataSource) {
+            // NOTE: serialize the DS to a hash explicitly in this case
+            this.dataSource = dataSource.toHashMap();
+            return this;
+        }
+
+        public ExcelOptions setDataSource(JsonFunction dataSource) {
+            this.dataSource = dataSource;
+            return this;
+        }
+
+        public Boolean getReadDataSource() {
+            return readDataSource;
+        }
+
+        public ExcelOptions setReadDataSource(Boolean readDataSource) {
+            this.readDataSource = readDataSource;
+            return this;
+        }
+
+        public List<String> getColumnFields() {
+            return columnFields;
+        }
+
+        public ExcelOptions setColumnFields(List<String> columnFields) {
+            this.columnFields = columnFields;
+            return this;
+        }
+        
+        public ExcelOptions setColumnFields(String ... columnFields) {
+            this.columnFields = Arrays.asList(columnFields);
+            return this;
+        }
+        
+        public ExcelOptions addColumnField(String columnField) {
+            this.columnFields.add(columnField);
+            return this;
+        }
+
+        public ExcelOptionsHeader getHeader() {
+            return header;
+        }
+
+        public ExcelOptions setHeader(ExcelOptionsHeader header) {
+            this.header = header;
+            return this;
+        }
+
+        public WorksheetOptions getWorksheet() {
+            return worksheet;
+        }
+
+        public ExcelOptions setWorksheet(WorksheetOptions worksheet) {
+            this.worksheet = worksheet;
+            return this;
+        }
+
+        public List<WorksheetOptions> getWorksheets() {
+            return worksheets;
+        }
+
+        public ExcelOptions setWorksheets(List<WorksheetOptions> worksheets) {
+            this.worksheets = worksheets;
+            return this;
+        }
+        
+        public ExcelOptions setWorksheets(WorksheetOptions ... worksheets) {
+            this.worksheets = Arrays.asList(worksheets);
+            return this;
+        }
+        
+        public ExcelOptions addWorksheet(WorksheetOptions worksheet) {
+            this.worksheets.add(worksheet);
+            return this;
+        }
+
+        public Integer getWorksheetIndex() {
+            return worksheetIndex;
+        }
+
+        public ExcelOptions setWorksheetIndex(Integer worksheetIndex) {
+            this.worksheetIndex = worksheetIndex;
+            return this;
+        }
+    }
+    
+    public static final class ExportOptions extends HashMapSerializable
+    {
+        public String proxy;
+        public ExcelOptions excel = new ExcelOptions();
+
+        public String getProxy() {
+            return proxy;
+        }
+
+        public ExportOptions setProxy(String proxy) {
+            this.proxy = proxy;
+            return this;
+        }
+
+        public ExcelOptions getExcel() {
+            return excel;
+        }
+
+        public ExportOptions setExcel(ExcelOptions excel) {
+            this.excel = excel;
             return this;
         }
     }
@@ -943,6 +1540,7 @@ public class GridOptions extends OptionsBase
     public Boolean showHeader;
     public Sorting sorting = new Sorting();
     public List<ToolbarOptions> toolbar = new ArrayList<ToolbarOptions>();
+    public ExportOptions exportOptions = new ExportOptions();
 
     public Object getAltRowTemplate() {
         return altRowTemplate;
@@ -1190,13 +1788,27 @@ public class GridOptions extends OptionsBase
         return toolbar;
     }
 
-    public GridOptions setToolbar(List<ToolbarOptions> toolbar) {
-        this.toolbar = toolbar;
+    public GridOptions setToolbar(List<ToolbarOptions> toolbars) {
+        this.toolbar = toolbars;
         return this;
     }
     
-    public GridOptions setToolbar(ToolbarOptions... toolbar) {
-        this.toolbar = Arrays.asList(toolbar);
+    public GridOptions setToolbar(ToolbarOptions... toolbars) {
+        this.toolbar = Arrays.asList(toolbars);
+        return this;
+    }
+    
+    public GridOptions addToolbar(ToolbarOptions toolbar) {
+        this.toolbar.add(toolbar);
+        return this;
+    }
+
+    public ExportOptions getExportOptions() {
+        return exportOptions;
+    }
+
+    public GridOptions setExportOptions(ExportOptions exportOptions) {
+        this.exportOptions = exportOptions;
         return this;
     }
 }
