@@ -49,6 +49,24 @@ public class GridDemos extends WebPage
                 .setAuthor("Shield UI Demo Author")
                 .setColumnFields("name", "email");
         
+        // export to PDF options
+        grid1.getOptions().addToolbar(
+                new GridOptions.ToolbarOptions()
+                    .addButton(
+                            new GridOptions.ToolbarButtonOption()
+                                    .setCommandName(GridOptions.ToolbarButtonCommand.PDF)
+                                    .setCaption("Export to PDF")
+                                
+                    )
+        );
+        grid1.getOptions().getExportOptions().getPdf()
+                .setDataSource(new DataSourceOptions().setData(new JsonFunction("gridData")))
+                .setReadDataSource(true)
+                .setAuthor("Shield UI Demo Author")
+                .setSize(GridOptions.PDFPageSize.A3)
+                .setOrientation(GridOptions.PDFPageOrientation.LANDSCAPE)
+                .setColumnFields("name", "email");
+        
         grid1.add(new ColumnReorderEventListener() {
             @Override
             protected void handleEvent(AjaxRequestTarget target, Object event) {

@@ -173,6 +173,7 @@ public class GridOptions extends OptionsBase
         SAVE ("save"),
         INSERT ("insert"),
         EXCEL ("excel"),
+        PDF ("pdf"),
         CANCEL ("cancel");
         
         private final String value;
@@ -256,6 +257,55 @@ public class GridOptions extends OptionsBase
         private final String value;
         
         private ExcelFileFormat(String val)
+        {
+            value = val;
+        }
+        
+        @Override
+        public String toString()
+        {
+            return value;
+        }
+    }
+    
+    public enum PDFPageSize
+    {
+        A0 ("a0"),
+        A1 ("a1"),
+        A2 ("a2"),
+        A3 ("a3"),
+        A4 ("a4"),
+        A5 ("a5"),
+        A6 ("a6"),
+        A7 ("a7"),
+        A8 ("a8"),
+        LETTER ("letter"),
+        GOVERNMENT_LETTER ("government-letter"),
+        LEGAL ("legal"),
+        CREDIT_CARD ("credit-card");
+        
+        private final String value;
+        
+        private PDFPageSize(String val)
+        {
+            value = val;
+        }
+        
+        @Override
+        public String toString()
+        {
+            return value;
+        }
+    }
+    
+    public enum PDFPageOrientation
+    {
+        PORTRAIT ("portrait"),
+        LANDSCAPE ("landscape");
+        
+        private final String value;
+        
+        private PDFPageOrientation(String val)
         {
             value = val;
         }
@@ -1491,10 +1541,243 @@ public class GridOptions extends OptionsBase
         }
     }
     
+    public static final class PdfOptionsHeaderCell extends HashMapSerializable
+    {
+        public String field;
+        public String title;
+        public Integer width;
+
+        public String getField() {
+            return field;
+        }
+
+        public PdfOptionsHeaderCell setField(String field) {
+            this.field = field;
+            return this;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public PdfOptionsHeaderCell setTitle(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public Integer getWidth() {
+            return width;
+        }
+
+        public PdfOptionsHeaderCell setWidth(Integer width) {
+            this.width = width;
+            return this;
+        }
+    }
+    
+    public static final class PdfOptionsHeader extends HashMapSerializable
+    {
+        public Boolean enabled;
+        public List<PdfOptionsHeaderCell> cells = new ArrayList<PdfOptionsHeaderCell>();
+
+        public Boolean getEnabled() {
+            return enabled;
+        }
+
+        public PdfOptionsHeader setEnabled(Boolean enabled) {
+            this.enabled = enabled;
+            return this;
+        }
+
+        public List<PdfOptionsHeaderCell> getCells() {
+            return cells;
+        }
+
+        public PdfOptionsHeader setCells(List<PdfOptionsHeaderCell> cells) {
+            this.cells = cells;
+            return this;
+        }
+        
+        public PdfOptionsHeader setCells(PdfOptionsHeaderCell... cells) {
+            this.cells = Arrays.asList(cells);
+            return this;
+        }
+        
+        public PdfOptionsHeader addCell(PdfOptionsHeaderCell cell) {
+            this.cells.add(cell);
+            return this;
+        }
+    }
+    
+    public static final class PdfOptionsMargins extends HashMapSerializable
+    {
+        public Integer left;
+        public Integer top;
+        public Integer bottom;
+
+        public Integer getLeft() {
+            return left;
+        }
+
+        public PdfOptionsMargins setLeft(Integer left) {
+            this.left = left;
+            return this;
+        }
+
+        public Integer getTop() {
+            return top;
+        }
+
+        public PdfOptionsMargins setTop(Integer top) {
+            this.top = top;
+            return this;
+        }
+
+        public Integer getBottom() {
+            return bottom;
+        }
+
+        public PdfOptionsMargins setBottom(Integer bottom) {
+            this.bottom = bottom;
+            return this;
+        }
+    }
+    
+    public static final class PdfOptions extends HashMapSerializable
+    {
+        public String fileName;
+        public String author;
+        public Date created;
+        public PDFPageSize size;
+        public PDFPageOrientation orientation;
+        public Integer fontSize;
+        public Object dataSource;
+        public Boolean readDataSource;
+        public List<String> columnFields = new ArrayList<String>();
+        public PdfOptionsHeader header = new PdfOptionsHeader();
+        public PdfOptionsMargins margins = new PdfOptionsMargins();
+
+        public String getFileName() {
+            return fileName;
+        }
+
+        public PdfOptions setFileName(String fileName) {
+            this.fileName = fileName;
+            return this;
+        }
+
+        public String getAuthor() {
+            return author;
+        }
+
+        public PdfOptions setAuthor(String author) {
+            this.author = author;
+            return this;
+        }
+
+        public Date getCreated() {
+            return created;
+        }
+
+        public PdfOptions setCreated(Date created) {
+            this.created = created;
+            return this;
+        }
+
+        public PDFPageSize getSize() {
+            return size;
+        }
+
+        public PdfOptions setSize(PDFPageSize size) {
+            this.size = size;
+            return this;
+        }
+
+        public PDFPageOrientation getOrientation() {
+            return orientation;
+        }
+
+        public PdfOptions setOrientation(PDFPageOrientation orientation) {
+            this.orientation = orientation;
+            return this;
+        }
+
+        public Integer getFontSize() {
+            return fontSize;
+        }
+
+        public PdfOptions setFontSize(Integer fontSize) {
+            this.fontSize = fontSize;
+            return this;
+        }
+
+        public Object getDataSource() {
+            return dataSource;
+        }
+        
+        public PdfOptions setDataSource(DataSourceOptions dataSource) {
+            // NOTE: serialize the DS to a hash explicitly in this case
+            this.dataSource = dataSource.toHashMap();
+            return this;
+        }
+
+        public PdfOptions setDataSource(JsonFunction dataSource) {
+            this.dataSource = dataSource;
+            return this;
+        }
+
+        public Boolean getReadDataSource() {
+            return readDataSource;
+        }
+
+        public PdfOptions setReadDataSource(Boolean readDataSource) {
+            this.readDataSource = readDataSource;
+            return this;
+        }
+
+        public List<String> getColumnFields() {
+            return columnFields;
+        }
+
+        public PdfOptions setColumnFields(List<String> columnFields) {
+            this.columnFields = columnFields;
+            return this;
+        }
+        
+        public PdfOptions setColumnFields(String... columnFields) {
+            this.columnFields = Arrays.asList(columnFields);
+            return this;
+        }
+        
+        public PdfOptions addColumnField(String columnField) {
+            this.columnFields.add(columnField);
+            return this;
+        }
+
+        public PdfOptionsHeader getHeader() {
+            return header;
+        }
+
+        public PdfOptions setHeader(PdfOptionsHeader header) {
+            this.header = header;
+            return this;
+        }
+
+        public PdfOptionsMargins getMargins() {
+            return margins;
+        }
+
+        public PdfOptions setMargins(PdfOptionsMargins margins) {
+            this.margins = margins;
+            return this;
+        }
+    }
+    
     public static final class ExportOptions extends HashMapSerializable
     {
         public String proxy;
         public ExcelOptions excel = new ExcelOptions();
+        public PdfOptions pdf = new PdfOptions();
 
         public String getProxy() {
             return proxy;
@@ -1511,6 +1794,15 @@ public class GridOptions extends OptionsBase
 
         public ExportOptions setExcel(ExcelOptions excel) {
             this.excel = excel;
+            return this;
+        }
+        
+        public PdfOptions getPdf() {
+            return pdf;
+        }
+
+        public ExportOptions setPdf(PdfOptions pdf) {
+            this.pdf = pdf;
             return this;
         }
     }
