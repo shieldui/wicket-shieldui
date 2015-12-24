@@ -22,7 +22,10 @@ public class GridDemos extends WebPage
         add(grid1);
         
         // setup some grid options
-        grid1.getOptions().setDataSource(new DataSourceOptions().setData(new JsonFunction("gridData")));
+        grid1.getOptions().setDataSource(new DataSourceOptions()
+                .setData(new JsonFunction("gridData"))
+                .setGroup(new DataSourceOptions.GroupOption().setField("gender").setOrder(DataSourceOptions.Order.ASC))
+        );
         grid1.getOptions().getPaging().setPageSize(12).setPageLinksCount(10);
         grid1.getOptions().setAltRows(false);
         grid1.getOptions().setColumns(
@@ -33,7 +36,7 @@ public class GridDemos extends WebPage
         grid1.getOptions().setColumnReorder(true);
         grid1.getOptions().setResizing(true);
         
-        // export to excel options
+        // export to excel and pdf options
         grid1.getOptions().addToolbar(
                 new GridOptions.ToolbarOptions()
                     .addButton(
@@ -42,16 +45,6 @@ public class GridDemos extends WebPage
                                     .setCaption("Export to Excel")
                                 
                     )
-        );
-        grid1.getOptions().getExportOptions().getExcel()
-                .setDataSource(new DataSourceOptions().setData(new JsonFunction("gridData")))
-                .setReadDataSource(true)
-                .setAuthor("Shield UI Demo Author")
-                .setColumnFields("name", "email");
-        
-        // export to PDF options
-        grid1.getOptions().addToolbar(
-                new GridOptions.ToolbarOptions()
                     .addButton(
                             new GridOptions.ToolbarButtonOption()
                                     .setCommandName(GridOptions.ToolbarButtonCommand.PDF)
@@ -59,6 +52,11 @@ public class GridDemos extends WebPage
                                 
                     )
         );
+        grid1.getOptions().getExportOptions().getExcel()
+                .setDataSource(new DataSourceOptions().setData(new JsonFunction("gridData")))
+                .setReadDataSource(true)
+                .setAuthor("Shield UI Demo Author")
+                .setColumnFields("name", "email");
         grid1.getOptions().getExportOptions().getPdf()
                 .setDataSource(new DataSourceOptions().setData(new JsonFunction("gridData")))
                 .setReadDataSource(true)
@@ -66,7 +64,8 @@ public class GridDemos extends WebPage
                 .setSize(GridOptions.PDFPageSize.A3)
                 .setOrientation(GridOptions.PDFPageOrientation.LANDSCAPE)
                 .setColumnFields("name", "email");
-        
+                
+        // add server-side column reorder event handler
         grid1.add(new ColumnReorderEventListener() {
             @Override
             protected void handleEvent(AjaxRequestTarget target, Object event) {

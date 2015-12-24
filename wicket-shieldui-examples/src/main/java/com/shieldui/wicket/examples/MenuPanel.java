@@ -5,7 +5,9 @@ package com.shieldui.wicket.examples;
 
 import com.shieldui.wicket.datasource.DataSourceOptions;
 import com.shieldui.wicket.menu.Menu;
+import com.shieldui.wicket.menu.MenuOptions;
 import java.util.HashMap;
+import org.apache.wicket.ajax.json.JsonFunction;
 import org.apache.wicket.markup.html.panel.Panel;
 
 public class MenuPanel extends Panel
@@ -85,6 +87,10 @@ public class MenuPanel extends Panel
                         }}
                     )
                 );
+        
+        menu.getOptions().setEvents(new HashMap<MenuOptions.Event, JsonFunction>() {{
+            put(MenuOptions.Event.CLICK, new JsonFunction("function(e) { this.expanded(false); }"));
+        }});
     }
     
     private HashMap<String, Object> getUrlItem(final String name, final Class cls)
