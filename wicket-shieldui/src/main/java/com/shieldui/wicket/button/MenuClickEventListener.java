@@ -2,13 +2,13 @@ package com.shieldui.wicket.button;
 
 import com.shieldui.wicket.AbstractEventListenerBehavior;
 
-public abstract class ClickEventListener extends AbstractEventListenerBehavior
+public abstract class MenuClickEventListener extends AbstractEventListenerBehavior
 {
     private static final long serialVersionUID = 1L;
     
-    public ClickEventListener()
+    public MenuClickEventListener()
     {
-        super(ButtonOptions.Event.CLICK.toString());
+        super(SplitButtonOptions.Event.MENU_CLICK.toString());
     }
     
     @Override
@@ -17,7 +17,8 @@ public abstract class ClickEventListener extends AbstractEventListenerBehavior
         return "{" +
                 "\"visible\":this.visible()," + 
                 "\"enabled\":this.enabled()," + 
-                "\"checked\":this.checked()" +
+                "\"checked\":this.checked()," +
+                "\"item\":" + eventVarName + ".item" +
                 "}";
     }
 }

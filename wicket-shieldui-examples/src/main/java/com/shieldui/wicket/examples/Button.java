@@ -2,6 +2,9 @@ package com.shieldui.wicket.examples;
 
 import com.shieldui.wicket.button.ButtonOptions;
 import com.shieldui.wicket.button.ClickEventListener;
+import com.shieldui.wicket.button.MenuClickEventListener;
+import com.shieldui.wicket.button.SplitButton;
+import com.shieldui.wicket.datasource.DataSourceOptions;
 import com.shieldui.wicket.toggle.Switch;
 import com.shieldui.wicket.tooltip.Tooltip;
 import java.util.HashMap;
@@ -134,5 +137,46 @@ public class Button extends WebPage
         });
         
         add(swlbl, sw);
+        
+        // split button
+        final SplitButton splitButton1 = new SplitButton("splitButton1");
+        add(splitButton1);
+        
+        splitButton1.getOptions()
+                .setMenu("#sbMenu1");
+        
+        final SplitButton splitButton2 = new SplitButton("splitButton2");
+        splitButton2.getOptions()
+                .setDataSource(new DataSourceOptions()
+                        .setData(
+                                new HashMap<String, String>() {{
+                                    put("content", "Menu One");
+                                }},
+                                new HashMap<String, String>() {{
+                                    put("content", "Menu 222");
+                                }},
+                                new HashMap<String, String>() {{
+                                    put("content", "Menu 333");
+                                }}
+                        ));
+        splitButton2.add(new ClickEventListener() {
+            @Override
+            protected void handleEvent(AjaxRequestTarget target, Object event) {
+                System.err.println("Split Button 2 Click");
+            }
+        });
+        splitButton2.add(new MenuClickEventListener() {
+            @Override
+            protected void handleEvent(AjaxRequestTarget target, Object event) {
+                System.err.println("Split Button 2 MenuClick");
+                
+                HashMap<String, Object> item = (HashMap<String, Object>) ((HashMap<String, Object>) event).get("item");
+                System.err.println(item);
+                
+                splitButton2.closeMenu(target);
+            }
+        });
+        
+        add(splitButton2);
     }
 }
