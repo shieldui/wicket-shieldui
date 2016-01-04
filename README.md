@@ -21,11 +21,14 @@ Supported Widgets
 #### Layout
 - [Grid](https://www.shieldui.com/products/grid)
 - [Accordion](https://www.shieldui.com/products/accordion)
+- [ContextMenu](https://www.shieldui.com/products/contextmenu)
 - [LoadingPanel](https://www.shieldui.com/products/loadingpanel)
+- [Menu](https://www.shieldui.com/products/menu)
 - [Pager](https://www.shieldui.com/products/pager)
 - [ProgressBar](https://www.shieldui.com/products/progressbar)
 - [Rating](https://www.shieldui.com/products/rating)
 - [Splitter](https://www.shieldui.com/products/splitter)
+- [Tabs](https://www.shieldui.com/products/tabs)
 - [Tooltip](https://www.shieldui.com/products/tooltip)
 - [Window](https://www.shieldui.com/products/window)
 
@@ -45,6 +48,7 @@ Supported Widgets
 - [NumericTextBox](https://www.shieldui.com/products/numerictextbox)
 - [RadioButton](https://www.shieldui.com/products/radiobutton)
 - [Slider](https://www.shieldui.com/products/slider)
+- [SplitButton](https://www.shieldui.com/products/button)
 - [Switch](https://www.shieldui.com/products/switch)
 - [TextBox](https://www.shieldui.com/products/textbox)
 - [TimePicker](https://www.shieldui.com/products/timepicker)
