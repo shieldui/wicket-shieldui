@@ -135,6 +135,10 @@ public class MenuOptions extends OptionsBase
         return this;
     }
 
+    public Object getDataSource() {
+        return this.dataSource;
+    }
+    
     public MenuOptions setDataSource(DataSourceOptions dataSource) {
         // NOTE: serialize the DS to a hash explicitly in this case
         this.dataSource = dataSource.toHashMap();

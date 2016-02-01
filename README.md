@@ -30,6 +30,7 @@ Supported Widgets
 - [Splitter](https://www.shieldui.com/products/splitter)
 - [Tabs](https://www.shieldui.com/products/tabs)
 - [Tooltip](https://www.shieldui.com/products/tooltip)
+- [TreeView](https://www.shieldui.com/products/treeview)
 - [Window](https://www.shieldui.com/products/window)
 
 #### Editors

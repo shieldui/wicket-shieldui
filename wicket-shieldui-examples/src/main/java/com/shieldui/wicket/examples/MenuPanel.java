@@ -53,6 +53,7 @@ public class MenuPanel extends Panel
                                 getUrlItem("ProgressBar", ProgressBar.class),
                                 getUrlItem("Rating", RatingDemo.class),
                                 getUrlItem("Splitter", SplitterDemo.class),
+                                getUrlItem("TreeView", TreeViewDemo.class),
                                 getUrlItem("Window", WindowDemo.class),
                             });
                         }},
