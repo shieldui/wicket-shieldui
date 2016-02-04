@@ -1,7 +1,6 @@
 package com.shieldui.wicket.examples;
 
 import com.shieldui.wicket.datasource.DataSourceOptions;
-import com.shieldui.wicket.datasource.RecursiveDataSource;
 import com.shieldui.wicket.treeview.ChangeEventListener;
 import com.shieldui.wicket.treeview.TreeView;
 import java.util.HashMap;

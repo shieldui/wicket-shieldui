@@ -122,7 +122,6 @@ public class TreeViewOptions extends OptionsBase
     public CheckboxOptions checkboxes = new CheckboxOptions();
     public Boolean dragDrop;
     public String dragDropScope;
-    public Object clsTemplate;
     public Object textTemplate;
     public Object hrefTemplate;
     public Object expandedTemplate;
@@ -246,20 +245,6 @@ public class TreeViewOptions extends OptionsBase
 
     public TreeViewOptions setDragDropScope(String dragDropScope) {
         this.dragDropScope = dragDropScope;
-        return this;
-    }
-
-    public Object getClsTemplate() {
-        return clsTemplate;
-    }
-
-    public TreeViewOptions setClsTemplate(String clsTemplate) {
-        this.clsTemplate = clsTemplate;
-        return this;
-    }
-    
-    public TreeViewOptions setClsTemplate(JsonFunction clsTemplate) {
-        this.clsTemplate = clsTemplate;
         return this;
     }
 
