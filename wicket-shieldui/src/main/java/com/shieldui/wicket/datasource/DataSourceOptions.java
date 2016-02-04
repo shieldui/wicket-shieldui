@@ -703,8 +703,9 @@ public class DataSourceOptions extends OptionsBase
         return remote;
     }
 
-    public void setRemote(Remote remote) {
+    public DataSourceOptions setRemote(Remote remote) {
         this.remote = remote;
+        return this;
     }
     
     public Schema getSchema() {
