@@ -53,6 +53,7 @@ Supported Widgets
 - [Switch](https://www.shieldui.com/products/switch)
 - [TextBox](https://www.shieldui.com/products/textbox)
 - [TimePicker](https://www.shieldui.com/products/timepicker)
+- [Upload](https://www.shieldui.com/products/upload)
 
 #### Framework
 - [DataSource](https://www.shieldui.com/products/datasource)

@@ -77,7 +77,9 @@ public class MenuPanel extends Panel
                                 getUrlItem("DatePicker", DatePickerDemo.class),
                                 getUrlItem("DateTimePicker", DateTimePickerDemo.class),
                                 getUrlItem("MonthYearPicker", MonthYearPickerDemo.class),
-                                getUrlItem("TimePicker", TimePickerDemo.class)
+                                getUrlItem("TimePicker", TimePickerDemo.class),
+                                getSeparatorItem(),
+                                getUrlItem("Upload", UploadDemo.class)
                             });
                         }},
                         new HashMap<String, Object>() {{
