@@ -43,6 +43,7 @@ Supported Widgets
 - [DatePicker](https://www.shieldui.com/products/datepicker)
 - [DateTimePicker](https://www.shieldui.com/products/datetimepicker)
 - [DropDown](https://www.shieldui.com/products/dropdown)
+- [Editor](https://www.shieldui.com/products/editor)
 - [ListBox](https://www.shieldui.com/products/listbox)
 - [MaskedTextBox](https://www.shieldui.com/products/maskedtextbox)
 - [MonthYearPicker](https://www.shieldui.com/products/monthyearpicker)
