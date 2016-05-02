@@ -1,9 +1,9 @@
 package com.shieldui.wicket.examples;
 
 import com.shieldui.wicket.datasource.DataSourceOptions;
-import com.shieldui.wicket.tremap.ClickEventListener;
-import com.shieldui.wicket.tremap.TreeMap;
-import com.shieldui.wicket.tremap.TreeMapOptions;
+import com.shieldui.wicket.treemap.ClickEventListener;
+import com.shieldui.wicket.treemap.TreeMap;
+import com.shieldui.wicket.treemap.TreeMapOptions;
 import java.util.HashMap;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.json.JsonFunction;

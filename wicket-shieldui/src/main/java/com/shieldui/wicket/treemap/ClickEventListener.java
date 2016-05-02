@@ -1,4 +1,4 @@
-package com.shieldui.wicket.tremap;
+package com.shieldui.wicket.treemap;
 
 import com.shieldui.wicket.AbstractEventListenerBehavior;
 
