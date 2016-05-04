@@ -15,6 +15,7 @@ public class EditorOptions extends OptionsBase
     public enum Event
     {
         EXECUTE ("execute"),
+        KEYDOWN ("keydown"),
         KEYUP ("keyup");
         
         private final String value;
