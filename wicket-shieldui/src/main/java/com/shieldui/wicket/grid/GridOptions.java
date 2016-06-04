@@ -370,6 +370,8 @@ public class GridOptions extends OptionsBase
         public Object editor;
         public String field;
         public Boolean filterable;
+        public Boolean visible;
+        public Boolean locked;
         public Object footerTemplate;
         public Object format;
         public Object groupFooterTemplate;
@@ -462,6 +464,24 @@ public class GridOptions extends OptionsBase
 
         public ColumnOption setFilterable(Boolean filterable) {
             this.filterable = filterable;
+            return this;
+        }
+
+        public Boolean getVisible() {
+            return visible;
+        }
+
+        public ColumnOption setVisible(Boolean visible) {
+            this.visible = visible;
+            return this;
+        }
+
+        public Boolean getLocked() {
+            return locked;
+        }
+
+        public ColumnOption setLocked(Boolean locked) {
+            this.locked = locked;
             return this;
         }
 
