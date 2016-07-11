@@ -20,6 +20,7 @@ public class GridOptions extends OptionsBase
     {
         CANCEL ("cancel"),
         COLUMN_REORDER ("columnReorder"),
+        COLUMN_RESIZE ("columnResize"),
         COMMAND ("command"),
         DATA_BOUND ("dataBound"),
         DELETE ("delete"),
