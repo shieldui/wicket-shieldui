@@ -3,7 +3,8 @@ package com.shieldui.wicket.textbox;
 import com.shieldui.wicket.WidgetComponentBase;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 
-public class TextBox extends WidgetComponentBase {
+public class TextBox extends WidgetComponentBase
+{
     private static final long serialVersionUID = 1L;
     
     private final TextBoxOptions options = new TextBoxOptions();

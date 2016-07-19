@@ -5,7 +5,8 @@ import com.shieldui.wicket.timepicker.TimePicker;
 import java.util.Date;
 import org.apache.wicket.markup.html.WebPage;
 
-public class TimePickerDemo extends WebPage {
+public class TimePickerDemo extends WebPage
+{
     private static final long serialVersionUID = 1L;
     
     public TimePickerDemo()

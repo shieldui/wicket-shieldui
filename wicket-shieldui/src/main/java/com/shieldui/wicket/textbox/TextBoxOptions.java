@@ -8,7 +8,8 @@ import com.shieldui.wicket.textbox.TextBoxOptions.AutoCompleteOptions.AnimationO
 import java.util.HashMap;
 import org.apache.wicket.ajax.json.JsonFunction;
 
-public class TextBoxOptions extends OptionsBase {
+public class TextBoxOptions extends OptionsBase
+{
     private static final long serialVersionUID = 1L;
     
     public enum Event
