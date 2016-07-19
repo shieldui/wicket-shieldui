@@ -29,6 +29,7 @@ Supported Widgets
 - [Rating](https://www.shieldui.com/products/rating)
 - [Splitter](https://www.shieldui.com/products/splitter)
 - [Tabs](https://www.shieldui.com/products/tabs)
+- [Timeline](https://www.shieldui.com/products/timeline)
 - [Tooltip](https://www.shieldui.com/products/tooltip)
 - [TreeView](https://www.shieldui.com/products/treeview)
 - [Window](https://www.shieldui.com/products/window)
