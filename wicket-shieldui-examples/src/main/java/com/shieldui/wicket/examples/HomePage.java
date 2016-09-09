@@ -102,8 +102,10 @@ public class HomePage extends WebPage
         // initialize some default details chart properties
         detailsChart.getOptions().setSeriesType(ChartOptions.SeriesType.SPLINE);
         detailsChart.getOptions().getPrimaryHeader().setText("Click on the pie above to populate");
-        detailsChart.getOptions().getAxisX().setCategoricalValues("Jun 2012", "Jul 2012", "Aug 2012", "Sep 2012", "Oct 2012", 
-            "Nov 2012", "Dec 2012", "Jan 2013", "Feb 2013", "Mar 2013", "Apr 2013", "May 2013", "Jun 2013");
         
+        ChartOptions.Axis axisX = new ChartOptions.Axis();
+        axisX.setCategoricalValues("Jun 2012", "Jul 2012", "Aug 2012", "Sep 2012", "Oct 2012", 
+            "Nov 2012", "Dec 2012", "Jan 2013", "Feb 2013", "Mar 2013", "Apr 2013", "May 2013", "Jun 2013");
+        detailsChart.getOptions().addAxisX(axisX);
     }
 }

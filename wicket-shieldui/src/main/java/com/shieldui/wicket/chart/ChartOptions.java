@@ -2807,8 +2807,8 @@ public final class ChartOptions extends OptionsBase
     // top level options/settings
     public Boolean allowUTCFormatting;
     public Boolean applyAnimation;
-    public Axis axisX = new Axis();
-    public Axis axisY = new Axis();
+    public List<Axis> axisX = new ArrayList<Axis>();
+    public List<Axis> axisY = new ArrayList<Axis>();
     public String backgroundColor;
     public String borderColor;
     public Integer borderRadius;
@@ -2858,21 +2858,41 @@ public final class ChartOptions extends OptionsBase
         return this;
     }
 
-    public Axis getAxisX() {
+    public List<Axis> getAxisX() {
         return axisX;
     }
 
-    public ChartOptions setAxisX(Axis axisX) {
+    public ChartOptions setAxisX(List<Axis> axisX) {
         this.axisX = axisX;
         return this;
     }
+    
+    public ChartOptions setAxisX(Axis ... axisX) {
+        this.axisX = Arrays.asList(axisX);
+        return this;
+    }
+    
+    public ChartOptions addAxisX(Axis axisX) {
+        this.axisX.add(axisX);
+        return this;
+    }
 
-    public Axis getAxisY() {
+    public List<Axis> getAxisY() {
         return axisY;
     }
 
-    public ChartOptions setAxisY(Axis axisY) {
+    public ChartOptions setAxisY(List<Axis> axisY) {
         this.axisY = axisY;
+        return this;
+    }
+    
+    public ChartOptions setAxisY(Axis ... axisY) {
+        this.axisY = Arrays.asList(axisY);
+        return this;
+    }
+    
+    public ChartOptions addAxisY(Axis axisY) {
+        this.axisY.add(axisY);
         return this;
     }
 

@@ -80,18 +80,22 @@ public class BubbleDemos extends WebPage
                 )
         );
         
-        bubble.getOptions().getAxisY().setPlotBands(
+        ChartOptions.Axis axisY = new ChartOptions.Axis();
+        axisY.setPlotBands(
                 new ChartOptions.Axis.PlotBand()
-                    .setDrawColor("pink")
-                    .setStart(0)
-                    .setEnd(50)
+                        .setDrawColor("pink")
+                        .setStart(0)
+                        .setEnd(50)
         );
+        bubble.getOptions().addAxisY(axisY);
         
-        bubble.getOptions().axisX.setPlotLines(
+        ChartOptions.Axis axisX = new ChartOptions.Axis();
+        axisX.setPlotLines(
                 new ChartOptions.Axis.PlotLine()
                     .setDrawColor("red")
                     .setDrawWidth(2)
                     .setStart(150)
         );
+        bubble.getOptions().addAxisX(axisX);
     }
 }

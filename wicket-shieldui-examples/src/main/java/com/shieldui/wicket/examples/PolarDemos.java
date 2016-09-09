@@ -26,7 +26,10 @@ public class PolarDemos extends WebPage
         
         polarbar.getOptions().setSeriesType(ChartOptions.SeriesType.POLAR_BAR);
         polarbar.getOptions().getPrimaryHeader().setText("Polar Bar");
-        polarbar.getOptions().getAxisX().setCategoricalValues("Jan", "Feb", "Mar", "Apr", "May", "Jun");
+        
+        ChartOptions.Axis axisX = new ChartOptions.Axis();
+        axisX.setCategoricalValues("Jan", "Feb", "Mar", "Apr", "May", "Jun");
+        polarbar.getOptions().addAxisX(axisX);
         
         ChartOptions.DataSeriesItem dataSeriesItem1 = new ChartOptions.DataSeriesItem();
         dataSeriesItem1.setCollectionAlias("Total Visits");

@@ -21,15 +21,22 @@ public class BarDemos extends WebPage
         bar.getOptions().setTheme(ChartOptions.Theme.BOOTSTRAP);
         bar.getOptions().setSeriesType(ChartOptions.SeriesType.BAR);
         bar.getOptions().getPrimaryHeader().setText("Internet usage statistics");
-        bar.getOptions().getAxisX().getAxisTickText().setFormat(new JsonFunction("function(text) { return text + '%%'; }"));
-        bar.getOptions().getAxisY().getTitle().setText("Visitor statistics");
-        bar.getOptions().getAxisY().getAxisTickText().setFormat("{text:c}");
-        bar.getOptions().getAxisY().setPlotLines(
+        
+        ChartOptions.Axis axisX = new ChartOptions.Axis();
+        axisX.getAxisTickText().setFormat(new JsonFunction("function(text) { return text + '%%'; }"));
+        bar.getOptions().addAxisX(axisX);
+        
+        ChartOptions.Axis axisY = new ChartOptions.Axis();
+        axisY.getTitle().setText("Visitor statistics");
+        axisY.getAxisTickText().setFormat("{text:c}");
+        axisY.setPlotLines(
                 new ChartOptions.Axis.PlotLine()
                     .setDrawColor("red")
                     .setDrawWidth(3)
                     .setStart(1000000)
         );
+        bar.getOptions().addAxisY(axisY);
+        
         bar.getOptions().getTooltipSettings().setCustomHeaderText(new JsonFunction("function() { return '<b>HEADER</b>'; }"));
         bar.getOptions().getSeriesSettings().getBar().getDataPointText().setEnabled(true);
         bar.getOptions().getSeriesSettings().getBar().getDataPointText().setFormat("{point.y} / {point.x}");
