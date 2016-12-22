@@ -143,7 +143,7 @@ public class BarcodeOptions extends OptionsBase
         {
             public String color;
             public String fontFamily;
-            public String fontSize;
+            public Integer fontSize;
             public Integer paddingTop;
             public Integer paddingBottom;
             
@@ -165,11 +165,11 @@ public class BarcodeOptions extends OptionsBase
                 return this;
             }
 
-            public String getFontSize() {
+            public Integer getFontSize() {
                 return fontSize;
             }
 
-            public Style setFontSize(String fontSize) {
+            public Style setFontSize(Integer fontSize) {
                 this.fontSize = fontSize;
                 return this;
             }
