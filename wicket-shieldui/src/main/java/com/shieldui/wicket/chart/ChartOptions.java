@@ -1593,6 +1593,7 @@ public final class ChartOptions extends OptionsBase
             public String cursor;
             public DataPointText dataPointText = new DataPointText();
             public Boolean enablePointSelection;
+            public Boolean allowMultiPointSelection;
             public Boolean visible;
 
             public Boolean getAddToLegend() {
@@ -1637,6 +1638,15 @@ public final class ChartOptions extends OptionsBase
 
             public Base setEnablePointSelection(Boolean enablePointSelection) {
                 this.enablePointSelection = enablePointSelection;
+                return this;
+            }
+            
+            public Boolean getAllowMultiPointSelection() {
+                return allowMultiPointSelection;
+            }
+
+            public Base setAllowMultiPointSelection(Boolean allowMultiPointSelection) {
+                this.allowMultiPointSelection = allowMultiPointSelection;
                 return this;
             }
             

@@ -100,6 +100,8 @@ Detailed widget functionality and settings can be found in the [Shield UI Docume
 
 License
 -------
-Copyright 2013-2015 Shield UI Ltd.
+The Wicket-ShieldUI library is licensed under the MIT license, details of which can be found in the [LICENSE.txt](LICENSE.txt) file located in this folder.
+The license applies ONLY to the source code of this repository and does not extend to any other Shield UI distribution or variant, or a third-party library used. 
 
-http://www.shieldui.com/eula
+For more details about Shield UI licensing, see the [Shield UI License Agreement](https://www.shieldui.com/eula) page at [www.shieldui.com](https://www.shieldui.com).
+Shield UI Commercial support information can be found on [this page](https://www.shieldui.com/support.options).

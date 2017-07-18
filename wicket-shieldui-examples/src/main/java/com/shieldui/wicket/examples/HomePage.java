@@ -39,6 +39,8 @@ public class HomePage extends WebPage
         // set the chart type to PIE
         mainChart.getOptions().setSeriesType(ChartOptions.SeriesType.PIE);
         
+        // disable multiple selection of points using the SHIFT and Ctrl keys
+        
         // set some custom text formatter
         mainChart.getOptions().getTooltipSettings().setCustomPointText("{point.pointName}: {point.y:p}");
         
