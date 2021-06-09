@@ -1,7 +1,7 @@
 Wicket-ShieldUI
 =====================
 
-An [Apache Wicket](http://wicket.apache.org) component leveraging the use of the [Shield UI](http://www.shieldui.com) JavaScript library.
+An [Apache Wicket](http://wicket.apache.org) 6 component leveraging the use of the [Shield UI](http://www.shieldui.com) JavaScript library.
 
 Introduction
 ------------
