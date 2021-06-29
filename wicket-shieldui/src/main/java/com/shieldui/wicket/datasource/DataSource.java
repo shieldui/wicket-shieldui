@@ -4,7 +4,7 @@ import com.shieldui.wicket.WidgetBehaviorBase;
 import java.util.HashMap;
 import java.util.UUID;
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class DataSource extends WidgetBehaviorBase 
 {
@@ -48,7 +48,7 @@ public class DataSource extends WidgetBehaviorBase
         String javascript = "window." + getJsVariableName() + " = new shield.DataSource(" + getOptions().toJson() + ");";
         
         // add all server events if any
-        HashMap<String, JsonFunction> events = getServerEvents();
+        HashMap<String, JSONFunction> events = getServerEvents();
         if (events.size() > 0) {
             javascript += "window." + getJsVariableName();
             for (String event : events.keySet()) {

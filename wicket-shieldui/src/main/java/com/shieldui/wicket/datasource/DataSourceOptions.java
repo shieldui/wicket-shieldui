@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class DataSourceOptions extends OptionsBase
 {
@@ -211,7 +211,7 @@ public class DataSourceOptions extends OptionsBase
             return this;
         }
         
-        public AggregateOption setAggregate(JsonFunction aggregate) {
+        public AggregateOption setAggregate(JSONFunction aggregate) {
             this.aggregate = aggregate;
             return this;
         }
@@ -355,7 +355,7 @@ public class DataSourceOptions extends OptionsBase
                 return this;
             }
             
-            public Modify setCreate(JsonFunction create) {
+            public Modify setCreate(JSONFunction create) {
                 this.create = create;
                 return this;
             }
@@ -374,7 +374,7 @@ public class DataSourceOptions extends OptionsBase
                 return this;
             }
             
-            public Modify setRemove(JsonFunction remove) {
+            public Modify setRemove(JSONFunction remove) {
                 this.remove = remove;
                 return this;
             }
@@ -393,7 +393,7 @@ public class DataSourceOptions extends OptionsBase
                 return this;
             }
             
-            public Modify setUpdate(JsonFunction update) {
+            public Modify setUpdate(JSONFunction update) {
                 this.update = update;
                 return this;
             }
@@ -412,7 +412,7 @@ public class DataSourceOptions extends OptionsBase
             return this;
         }
         
-        public Remote setModify(JsonFunction modify) {
+        public Remote setModify(JSONFunction modify) {
             this.modify = modify;
             return this;
         }
@@ -445,7 +445,7 @@ public class DataSourceOptions extends OptionsBase
             return this;
         }
         
-        public Remote setRead(JsonFunction read) {
+        public Remote setRead(JSONFunction read) {
             this.read = read;
             return this;
         }
@@ -456,7 +456,7 @@ public class DataSourceOptions extends OptionsBase
         public static final class SchemaField extends HashMapSerializable
         {
             public Object path;
-            public JsonFunction type;
+            public JSONFunction type;
             public Boolean nullable;
 
             public Object getPath() {
@@ -468,17 +468,17 @@ public class DataSourceOptions extends OptionsBase
                 return this;
             }
             
-            public SchemaField setPath(JsonFunction path) {
+            public SchemaField setPath(JSONFunction path) {
                 this.path = path;
                 return this;
             }
 
-            public JsonFunction getType() {
+            public JSONFunction getType() {
                 return type;
             }
 
             public SchemaField setType(SchemaFieldType type) {
-                this.type = new JsonFunction(type.toString());
+                this.type = new JSONFunction(type.toString());
                 return this;
             }
 
@@ -496,7 +496,7 @@ public class DataSourceOptions extends OptionsBase
         public Object data;
         public List<SchemaField> fields = new ArrayList<SchemaField>();
         public Object groups;
-        public JsonFunction parse;
+        public JSONFunction parse;
         public Object total;
         public SchemaType type;
 
@@ -509,7 +509,7 @@ public class DataSourceOptions extends OptionsBase
             return this;
         }
         
-        public Schema setAggregates(JsonFunction aggregates) {
+        public Schema setAggregates(JSONFunction aggregates) {
             this.aggregates = aggregates;
             return this;
         }
@@ -523,7 +523,7 @@ public class DataSourceOptions extends OptionsBase
             return this;
         }
         
-        public Schema setData(JsonFunction data) {
+        public Schema setData(JSONFunction data) {
             this.data = data;
             return this;
         }
@@ -551,16 +551,16 @@ public class DataSourceOptions extends OptionsBase
             return this;
         }
         
-        public Schema setGroups(JsonFunction groups) {
+        public Schema setGroups(JSONFunction groups) {
             this.groups = groups;
             return this;
         }
 
-        public JsonFunction getParse() {
+        public JSONFunction getParse() {
             return parse;
         }
 
-        public Schema setParse(JsonFunction parse) {
+        public Schema setParse(JSONFunction parse) {
             this.parse = parse;
             return this;
         }
@@ -574,7 +574,7 @@ public class DataSourceOptions extends OptionsBase
             return this;
         }
         
-        public Schema setTotal(JsonFunction total) {
+        public Schema setTotal(JSONFunction total) {
             this.total = total;
             return this;
         }
@@ -615,7 +615,7 @@ public class DataSourceOptions extends OptionsBase
     
     public List<AggregateOption> aggregate = new ArrayList<AggregateOption>();
     public Object data;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
     public List<FilterGroup> filter = new ArrayList<FilterGroup>();
     public List<GroupOption> group = new ArrayList<GroupOption>();
     public Remote remote;
@@ -643,7 +643,7 @@ public class DataSourceOptions extends OptionsBase
         return this;
     }
     
-    public DataSourceOptions setData(JsonFunction data) {
+    public DataSourceOptions setData(JSONFunction data) {
         this.data = data;
         return this;
     }
@@ -662,11 +662,11 @@ public class DataSourceOptions extends OptionsBase
         return this;
     }
     
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public DataSourceOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public DataSourceOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }
@@ -740,7 +740,7 @@ public class DataSourceOptions extends OptionsBase
         return this;
     }
     
-    public DataSourceOptions setSort(JsonFunction sort) {
+    public DataSourceOptions setSort(JSONFunction sort) {
         this.sort = sort;
         return this;
     }

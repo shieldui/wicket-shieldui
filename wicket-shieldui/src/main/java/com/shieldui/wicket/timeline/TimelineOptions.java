@@ -5,7 +5,7 @@ import com.shieldui.wicket.OptionsBase;
 import com.shieldui.wicket.datasource.DataSource;
 import com.shieldui.wicket.datasource.DataSourceOptions;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class TimelineOptions extends OptionsBase
 {
@@ -98,7 +98,7 @@ public class TimelineOptions extends OptionsBase
     public Boolean collapsible;
     public Object width;
     public Object height;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
     
     public String getCls() {
         return cls;
@@ -119,13 +119,13 @@ public class TimelineOptions extends OptionsBase
         return this;
     }
     
-    public TimelineOptions setDataSource(JsonFunction dataSource) {
+    public TimelineOptions setDataSource(JSONFunction dataSource) {
         this.dataSource = dataSource;
         return this;
     }
     
     public TimelineOptions setDataSource(DataSource dataSourceObject) {
-        this.dataSource = new JsonFunction("window." + dataSourceObject.getJsVariableName());
+        this.dataSource = new JSONFunction("window." + dataSourceObject.getJsVariableName());
         return this;
     }
 
@@ -165,7 +165,7 @@ public class TimelineOptions extends OptionsBase
         return this;
     }
     
-    public TimelineOptions setPositionTemplate(JsonFunction positionTemplate) {
+    public TimelineOptions setPositionTemplate(JSONFunction positionTemplate) {
         this.positionTemplate = positionTemplate;
         return this;
     }
@@ -179,7 +179,7 @@ public class TimelineOptions extends OptionsBase
         return this;
     }
     
-    public TimelineOptions setIconTemplate(JsonFunction iconTemplate) {
+    public TimelineOptions setIconTemplate(JSONFunction iconTemplate) {
         this.iconTemplate = iconTemplate;
         return this;
     }
@@ -193,7 +193,7 @@ public class TimelineOptions extends OptionsBase
         return this;
     }
     
-    public TimelineOptions setTitleTemplate(JsonFunction titleTemplate) {
+    public TimelineOptions setTitleTemplate(JSONFunction titleTemplate) {
         this.titleTemplate = titleTemplate;
         return this;
     }
@@ -207,7 +207,7 @@ public class TimelineOptions extends OptionsBase
         return this;
     }
     
-    public TimelineOptions setTextTemplate(JsonFunction textTemplate) {
+    public TimelineOptions setTextTemplate(JSONFunction textTemplate) {
         this.textTemplate = textTemplate;
         return this;
     }
@@ -221,7 +221,7 @@ public class TimelineOptions extends OptionsBase
         return this;
     }
     
-    public TimelineOptions setCollapsedTemplate(JsonFunction collapsedTemplate) {
+    public TimelineOptions setCollapsedTemplate(JSONFunction collapsedTemplate) {
         this.collapsedTemplate = collapsedTemplate;
         return this;
     }
@@ -235,7 +235,7 @@ public class TimelineOptions extends OptionsBase
         return this;
     }
     
-    public TimelineOptions setIconUrlTemplate(JsonFunction iconUrlTemplate) {
+    public TimelineOptions setIconUrlTemplate(JSONFunction iconUrlTemplate) {
         this.iconUrlTemplate = iconUrlTemplate;
         return this;
     }
@@ -249,7 +249,7 @@ public class TimelineOptions extends OptionsBase
         return this;
     }
     
-    public TimelineOptions setIconClsTemplate(JsonFunction iconClsTemplate) {
+    public TimelineOptions setIconClsTemplate(JSONFunction iconClsTemplate) {
         this.iconClsTemplate = iconClsTemplate;
         return this;
     }
@@ -291,11 +291,11 @@ public class TimelineOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public TimelineOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public TimelineOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

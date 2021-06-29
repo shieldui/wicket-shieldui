@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class UploadOptions extends OptionsBase
 {
@@ -212,7 +212,7 @@ public class UploadOptions extends OptionsBase
             return this;
         }
         
-        public Files setTemplate(JsonFunction template) {
+        public Files setTemplate(JSONFunction template) {
             this.template = template;
             return this;
         }
@@ -258,7 +258,7 @@ public class UploadOptions extends OptionsBase
     public Boolean multiple;
     public Files files = new Files();
     public Messages messages = new Messages();
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
 
     public String getCls() {
         return cls;
@@ -314,11 +314,11 @@ public class UploadOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public UploadOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public UploadOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

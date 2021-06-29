@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public final class ChartOptions extends OptionsBase
 {
@@ -315,7 +315,7 @@ public final class ChartOptions extends OptionsBase
                 return this;
             }
             
-            public AxisTickText setFormat(JsonFunction format) {
+            public AxisTickText setFormat(JSONFunction format) {
                 this.format = format;
                 return this;
             }
@@ -1389,7 +1389,7 @@ public final class ChartOptions extends OptionsBase
         public Object customHeaderText;
         public Object customPointText;
         public Boolean enabled;
-        public JsonFunction position;
+        public JSONFunction position;
         
         public AxisMarkers getAxisMarkers() {
             return axisMarkers;
@@ -1418,7 +1418,7 @@ public final class ChartOptions extends OptionsBase
             return this;
         }
         
-        public TooltipSettings setCustomHeaderText(JsonFunction customHeaderText) {
+        public TooltipSettings setCustomHeaderText(JSONFunction customHeaderText) {
             this.customHeaderText = customHeaderText;
             return this;
         }
@@ -1432,7 +1432,7 @@ public final class ChartOptions extends OptionsBase
             return this;
         }
         
-        public TooltipSettings setCustomPointText(JsonFunction customPointText) {
+        public TooltipSettings setCustomPointText(JSONFunction customPointText) {
             this.customPointText = customPointText;
             return this;
         }
@@ -1446,11 +1446,11 @@ public final class ChartOptions extends OptionsBase
             return this;
         }
 
-        public JsonFunction getPosition() {
+        public JSONFunction getPosition() {
             return position;
         }
 
-        public TooltipSettings setPosition(JsonFunction position) {
+        public TooltipSettings setPosition(JSONFunction position) {
             this.position = position;
             return this;
         }
@@ -1543,7 +1543,7 @@ public final class ChartOptions extends OptionsBase
             return this;
         }
         
-        public DataPointText setFormat(JsonFunction format) {
+        public DataPointText setFormat(JSONFunction format) {
             this.format = format;
             return this;
         }
@@ -2834,7 +2834,7 @@ public final class ChartOptions extends OptionsBase
     public ChartLegend chartLegend = new ChartLegend();
     public List<DataSeriesItem> dataSeries = new ArrayList<DataSeriesItem>();
     public Boolean enableAutoFit;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
     public ExportOptions exportOptions = new ExportOptions();
     public Integer height;
     public Boolean isInverted;
@@ -3046,11 +3046,11 @@ public final class ChartOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public ChartOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public ChartOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

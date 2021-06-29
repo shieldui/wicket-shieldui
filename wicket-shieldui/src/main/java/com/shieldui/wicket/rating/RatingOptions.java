@@ -1,7 +1,7 @@
 package com.shieldui.wicket.rating;
 
 import com.shieldui.wicket.OptionsBase;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import java.util.HashMap;
 
 public class RatingOptions extends OptionsBase {
@@ -34,7 +34,7 @@ public class RatingOptions extends OptionsBase {
     public Integer symbolHeight;
     public Boolean enabled;
     public Boolean markPreset;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
 
     public Double getMin() {
         return min;
@@ -108,11 +108,11 @@ public class RatingOptions extends OptionsBase {
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public RatingOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public RatingOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

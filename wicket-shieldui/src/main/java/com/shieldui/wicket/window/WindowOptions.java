@@ -2,7 +2,7 @@ package com.shieldui.wicket.window;
 
 import com.shieldui.wicket.HashMapSerializable;
 import com.shieldui.wicket.OptionsBase;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -189,7 +189,7 @@ public class WindowOptions extends OptionsBase {
     public ContentOptions content = new ContentOptions();
     public ResizableOptions resizable = new ResizableOptions();
     public PositionOptions position = new PositionOptions();
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
 
     public String getCls() {
         return cls;
@@ -308,11 +308,11 @@ public class WindowOptions extends OptionsBase {
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public WindowOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public WindowOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

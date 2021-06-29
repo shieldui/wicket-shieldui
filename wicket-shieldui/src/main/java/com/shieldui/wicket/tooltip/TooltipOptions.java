@@ -3,7 +3,7 @@ package com.shieldui.wicket.tooltip;
 import com.shieldui.wicket.HashMapSerializable;
 import com.shieldui.wicket.OptionsBase;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class TooltipOptions extends OptionsBase
 {
@@ -120,7 +120,7 @@ public class TooltipOptions extends OptionsBase
     public Trigger trigger;
     public Boolean autoHide;
     public Boolean callout;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
     
     public String getCls() {
         return cls;
@@ -189,7 +189,7 @@ public class TooltipOptions extends OptionsBase
         return content;
     }
 
-    public TooltipOptions setContent(JsonFunction content) {
+    public TooltipOptions setContent(JSONFunction content) {
         this.content = content;
         return this;
     }
@@ -240,11 +240,11 @@ public class TooltipOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public TooltipOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public TooltipOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

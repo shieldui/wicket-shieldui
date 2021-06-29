@@ -2,7 +2,7 @@ package com.shieldui.wicket.numerictextbox;
 
 import com.shieldui.wicket.HashMapSerializable;
 import com.shieldui.wicket.OptionsBase;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import java.util.HashMap;
 
 public class NumericTextBoxOptions extends OptionsBase {
@@ -62,7 +62,7 @@ public class NumericTextBoxOptions extends OptionsBase {
     public Object textTemplate;
     public Object valueTemplate;
     public LabelsOptions labels = new LabelsOptions();
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
 
     public Boolean getEnabled() {
         return enabled;
@@ -145,7 +145,7 @@ public class NumericTextBoxOptions extends OptionsBase {
         return this;
     }
     
-    public NumericTextBoxOptions setTextTemplate(JsonFunction textTemplate) {
+    public NumericTextBoxOptions setTextTemplate(JSONFunction textTemplate) {
         this.textTemplate = textTemplate;
         return this;
     }
@@ -159,7 +159,7 @@ public class NumericTextBoxOptions extends OptionsBase {
         return this;
     }
     
-    public NumericTextBoxOptions setValueTemplate(JsonFunction valueTemplate) {
+    public NumericTextBoxOptions setValueTemplate(JSONFunction valueTemplate) {
         this.valueTemplate = valueTemplate;
         return this;
     }
@@ -173,11 +173,11 @@ public class NumericTextBoxOptions extends OptionsBase {
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public NumericTextBoxOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public NumericTextBoxOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

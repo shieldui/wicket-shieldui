@@ -2,7 +2,7 @@ package com.shieldui.wicket.pager;
 
 import com.shieldui.wicket.HashMapSerializable;
 import com.shieldui.wicket.OptionsBase;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import java.util.HashMap;
 
 public class PagerOptions extends OptionsBase
@@ -130,7 +130,7 @@ public class PagerOptions extends OptionsBase
     public Boolean boundaryLinks;
     public Boolean imageLinks;
     public MessagesOptions messages = new MessagesOptions();
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
 
     public Integer getCurrentPage() {
         return currentPage;
@@ -204,11 +204,11 @@ public class PagerOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public PagerOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public PagerOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

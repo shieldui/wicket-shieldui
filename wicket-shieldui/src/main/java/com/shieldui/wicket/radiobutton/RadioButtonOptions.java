@@ -2,7 +2,7 @@ package com.shieldui.wicket.radiobutton;
 
 import com.shieldui.wicket.OptionsBase;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class RadioButtonOptions extends OptionsBase {
     private static final long serialVersionUID = 1L;
@@ -29,7 +29,7 @@ public class RadioButtonOptions extends OptionsBase {
      public Boolean enableLabelClick;
      public Boolean checked;
      public String label;
-     public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+     public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
 
     public Boolean getEnabled() {
         return enabled;
@@ -67,11 +67,11 @@ public class RadioButtonOptions extends OptionsBase {
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public RadioButtonOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public RadioButtonOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

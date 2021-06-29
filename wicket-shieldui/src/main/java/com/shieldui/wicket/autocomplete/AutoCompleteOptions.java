@@ -5,7 +5,7 @@ import com.shieldui.wicket.OptionsBase;
 import com.shieldui.wicket.datasource.DataSource;
 import com.shieldui.wicket.datasource.DataSourceOptions;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class AutoCompleteOptions extends OptionsBase
 {
@@ -67,7 +67,7 @@ public class AutoCompleteOptions extends OptionsBase
     public Animation animation = new Animation();
     public Object dataSource;
     public Integer delay;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
     public Integer minLength;
     public Boolean open;
     public Object textTemplate;
@@ -92,13 +92,13 @@ public class AutoCompleteOptions extends OptionsBase
         return this;
     }
     
-    public AutoCompleteOptions setDataSource(JsonFunction dataSource) {
+    public AutoCompleteOptions setDataSource(JSONFunction dataSource) {
         this.dataSource = dataSource;
         return this;
     }
     
     public AutoCompleteOptions setDataSource(DataSource dataSourceObject) {
-        this.dataSource = new JsonFunction("window." + dataSourceObject.getJsVariableName());
+        this.dataSource = new JSONFunction("window." + dataSourceObject.getJsVariableName());
         return this;
     }
 
@@ -111,11 +111,11 @@ public class AutoCompleteOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public AutoCompleteOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public AutoCompleteOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }
@@ -147,7 +147,7 @@ public class AutoCompleteOptions extends OptionsBase
         return this;
     }
     
-    public AutoCompleteOptions setTextTemplate(JsonFunction textTemplate) {
+    public AutoCompleteOptions setTextTemplate(JSONFunction textTemplate) {
         this.textTemplate = textTemplate;
         return this;
     }
@@ -161,7 +161,7 @@ public class AutoCompleteOptions extends OptionsBase
         return this;
     }
     
-    public AutoCompleteOptions setValueTemplate(JsonFunction valueTemplate) {
+    public AutoCompleteOptions setValueTemplate(JSONFunction valueTemplate) {
         this.valueTemplate = valueTemplate;
         return this;
     }

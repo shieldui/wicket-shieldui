@@ -2,7 +2,7 @@ package com.shieldui.wicket.slider;
 
 import com.shieldui.wicket.HashMapSerializable;
 import com.shieldui.wicket.OptionsBase;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import java.util.HashMap;
 
 public class SliderOptions extends OptionsBase
@@ -129,7 +129,7 @@ public class SliderOptions extends OptionsBase
             return this;
         }
         
-        public SliderOptions.TooltipOptions setTemplate(JsonFunction template) {
+        public SliderOptions.TooltipOptions setTemplate(JSONFunction template) {
             this.template = template;
             return this;
         }
@@ -158,7 +158,7 @@ public class SliderOptions extends OptionsBase
             return this;
         }
         
-        public SliderOptions.ValuesOptions setTemplate(JsonFunction template) {
+        public SliderOptions.ValuesOptions setTemplate(JSONFunction template) {
             this.template = template;
             return this;
         }
@@ -178,7 +178,7 @@ public class SliderOptions extends OptionsBase
     public TicksOptions ticks = new TicksOptions();
     public TooltipOptions tooltip = new TooltipOptions();    
     public ValuesOptions values = new ValuesOptions();
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
 
     public String getCls() {
         return cls;
@@ -306,11 +306,11 @@ public class SliderOptions extends OptionsBase
         return this;
     }
     
-     public HashMap<Event, JsonFunction> getEvents() {
+     public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public SliderOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public SliderOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

@@ -6,7 +6,7 @@ import com.shieldui.wicket.datasource.DataSource;
 import com.shieldui.wicket.datasource.DataSourceOptions;
 import com.shieldui.wicket.textbox.TextBoxOptions.AutoCompleteOptions.AnimationOptions;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class TextBoxOptions extends OptionsBase
 {
@@ -88,13 +88,13 @@ public class TextBoxOptions extends OptionsBase
             return this;
         }
 
-        public AutoCompleteOptions setDataSource(JsonFunction dataSource) {
+        public AutoCompleteOptions setDataSource(JSONFunction dataSource) {
             this.dataSource = dataSource;
             return this;
         }
         
         public AutoCompleteOptions setDataSource(DataSource dataSourceObject) {
-            this.dataSource = new JsonFunction("window." + dataSourceObject.getJsVariableName());
+            this.dataSource = new JSONFunction("window." + dataSourceObject.getJsVariableName());
             return this;
         }
 
@@ -107,7 +107,7 @@ public class TextBoxOptions extends OptionsBase
             return this;
         }
         
-        public AutoCompleteOptions setTextTemplate(JsonFunction textTemplate) {
+        public AutoCompleteOptions setTextTemplate(JSONFunction textTemplate) {
             this.textTemplate = textTemplate;
             return this;
         }
@@ -121,7 +121,7 @@ public class TextBoxOptions extends OptionsBase
             return this;
         }
         
-        public AutoCompleteOptions setValueTemplate(JsonFunction valueTemplate) {
+        public AutoCompleteOptions setValueTemplate(JSONFunction valueTemplate) {
             this.valueTemplate = valueTemplate;
             return this;
         }
@@ -167,7 +167,7 @@ public class TextBoxOptions extends OptionsBase
     public String cls;
     public String value;
     public AutoCompleteOptions autoComplete = new AutoCompleteOptions();
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
 
     public Boolean getEnabled() {
         return enabled;
@@ -205,11 +205,11 @@ public class TextBoxOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public TextBoxOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public TextBoxOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

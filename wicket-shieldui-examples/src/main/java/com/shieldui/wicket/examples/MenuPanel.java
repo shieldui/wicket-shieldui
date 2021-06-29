@@ -7,7 +7,7 @@ import com.shieldui.wicket.datasource.DataSourceOptions;
 import com.shieldui.wicket.menu.Menu;
 import com.shieldui.wicket.menu.MenuOptions;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import org.apache.wicket.markup.html.panel.Panel;
 
 public class MenuPanel extends Panel
@@ -93,8 +93,8 @@ public class MenuPanel extends Panel
                     )
                 );
         
-        menu.getOptions().setEvents(new HashMap<MenuOptions.Event, JsonFunction>() {{
-            put(MenuOptions.Event.CLICK, new JsonFunction("function(e) { this.expanded(false); }"));
+        menu.getOptions().setEvents(new HashMap<MenuOptions.Event, JSONFunction>() {{
+            put(MenuOptions.Event.CLICK, new JSONFunction("function(e) { this.expanded(false); }"));
         }});
     }
     

@@ -11,7 +11,7 @@ import java.util.HashMap;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormSubmitBehavior;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
@@ -36,7 +36,7 @@ public class Button extends WebPage
         checkedButton.getOptions()
                 .setToggle(true)
                 .getEvents()
-                    .put(ButtonOptions.Event.CLICK, new JsonFunction("function(e) { console.log(\"check button clicked\"); }"));
+                    .put(ButtonOptions.Event.CLICK, new JSONFunction("function(e) { console.log(\"check button clicked\"); }"));
         
         final Tooltip checkedTooltip = new Tooltip("#" + checkedButton.getMarkupId());
         checkedTooltip.getOptions()

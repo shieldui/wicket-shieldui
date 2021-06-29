@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class GridOptions extends OptionsBase
 {
@@ -323,7 +323,7 @@ public class GridOptions extends OptionsBase
         public String cls;
         public String caption;
         public RowButtonCommand commandName;
-        public JsonFunction click;
+        public JSONFunction click;
 
         public String getCls() {
             return cls;
@@ -352,11 +352,11 @@ public class GridOptions extends OptionsBase
             return this;
         }
 
-        public JsonFunction getClick() {
+        public JSONFunction getClick() {
             return click;
         }
 
-        public RowButtonOption setClick(JsonFunction click) {
+        public RowButtonOption setClick(JSONFunction click) {
             this.click = click;
             return this;
         }
@@ -367,7 +367,7 @@ public class GridOptions extends OptionsBase
         public HashMap<String, String> attributes = new HashMap<String, String>();
         public List<RowButtonOption> buttons = new ArrayList<RowButtonOption>();
         public Object columnTemplate;
-        public JsonFunction customFilter;
+        public JSONFunction customFilter;
         public Object editor;
         public String field;
         public Boolean filterable;
@@ -422,7 +422,7 @@ public class GridOptions extends OptionsBase
             return this;
         }
         
-        public ColumnOption setColumnTemplate(JsonFunction columnTemplate) {
+        public ColumnOption setColumnTemplate(JSONFunction columnTemplate) {
             this.columnTemplate = columnTemplate;
             return this;
         }
@@ -431,7 +431,7 @@ public class GridOptions extends OptionsBase
             return customFilter;
         }
 
-        public ColumnOption setCustomFilter(JsonFunction customFilter) {
+        public ColumnOption setCustomFilter(JSONFunction customFilter) {
             this.customFilter = customFilter;
             return this;
         }
@@ -445,7 +445,7 @@ public class GridOptions extends OptionsBase
             return this;
         }
         
-        public ColumnOption setEditor(JsonFunction editor) {
+        public ColumnOption setEditor(JSONFunction editor) {
             this.editor = editor;
             return this;
         }
@@ -495,7 +495,7 @@ public class GridOptions extends OptionsBase
             return this;
         }
         
-        public ColumnOption setFooterTemplate(JsonFunction footerTemplate) {
+        public ColumnOption setFooterTemplate(JSONFunction footerTemplate) {
             this.footerTemplate = footerTemplate;
             return this;
         }
@@ -509,7 +509,7 @@ public class GridOptions extends OptionsBase
             return this;
         }
         
-        public ColumnOption setFormat(JsonFunction format) {
+        public ColumnOption setFormat(JSONFunction format) {
             this.format = format;
             return this;
         }
@@ -523,7 +523,7 @@ public class GridOptions extends OptionsBase
             return this;
         }
         
-        public ColumnOption setGroupFooterTemplate(JsonFunction groupFooterTemplate) {
+        public ColumnOption setGroupFooterTemplate(JSONFunction groupFooterTemplate) {
             this.groupFooterTemplate = groupFooterTemplate;
             return this;
         }
@@ -551,7 +551,7 @@ public class GridOptions extends OptionsBase
             return this;
         }
         
-        public ColumnOption setHeaderTemplate(JsonFunction headerTemplate) {
+        public ColumnOption setHeaderTemplate(JSONFunction headerTemplate) {
             this.headerTemplate = headerTemplate;
             return this;
         }
@@ -649,7 +649,7 @@ public class GridOptions extends OptionsBase
             return this;
         }
         
-        public DeleteConfirmation setTemplate(JsonFunction template) {
+        public DeleteConfirmation setTemplate(JSONFunction template) {
             this.template = template;
             return this;
         }
@@ -972,7 +972,7 @@ public class GridOptions extends OptionsBase
         public String cls;
         public String caption;
         public ToolbarButtonCommand commandName;
-        public JsonFunction click;
+        public JSONFunction click;
 
         public String getCls() {
             return cls;
@@ -1001,11 +1001,11 @@ public class GridOptions extends OptionsBase
             return this;
         }
 
-        public JsonFunction getClick() {
+        public JSONFunction getClick() {
             return click;
         }
 
-        public ToolbarButtonOption setClick(JsonFunction click) {
+        public ToolbarButtonOption setClick(JSONFunction click) {
             this.click = click;
             return this;
         }
@@ -1054,7 +1054,7 @@ public class GridOptions extends OptionsBase
             return this;
         }
         
-        public ToolbarOptions setTemplate(JsonFunction template) {
+        public ToolbarOptions setTemplate(JSONFunction template) {
             this.template = template;
             return this;
         }
@@ -1401,7 +1401,7 @@ public class GridOptions extends OptionsBase
         protected void serializeVariable(Class type, String name, Object value, HashMap<String, Object> result)
         {
             if (value != null && name.equals("created")) {
-                result.put(name, new JsonFunction("new Date(" + ((Date)value).getTime() + ")"));
+                result.put(name, new JSONFunction("new Date(" + ((Date)value).getTime() + ")"));
             }
             else {
                 // default functionality
@@ -1482,7 +1482,7 @@ public class GridOptions extends OptionsBase
             return this;
         }
 
-        public ExcelOptions setDataSource(JsonFunction dataSource) {
+        public ExcelOptions setDataSource(JSONFunction dataSource) {
             this.dataSource = dataSource;
             return this;
         }
@@ -1742,7 +1742,7 @@ public class GridOptions extends OptionsBase
             return this;
         }
 
-        public PdfOptions setDataSource(JsonFunction dataSource) {
+        public PdfOptions setDataSource(JSONFunction dataSource) {
             this.dataSource = dataSource;
             return this;
         }
@@ -1864,7 +1864,7 @@ public class GridOptions extends OptionsBase
         return this;
     }
     
-    public GridOptions setAltRowTemplate(JsonFunction altRowTemplate) {
+    public GridOptions setAltRowTemplate(JSONFunction altRowTemplate) {
         this.altRowTemplate = altRowTemplate;
         return this;
     }
@@ -1911,7 +1911,7 @@ public class GridOptions extends OptionsBase
         return this;
     }
     
-    public GridOptions setDataSource(JsonFunction dataSource) {
+    public GridOptions setDataSource(JSONFunction dataSource) {
         this.dataSource = dataSource;
         return this;
     }
@@ -1970,7 +1970,7 @@ public class GridOptions extends OptionsBase
         return this;
     }
     
-    public GridOptions setDetailTemplate(JsonFunction detailTemplate) {
+    public GridOptions setDetailTemplate(JSONFunction detailTemplate) {
         this.detailTemplate = detailTemplate;
         return this;
     }
@@ -2056,7 +2056,7 @@ public class GridOptions extends OptionsBase
         return this;
     }
     
-    public GridOptions setRowTemplate(JsonFunction rowTemplate) {
+    public GridOptions setRowTemplate(JSONFunction rowTemplate) {
         this.rowTemplate = rowTemplate;
         return this;
     }

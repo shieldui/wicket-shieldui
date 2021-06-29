@@ -2,7 +2,7 @@ package com.shieldui.wicket.colorpicker;
 
 import com.shieldui.wicket.HashMapSerializable;
 import com.shieldui.wicket.OptionsBase;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -197,7 +197,7 @@ public class ColorPickerOptions extends OptionsBase {
     public String value;
     public BasicPaletteOptions basicPalette = new BasicPaletteOptions();
     public AdvancedPaletteOptions advancedPalette = new AdvancedPaletteOptions();
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
 
     public PaletteType getPalette() {
         return palette;
@@ -253,11 +253,11 @@ public class ColorPickerOptions extends OptionsBase {
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public ColorPickerOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public ColorPickerOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

@@ -1,8 +1,8 @@
 package com.shieldui.wicket;
 
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JSONException;
-import org.apache.wicket.ajax.json.JSONStringer;
+import com.github.openjson.JSONException;
+import com.github.openjson.JSONObject;
 
 public abstract class OptionsBase extends HashMapSerializable
 {
@@ -12,22 +12,9 @@ public abstract class OptionsBase extends HashMapSerializable
     public CharSequence toJson() 
     {
         try {
-            JSONStringer writer = new JSONStringer();
-            writer.object();
-            
             HashMap<String, Object> dict = toHashMap();
-            if (dict != null) {
-                for (String key : dict.keySet()) {
-                    Object value = dict.get(key);
-                    if (value != null) {
-                        writer.key(key);
-                        writer.value(value);
-                    }
-                }
-            }
-            
-            writer.endObject();
-            return writer.toString();
+            JSONObject o = new JSONObject(dict);
+            return o.toString();
         }
         catch (JSONException e) {
             throw new RuntimeException("Could not convert OptionsBase object to Json", e);

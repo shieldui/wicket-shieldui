@@ -6,7 +6,7 @@ import com.shieldui.wicket.datasource.DataSourceOptions;
 import com.shieldui.wicket.tabs.Tabs;
 import com.shieldui.wicket.tabs.TabsOptions;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import org.apache.wicket.markup.html.WebPage;
 
 public class LayoutDemos extends WebPage
@@ -23,9 +23,9 @@ public class LayoutDemos extends WebPage
         
         accordion.getOptions()
                 .setMode(AccordionOptions.Mode.MULTIPLE)
-                .setEvents(new HashMap<AccordionOptions.Event, JsonFunction>() {{
-                    put(AccordionOptions.Event.EXPAND, new JsonFunction("function() { console.log('expand'); }"));
-                    put(AccordionOptions.Event.COLLAPSE, new JsonFunction("function() { console.log('collapse'); }"));
+                .setEvents(new HashMap<AccordionOptions.Event, JSONFunction>() {{
+                    put(AccordionOptions.Event.EXPAND, new JSONFunction("function() { console.log('expand'); }"));
+                    put(AccordionOptions.Event.COLLAPSE, new JSONFunction("function() { console.log('collapse'); }"));
                 }})
                 .setDataSource(new DataSourceOptions()
                         .setData(
@@ -52,8 +52,8 @@ public class LayoutDemos extends WebPage
         add(tabs);
         
         tabs.getOptions()
-                .setEvents(new HashMap<TabsOptions.Event, JsonFunction>() {{
-                    put(TabsOptions.Event.ACTIVATE, new JsonFunction("function(e) { console.log('activated tab ' + e.index); }"));
+                .setEvents(new HashMap<TabsOptions.Event, JSONFunction>() {{
+                    put(TabsOptions.Event.ACTIVATE, new JSONFunction("function(e) { console.log('activated tab ' + e.index); }"));
                 }});
         
     }

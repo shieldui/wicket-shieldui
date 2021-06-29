@@ -1,7 +1,7 @@
 package com.shieldui.wicket.loadingpanel;
 
 import com.shieldui.wicket.OptionsBase;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class LoadingPanelOptions extends OptionsBase {
     private static final long serialVersionUID = 1L;
@@ -48,7 +48,7 @@ public class LoadingPanelOptions extends OptionsBase {
         return this;
     }
     
-    public LoadingPanelOptions setTemplate(JsonFunction template) {
+    public LoadingPanelOptions setTemplate(JSONFunction template) {
         this.template = template;
         return this;
     }

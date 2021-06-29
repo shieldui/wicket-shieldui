@@ -7,7 +7,7 @@ import com.shieldui.wicket.tagcloud.ClickEventListener;
 import com.shieldui.wicket.tagcloud.TagCloud;
 import java.util.HashMap;
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import org.apache.wicket.markup.html.WebPage;
 
 public class TagCloudDemo extends WebPage
@@ -68,7 +68,7 @@ public class TagCloudDemo extends WebPage
         final DataSource ds = new DataSource();
         add(ds);
         
-        ds.getOptions().getEvents().put(DataSourceOptions.Event.COMPLETE, new JsonFunction("function() { console.log('ds complete'); }"));
+        ds.getOptions().getEvents().put(DataSourceOptions.Event.COMPLETE, new JSONFunction("function() { console.log('ds complete'); }"));
         ds.getOptions().setData(
                 new HashMap<String, Object>() {
                     {

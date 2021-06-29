@@ -1,7 +1,7 @@
 package com.shieldui.wicket.maskedtextbox;
 
 import com.shieldui.wicket.OptionsBase;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
@@ -33,8 +33,8 @@ public class MaskedTextBoxOptions extends OptionsBase {
     public String mask;
     public Character promptChar;
     public String value;
-    public HashMap<Character, JsonFunction> rules = new HashMap<Character, JsonFunction>();
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Character, JSONFunction> rules = new HashMap<Character, JSONFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
     public List<Character> cultureSpecific = new ArrayList<Character>();
     public List<Character> separators = new ArrayList<Character>();
 
@@ -83,20 +83,20 @@ public class MaskedTextBoxOptions extends OptionsBase {
         return this;
     }
 
-    public HashMap<Character, JsonFunction> getRules() {
+    public HashMap<Character, JSONFunction> getRules() {
         return rules;
     }
 
-    public MaskedTextBoxOptions setRules(HashMap<Character, JsonFunction> rules) {
+    public MaskedTextBoxOptions setRules(HashMap<Character, JSONFunction> rules) {
         this.rules = rules;
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public MaskedTextBoxOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public MaskedTextBoxOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

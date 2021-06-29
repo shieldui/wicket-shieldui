@@ -2,7 +2,7 @@ package com.shieldui.wicket.button;
 
 import com.shieldui.wicket.OptionsBase;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class ButtonOptions extends OptionsBase
 {
@@ -29,7 +29,7 @@ public class ButtonOptions extends OptionsBase
     
     public Boolean checked;
     public Boolean enabled;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
     public String cls;
     public Boolean toggle;
 
@@ -51,11 +51,11 @@ public class ButtonOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public ButtonOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public ButtonOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

@@ -5,7 +5,7 @@ import com.shieldui.wicket.OptionsBase;
 import com.shieldui.wicket.datasource.DataSource;
 import com.shieldui.wicket.datasource.DataSourceOptions;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class TreeViewOptions extends OptionsBase
 {
@@ -106,7 +106,7 @@ public class TreeViewOptions extends OptionsBase
             return this;
         }
         
-        public CheckboxOptions setTemplate(JsonFunction template) {
+        public CheckboxOptions setTemplate(JSONFunction template) {
             this.template = template;
             return this;
         }
@@ -130,7 +130,7 @@ public class TreeViewOptions extends OptionsBase
     public Object iconUrlTemplate;
     public Object iconClsTemplate;
     public Object hasChildrenTemplate;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
 
     public String getCls() {
         return cls;
@@ -193,13 +193,13 @@ public class TreeViewOptions extends OptionsBase
         return this;
     }
     
-    public TreeViewOptions setDataSource(JsonFunction dataSource) {
+    public TreeViewOptions setDataSource(JSONFunction dataSource) {
         this.dataSource = dataSource;
         return this;
     }
     
     public TreeViewOptions setDataSource(DataSource dataSourceObject) {
-        this.dataSource = new JsonFunction("window." + dataSourceObject.getJsVariableName());
+        this.dataSource = new JSONFunction("window." + dataSourceObject.getJsVariableName());
         return this;
     }
 
@@ -257,7 +257,7 @@ public class TreeViewOptions extends OptionsBase
         return this;
     }
     
-    public TreeViewOptions setTextTemplate(JsonFunction textTemplate) {
+    public TreeViewOptions setTextTemplate(JSONFunction textTemplate) {
         this.textTemplate = textTemplate;
         return this;
     }
@@ -271,7 +271,7 @@ public class TreeViewOptions extends OptionsBase
         return this;
     }
     
-    public TreeViewOptions setHrefTemplate(JsonFunction hrefTemplate) {
+    public TreeViewOptions setHrefTemplate(JSONFunction hrefTemplate) {
         this.hrefTemplate = hrefTemplate;
         return this;
     }
@@ -285,7 +285,7 @@ public class TreeViewOptions extends OptionsBase
         return this;
     }
     
-    public TreeViewOptions setExpandedTemplate(JsonFunction expandedTemplate) {
+    public TreeViewOptions setExpandedTemplate(JSONFunction expandedTemplate) {
         this.expandedTemplate = expandedTemplate;
         return this;
     }
@@ -299,7 +299,7 @@ public class TreeViewOptions extends OptionsBase
         return this;
     }
     
-    public TreeViewOptions setCheckedTemplate(JsonFunction checkedTemplate) {
+    public TreeViewOptions setCheckedTemplate(JSONFunction checkedTemplate) {
         this.checkedTemplate = checkedTemplate;
         return this;
     }
@@ -313,7 +313,7 @@ public class TreeViewOptions extends OptionsBase
         return this;
     }
     
-    public TreeViewOptions setDisabledTemplate(JsonFunction disabledTemplate) {
+    public TreeViewOptions setDisabledTemplate(JSONFunction disabledTemplate) {
         this.disabledTemplate = disabledTemplate;
         return this;
     }
@@ -327,7 +327,7 @@ public class TreeViewOptions extends OptionsBase
         return this;
     }
     
-    public TreeViewOptions setIconUrlTemplate(JsonFunction iconUrlTemplate) {
+    public TreeViewOptions setIconUrlTemplate(JSONFunction iconUrlTemplate) {
         this.iconUrlTemplate = iconUrlTemplate;
         return this;
     }
@@ -341,7 +341,7 @@ public class TreeViewOptions extends OptionsBase
         return this;
     }
     
-    public TreeViewOptions setIconClsTemplate(JsonFunction iconClsTemplate) {
+    public TreeViewOptions setIconClsTemplate(JSONFunction iconClsTemplate) {
         this.iconClsTemplate = iconClsTemplate;
         return this;
     }
@@ -355,16 +355,16 @@ public class TreeViewOptions extends OptionsBase
         return this;
     }
     
-    public TreeViewOptions setHasChildrenTemplate(JsonFunction hasChildrenTemplate) {
+    public TreeViewOptions setHasChildrenTemplate(JSONFunction hasChildrenTemplate) {
         this.hasChildrenTemplate = hasChildrenTemplate;
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public TreeViewOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public TreeViewOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

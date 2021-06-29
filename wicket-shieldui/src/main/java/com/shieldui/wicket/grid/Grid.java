@@ -4,9 +4,7 @@ import com.shieldui.wicket.WidgetComponentBase;
 import com.shieldui.wicket.datasource.DataSourceOptions;
 import java.util.HashMap;
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.json.JSONException;
-import org.apache.wicket.ajax.json.JSONStringer;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class Grid extends WidgetComponentBase
 {
@@ -23,30 +21,6 @@ public class Grid extends WidgetComponentBase
     public GridOptions getOptions()
     {
         return options;
-    }
-    
-    private CharSequence hashToJson(HashMap<String, Object> dict)
-    {
-        try {
-            JSONStringer writer = new JSONStringer();
-            writer.object();
-            
-            if (dict != null) {
-                for (String key : dict.keySet()) {
-                    Object value = dict.get(key);
-                    if (value != null) {
-                        writer.key(key);
-                        writer.value(value);
-                    }
-                }
-            }
-            
-            writer.endObject();
-            return writer.toString();
-        }
-        catch (JSONException e) {
-            throw new RuntimeException("Could not convert HashMap object to Json", e);
-        }
     }
     
     public void addRow(AjaxRequestTarget target, HashMap<String, Object> item)
@@ -84,7 +58,7 @@ public class Grid extends WidgetComponentBase
         );
     }
     
-    public void collapseRow(AjaxRequestTarget target, JsonFunction row) {
+    public void collapseRow(AjaxRequestTarget target, JSONFunction row) {
         target.appendJavaScript(
                 jsClosure(
                         "var sw = $('#" + getMarkupId() + "').swidget(\"" + getWidgetType() + "\"); if (sw) { sw.collapseRow(" + row + "); }"
@@ -124,7 +98,7 @@ public class Grid extends WidgetComponentBase
         );
     }
     
-    public void expandRow(AjaxRequestTarget target, JsonFunction row) {
+    public void expandRow(AjaxRequestTarget target, JSONFunction row) {
         target.appendJavaScript(
                 jsClosure(
                         "var sw = $('#" + getMarkupId() + "').swidget(\"" + getWidgetType() + "\"); if (sw) { sw.expandRow(" + row + "); }"

@@ -3,7 +3,7 @@ package com.shieldui.wicket.progressbar;
 import com.shieldui.wicket.HashMapSerializable;
 import com.shieldui.wicket.OptionsBase;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class ProgressBarOptions extends OptionsBase
 {
@@ -151,14 +151,14 @@ public class ProgressBarOptions extends OptionsBase
             return this;
         }
         
-        public Text setTemplate(JsonFunction template) {
+        public Text setTemplate(JSONFunction template) {
             this.template = template;
             return this;
         }
     }
     
     public Boolean enabled;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
     public Object min;
     public Object max;
     public Object value;
@@ -176,11 +176,11 @@ public class ProgressBarOptions extends OptionsBase
         return this;
     }
     
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public ProgressBarOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public ProgressBarOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

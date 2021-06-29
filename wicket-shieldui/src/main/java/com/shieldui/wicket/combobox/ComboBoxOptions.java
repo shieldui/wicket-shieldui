@@ -5,7 +5,7 @@ import com.shieldui.wicket.OptionsBase;
 import com.shieldui.wicket.datasource.DataSource;
 import com.shieldui.wicket.datasource.DataSourceOptions;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class ComboBoxOptions extends OptionsBase {
     private static final long serialVersionUID = 1L;
@@ -72,7 +72,7 @@ public class ComboBoxOptions extends OptionsBase {
             return this;
         }
         
-        public AutoCompleteOptions setFilter(JsonFunction filter) {
+        public AutoCompleteOptions setFilter(JSONFunction filter) {
             this.filter = filter;
             return this;
         }
@@ -125,7 +125,7 @@ public class ComboBoxOptions extends OptionsBase {
     public Integer height;
     public Integer dropDownWidth;
     public Integer dropDownHeight;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
     public AutoCompleteOptions autoComplete = new AutoCompleteOptions();
     public AnimationOptions animation = new AnimationOptions();
 
@@ -175,13 +175,13 @@ public class ComboBoxOptions extends OptionsBase {
         return this;
     }
     
-    public ComboBoxOptions setDataSource(JsonFunction dataSource) {
+    public ComboBoxOptions setDataSource(JSONFunction dataSource) {
         this.dataSource = dataSource;
         return this;
     }
     
     public ComboBoxOptions setDataSource(DataSource dataSourceObject) {
-        this.dataSource = new JsonFunction("window." + dataSourceObject.getJsVariableName());
+        this.dataSource = new JSONFunction("window." + dataSourceObject.getJsVariableName());
         return this;
     }
 
@@ -194,7 +194,7 @@ public class ComboBoxOptions extends OptionsBase {
         return this;
     }
     
-    public ComboBoxOptions setTextTemplate(JsonFunction textTemplate) {
+    public ComboBoxOptions setTextTemplate(JSONFunction textTemplate) {
         this.textTemplate = textTemplate;
         return this;
     }
@@ -208,7 +208,7 @@ public class ComboBoxOptions extends OptionsBase {
         return this;
     }
     
-    public ComboBoxOptions setValueTemplate(JsonFunction valueTemplate) {
+    public ComboBoxOptions setValueTemplate(JSONFunction valueTemplate) {
         this.valueTemplate = valueTemplate;
         return this;
     }
@@ -222,7 +222,7 @@ public class ComboBoxOptions extends OptionsBase {
         return this;
     }
     
-    public ComboBoxOptions setInputTemplate(JsonFunction inputTemplate) {
+    public ComboBoxOptions setInputTemplate(JSONFunction inputTemplate) {
         this.inputTemplate = inputTemplate;
         return this;
     }
@@ -281,11 +281,11 @@ public class ComboBoxOptions extends OptionsBase {
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public ComboBoxOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public ComboBoxOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

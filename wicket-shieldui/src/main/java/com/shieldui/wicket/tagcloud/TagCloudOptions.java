@@ -4,7 +4,7 @@ import com.shieldui.wicket.OptionsBase;
 import com.shieldui.wicket.datasource.DataSource;
 import com.shieldui.wicket.datasource.DataSourceOptions;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 
 public class TagCloudOptions extends OptionsBase
@@ -32,7 +32,7 @@ public class TagCloudOptions extends OptionsBase
 
     public String cls;
     public Object dataSource;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
     public Object frequencyTemplate;
     public Integer height;
     public Object hrefTemplate;
@@ -61,21 +61,21 @@ public class TagCloudOptions extends OptionsBase
         return this;
     }
     
-    public TagCloudOptions setDataSource(JsonFunction dataSource) {
+    public TagCloudOptions setDataSource(JSONFunction dataSource) {
         this.dataSource = dataSource;
         return this;
     }
     
     public TagCloudOptions setDataSource(DataSource dataSourceObject) {
-        this.dataSource = new JsonFunction("window." + dataSourceObject.getJsVariableName());
+        this.dataSource = new JSONFunction("window." + dataSourceObject.getJsVariableName());
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public TagCloudOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public TagCloudOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }
@@ -89,7 +89,7 @@ public class TagCloudOptions extends OptionsBase
         return this;
     }
     
-    public TagCloudOptions setFrequencyTemplate(JsonFunction frequencyTemplate) {
+    public TagCloudOptions setFrequencyTemplate(JSONFunction frequencyTemplate) {
         this.frequencyTemplate = frequencyTemplate;
         return this;
     }
@@ -112,7 +112,7 @@ public class TagCloudOptions extends OptionsBase
         return this;
     }
     
-    public TagCloudOptions setHrefTemplate(JsonFunction hrefTemplate) {
+    public TagCloudOptions setHrefTemplate(JSONFunction hrefTemplate) {
         this.hrefTemplate = hrefTemplate;
         return this;
     }
@@ -135,7 +135,7 @@ public class TagCloudOptions extends OptionsBase
         return this;
     }
     
-    public TagCloudOptions setTargetTemplate(JsonFunction targetTemplate) {
+    public TagCloudOptions setTargetTemplate(JSONFunction targetTemplate) {
         this.targetTemplate = targetTemplate;
         return this;
     }
@@ -149,7 +149,7 @@ public class TagCloudOptions extends OptionsBase
         return this;
     }
     
-    public TagCloudOptions setTextTemplate(JsonFunction textTemplate) {
+    public TagCloudOptions setTextTemplate(JSONFunction textTemplate) {
         this.textTemplate = textTemplate;
         return this;
     }

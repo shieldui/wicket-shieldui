@@ -4,7 +4,7 @@ import com.shieldui.wicket.OptionsBase;
 import com.shieldui.wicket.datasource.DataSource;
 import com.shieldui.wicket.datasource.DataSourceOptions;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class SplitButtonOptions extends OptionsBase
 {
@@ -32,7 +32,7 @@ public class SplitButtonOptions extends OptionsBase
     
     public Boolean checked;
     public Boolean enabled;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
     public String cls;
     public String menu;
     public Object dataSource;
@@ -56,11 +56,11 @@ public class SplitButtonOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public SplitButtonOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public SplitButtonOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }
@@ -98,13 +98,13 @@ public class SplitButtonOptions extends OptionsBase
         return this;
     }
     
-    public SplitButtonOptions setDataSource(JsonFunction dataSource) {
+    public SplitButtonOptions setDataSource(JSONFunction dataSource) {
         this.dataSource = dataSource;
         return this;
     }
     
     public SplitButtonOptions setDataSource(DataSource dataSourceObject) {
-        this.dataSource = new JsonFunction("window." + dataSourceObject.getJsVariableName());
+        this.dataSource = new JSONFunction("window." + dataSourceObject.getJsVariableName());
         return this;
     }
 }

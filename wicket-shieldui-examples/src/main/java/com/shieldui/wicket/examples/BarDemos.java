@@ -3,7 +3,7 @@ package com.shieldui.wicket.examples;
 import com.shieldui.wicket.chart.Chart;
 import com.shieldui.wicket.chart.ChartOptions;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import org.apache.wicket.markup.html.WebPage;
 
 public class BarDemos extends WebPage
@@ -23,7 +23,7 @@ public class BarDemos extends WebPage
         bar.getOptions().getPrimaryHeader().setText("Internet usage statistics");
         
         ChartOptions.Axis axisX = new ChartOptions.Axis();
-        axisX.getAxisTickText().setFormat(new JsonFunction("function(text) { return text + '%%'; }"));
+        axisX.getAxisTickText().setFormat(new JSONFunction("function(text) { return text + '%%'; }"));
         bar.getOptions().addAxisX(axisX);
         
         ChartOptions.Axis axisY = new ChartOptions.Axis();
@@ -37,7 +37,7 @@ public class BarDemos extends WebPage
         );
         bar.getOptions().addAxisY(axisY);
         
-        bar.getOptions().getTooltipSettings().setCustomHeaderText(new JsonFunction("function() { return '<b>HEADER</b>'; }"));
+        bar.getOptions().getTooltipSettings().setCustomHeaderText(new JSONFunction("function() { return '<b>HEADER</b>'; }"));
         bar.getOptions().getSeriesSettings().getBar().getDataPointText().setEnabled(true);
         bar.getOptions().getSeriesSettings().getBar().getDataPointText().setFormat("{point.y} / {point.x}");
         

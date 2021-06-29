@@ -6,7 +6,7 @@ import com.shieldui.wicket.grid.GridOptions;
 import com.shieldui.wicket.grid.events.ColumnReorderEventListener;
 import java.util.HashMap;
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import org.apache.wicket.markup.html.WebPage;
 
 public class GridDemos extends WebPage
@@ -23,15 +23,15 @@ public class GridDemos extends WebPage
         
         // setup some grid options
         grid1.getOptions().setDataSource(new DataSourceOptions()
-                .setData(new JsonFunction("gridData"))
+                .setData(new JSONFunction("gridData"))
                 .setGroup(new DataSourceOptions.GroupOption().setField("gender").setOrder(DataSourceOptions.Order.ASC))
         );
         grid1.getOptions().getPaging().setPageSize(12).setPageLinksCount(10);
         grid1.getOptions().setAltRows(false);
         grid1.getOptions().setColumns(
-                new GridOptions.ColumnOption().setField("name").setHeaderTemplate(new JsonFunction("$('template1').html()")),
-                new GridOptions.ColumnOption().setField("phone").setHeaderTemplate(new JsonFunction("$('template2').html()")),
-                new GridOptions.ColumnOption().setField("email").setHeaderTemplate(new JsonFunction("$('template3').html()"))
+                new GridOptions.ColumnOption().setField("name").setHeaderTemplate(new JSONFunction("$('template1').html()")),
+                new GridOptions.ColumnOption().setField("phone").setHeaderTemplate(new JSONFunction("$('template2').html()")),
+                new GridOptions.ColumnOption().setField("email").setHeaderTemplate(new JSONFunction("$('template3').html()"))
         );
         grid1.getOptions().setColumnReorder(true);
         grid1.getOptions().setResizing(true);
@@ -53,12 +53,12 @@ public class GridDemos extends WebPage
                     )
         );
         grid1.getOptions().getExportOptions().getExcel()
-                .setDataSource(new DataSourceOptions().setData(new JsonFunction("gridData")))
+                .setDataSource(new DataSourceOptions().setData(new JSONFunction("gridData")))
                 .setReadDataSource(true)
                 .setAuthor("Shield UI Demo Author")
                 .setColumnFields("name", "email");
         grid1.getOptions().getExportOptions().getPdf()
-                .setDataSource(new DataSourceOptions().setData(new JsonFunction("gridData")))
+                .setDataSource(new DataSourceOptions().setData(new JSONFunction("gridData")))
                 .setReadDataSource(true)
                 .setAuthor("Shield UI Demo Author")
                 .setSize(GridOptions.PDFPageSize.A3)

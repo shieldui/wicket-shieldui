@@ -1,8 +1,10 @@
 package com.shieldui.wicket;
 
+import com.github.openjson.JSONException;
+import com.github.openjson.JSONObject;
 import java.util.HashMap;
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -13,7 +15,7 @@ public abstract class WidgetComponentBase extends WebMarkupContainer implements 
     private static final long serialVersionUID = 1L;
     
     private final String widgetType;
-    private final HashMap<String, JsonFunction> serverEvents = new HashMap<String, JsonFunction>();
+    private final HashMap<String, JSONFunction> serverEvents = new HashMap<String, JSONFunction>();
     
     public WidgetComponentBase(String id, String type)
     {
@@ -22,12 +24,12 @@ public abstract class WidgetComponentBase extends WebMarkupContainer implements 
         setOutputMarkupId(true);
     }
     
-    public void setServerEvent(String eventName, JsonFunction jsonFunc)
+    public void setServerEvent(String eventName, JSONFunction jsonFunc)
     {
         serverEvents.put(eventName, jsonFunc);
     }
     
-    public HashMap<String, JsonFunction> getServerEvents()
+    public HashMap<String, JSONFunction> getServerEvents()
     {
         return serverEvents;
     }
@@ -47,7 +49,7 @@ public abstract class WidgetComponentBase extends WebMarkupContainer implements 
         String javascript = "$('#" + getMarkupId() + "').shield" + getWidgetType() + "(" + getOptions().toJson() + ")";
         
         // add all server events if any
-        HashMap<String, JsonFunction> events = getServerEvents();
+        HashMap<String, JSONFunction> events = getServerEvents();
         if (events.size() > 0) {
             javascript += ".swidget('" + getWidgetType() + "')";
             for (String event : events.keySet()) {
@@ -56,6 +58,17 @@ public abstract class WidgetComponentBase extends WebMarkupContainer implements 
         }
         
         return javascript + ";";
+    }
+    
+    protected CharSequence hashToJson(HashMap<String, Object> dict)
+    {
+        try {
+            JSONObject o = new JSONObject(dict);
+            return o.toString();
+        }
+        catch (JSONException e) {
+            throw new RuntimeException("Could not convert HashMap object to Json", e);
+        }
     }
     
     @Override

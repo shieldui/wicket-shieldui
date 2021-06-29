@@ -4,7 +4,7 @@ import com.shieldui.wicket.datasource.DataSourceOptions;
 import com.shieldui.wicket.listbox.ListBoxOptions;
 import com.shieldui.wicket.listbox.ListBox;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import org.apache.wicket.markup.html.WebPage;
 
 public class ListBoxDemo extends WebPage {
@@ -23,7 +23,7 @@ public class ListBoxDemo extends WebPage {
                .setHeight(300)
                .setSelected(1)
                .setMultiple(false)
-               .setTextTemplate(new JsonFunction("function(item) { return item.name; }"))
+               .setTextTemplate(new JSONFunction("function(item) { return item.name; }"))
                .setDataSource(
                         new DataSourceOptions()
                                 .setData(

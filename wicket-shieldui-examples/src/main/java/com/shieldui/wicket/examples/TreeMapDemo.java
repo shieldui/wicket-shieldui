@@ -6,7 +6,7 @@ import com.shieldui.wicket.treemap.TreeMap;
 import com.shieldui.wicket.treemap.TreeMapOptions;
 import java.util.HashMap;
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import org.apache.wicket.markup.html.WebPage;
 
 public class TreeMapDemo extends WebPage
@@ -25,7 +25,7 @@ public class TreeMapDemo extends WebPage
                 .setTitle("A sample treemap")
                 .setType(TreeMapOptions.Type.SQUARIFIED)
                 .setValueTemplate("{frequency}")
-                .setTextTemplate(new JsonFunction("function(item) { return item.text; }"))
+                .setTextTemplate(new JSONFunction("function(item) { return item.text; }"))
                 .setDataSource(
                         new DataSourceOptions()
                                 .setData(

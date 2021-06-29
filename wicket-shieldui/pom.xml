@@ -1,53 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<artifactId>wicket-shieldui-parent</artifactId>
-		<groupId>com.shieldui.wicket.parent</groupId>
-		<version>1.1-SNAPSHOT</version>
-	</parent>
+    <parent>
+        <artifactId>wicket-shieldui-parent</artifactId>
+        <groupId>com.shieldui.wicket.parent</groupId>
+        <version>1.1-SNAPSHOT</version>
+    </parent>
 
-	<groupId>com.shieldui.wicket</groupId>
-	<artifactId>wicket-shieldui</artifactId>
-	<packaging>jar</packaging>
-	<version>1.1-SNAPSHOT</version>
-	<name>wicket-shieldui</name>
-	<description>Apache Wicket component leveraging the use of Shield UI JavaScript library</description>
-	<url></url>
+    <groupId>com.shieldui.wicket</groupId>
+    <artifactId>wicket-shieldui</artifactId>
+    <packaging>jar</packaging>
+    <version>2.1-SNAPSHOT</version>
+    <name>wicket-shieldui</name>
+    <description>Apache Wicket component leveraging the use of Shield UI JavaScript library</description>
+    <url></url>
 
-	<organization>
-		<name>Shield UI Ltd.</name>
-		<url>http://www.shieldui.com</url>
-	</organization>
+    <organization>
+        <name>Shield UI Ltd.</name>
+        <url>https://www.shieldui.com</url>
+    </organization>
 
-	<properties>
-		<wicket.version>6.5.0</wicket.version>
-		<jetty.version>7.6.3.v20120416</jetty.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+    <properties>
+        <wicket.version>8.12.0</wicket.version>
+        <jetty9.version>9.4.31.v20200723</jetty9.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
-	<dependencies>
-		<!--  WICKET DEPENDENCIES -->
-		<dependency>
-			<groupId>org.apache.wicket</groupId>
-			<artifactId>wicket-core</artifactId>
-			<version>${wicket.version}</version>
-		</dependency>
-		<!-- OPTIONAL DEPENDENCY
-		<dependency>
-			<groupId>org.apache.wicket</groupId>
-			<artifactId>wicket-extensions</artifactId>
-			<version>${wicket.version}</version>
-		</dependency>
-		-->
+    <dependencies>
+        <!-- WICKET DEPENDENCIES -->
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket-core</artifactId>
+            <version>${wicket.version}</version>
+        </dependency>
+                
+        <!-- JSON DEPENDENCY -->
+        <dependency>
+            <groupId>com.github.openjson</groupId>
+            <artifactId>openjson</artifactId>
+            <version>1.0.11</version>
+        </dependency>
 
-		<!--  JUNIT DEPENDENCY FOR TESTING -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+        <!-- JUNIT DEPENDENCY FOR TESTING -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+        </dependency>
+    </dependencies>
 </project>

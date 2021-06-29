@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class AccordionOptions extends OptionsBase
 {
@@ -84,7 +84,7 @@ public class AccordionOptions extends OptionsBase
     public Object contentTemplate;
     public Object dataSource;
     public Boolean enabled;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
     public List<Integer> expanded = new ArrayList<Integer>();
     public Integer height;
     public Integer maxHeight;
@@ -119,7 +119,7 @@ public class AccordionOptions extends OptionsBase
         return this;
     }
     
-    public AccordionOptions setContentTemplate(JsonFunction contentTemplate) {
+    public AccordionOptions setContentTemplate(JSONFunction contentTemplate) {
         this.contentTemplate = contentTemplate;
         return this;
     }
@@ -134,13 +134,13 @@ public class AccordionOptions extends OptionsBase
         return this;
     }
     
-    public AccordionOptions setDataSource(JsonFunction dataSource) {
+    public AccordionOptions setDataSource(JSONFunction dataSource) {
         this.dataSource = dataSource;
         return this;
     }
     
     public AccordionOptions setDataSource(DataSource dataSourceObject) {
-        this.dataSource = new JsonFunction("window." + dataSourceObject.getJsVariableName());
+        this.dataSource = new JSONFunction("window." + dataSourceObject.getJsVariableName());
         return this;
     }
 
@@ -153,11 +153,11 @@ public class AccordionOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public AccordionOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public AccordionOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }
@@ -212,7 +212,7 @@ public class AccordionOptions extends OptionsBase
         return this;
     }
     
-    public AccordionOptions setTitleTemplate(JsonFunction titleTemplate) {
+    public AccordionOptions setTitleTemplate(JSONFunction titleTemplate) {
         this.titleTemplate = titleTemplate;
         return this;
     }

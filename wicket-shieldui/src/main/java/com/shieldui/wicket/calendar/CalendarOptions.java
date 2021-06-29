@@ -4,7 +4,7 @@ import com.shieldui.wicket.HashMapSerializable;
 import com.shieldui.wicket.OptionsBase;
 import java.util.Date;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class CalendarOptions extends OptionsBase
 {
@@ -73,7 +73,7 @@ public class CalendarOptions extends OptionsBase
             return this;
         }
 
-        public Footer setFooterTemplate(JsonFunction footerTemplate) {
+        public Footer setFooterTemplate(JSONFunction footerTemplate) {
             this.footerTemplate = footerTemplate;
             return this;
         }
@@ -114,7 +114,7 @@ public class CalendarOptions extends OptionsBase
     protected void serializeVariable(Class type, String name, Object value, HashMap<String, Object> result)
     {
         if (value != null && (name.equals("value") || name.equals("min") || name.equals("max"))) {
-            result.put(name, new JsonFunction("new Date(" + ((Date)value).getTime() + ")"));
+            result.put(name, new JSONFunction("new Date(" + ((Date)value).getTime() + ")"));
         }
         else {
             // default functionality
@@ -125,8 +125,8 @@ public class CalendarOptions extends OptionsBase
     public Object dateTooltipTemplate;
     public Object dayTemplate;
     public Boolean enabled;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
-    public JsonFunction focused;
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
+    public JSONFunction focused;
     public Footer footer = new Footer();
     public Boolean hover;
     public Labels labels = new Labels();
@@ -147,7 +147,7 @@ public class CalendarOptions extends OptionsBase
         return this;
     }
     
-    public CalendarOptions setDateTooltipTemplate(JsonFunction dateTooltipTemplate) {
+    public CalendarOptions setDateTooltipTemplate(JSONFunction dateTooltipTemplate) {
         this.dateTooltipTemplate = dateTooltipTemplate;
         return this;
     }
@@ -161,7 +161,7 @@ public class CalendarOptions extends OptionsBase
         return this;
     }
     
-    public CalendarOptions setDayTemplate(JsonFunction dayTemplate) {
+    public CalendarOptions setDayTemplate(JSONFunction dayTemplate) {
         this.dayTemplate = dayTemplate;
         return this;
     }
@@ -175,20 +175,20 @@ public class CalendarOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public CalendarOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public CalendarOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }
 
-    public JsonFunction getFocused() {
+    public JSONFunction getFocused() {
         return focused;
     }
 
-    public CalendarOptions setFocused(JsonFunction focused) {
+    public CalendarOptions setFocused(JSONFunction focused) {
         this.focused = focused;
         return this;
     }
@@ -257,7 +257,7 @@ public class CalendarOptions extends OptionsBase
         return this;
     }
     
-    public CalendarOptions setOtherMonthDayTemplate(JsonFunction otherMonthDayTemplate) {
+    public CalendarOptions setOtherMonthDayTemplate(JSONFunction otherMonthDayTemplate) {
         this.otherMonthDayTemplate = otherMonthDayTemplate;
         return this;
     }
@@ -271,7 +271,7 @@ public class CalendarOptions extends OptionsBase
         return this;
     }
     
-    public CalendarOptions setOutOfRangeDayTemplate(JsonFunction outOfRangeDayTemplate) {
+    public CalendarOptions setOutOfRangeDayTemplate(JSONFunction outOfRangeDayTemplate) {
         this.outOfRangeDayTemplate = outOfRangeDayTemplate;
         return this;
     }

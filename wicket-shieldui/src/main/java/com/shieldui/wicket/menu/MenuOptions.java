@@ -5,7 +5,7 @@ import com.shieldui.wicket.OptionsBase;
 import com.shieldui.wicket.datasource.DataSource;
 import com.shieldui.wicket.datasource.DataSourceOptions;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class MenuOptions extends OptionsBase
 {
@@ -96,7 +96,7 @@ public class MenuOptions extends OptionsBase
     public AnimationOptions animation = new AnimationOptions();
     public Object contentTemplate;
     public String overflow;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
 
     public String getCls() {
         return cls;
@@ -145,13 +145,13 @@ public class MenuOptions extends OptionsBase
         return this;
     }
     
-    public MenuOptions setDataSource(JsonFunction dataSource) {
+    public MenuOptions setDataSource(JSONFunction dataSource) {
         this.dataSource = dataSource;
         return this;
     }
     
     public MenuOptions setDataSource(DataSource dataSourceObject) {
-        this.dataSource = new JsonFunction("window." + dataSourceObject.getJsVariableName());
+        this.dataSource = new JSONFunction("window." + dataSourceObject.getJsVariableName());
         return this;
     }
 
@@ -200,7 +200,7 @@ public class MenuOptions extends OptionsBase
         return this;
     }
     
-    public MenuOptions setContentTemplate(JsonFunction contentTemplate) {
+    public MenuOptions setContentTemplate(JSONFunction contentTemplate) {
         this.contentTemplate = contentTemplate;
         return this;
     }
@@ -214,11 +214,11 @@ public class MenuOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public MenuOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public MenuOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

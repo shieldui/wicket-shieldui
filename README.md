@@ -1,12 +1,12 @@
 Wicket-ShieldUI
 =====================
 
-An [Apache Wicket](http://wicket.apache.org) 6 component leveraging the use of the [Shield UI](http://www.shieldui.com) JavaScript library.
+An [Apache Wicket](http://wicket.apache.org) component leveraging the use of the [Shield UI](https://www.shieldui.com) JavaScript library.
 
 Introduction
 ------------
 The component uses the demo version of the Shield UI framework - a set of light-weight, powerful and fully customizable tools. 
-If you would like to obtain a commercial license for the JavaScript code, or get more information about it, you can visit http://www.shieldui.com
+If you would like to obtain a commercial license for the JavaScript code, or get more information about it, you can visit https://www.shieldui.com
 
 Supported Widgets
 -----------------

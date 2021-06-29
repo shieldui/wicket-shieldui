@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class TreeMapOptions extends OptionsBase
 {
@@ -76,7 +76,7 @@ public class TreeMapOptions extends OptionsBase
             return this;
         }
         
-        public TooltipOptions setTemplate(JsonFunction template) {
+        public TooltipOptions setTemplate(JSONFunction template) {
             this.template = template;
             return this;
         }
@@ -87,7 +87,7 @@ public class TreeMapOptions extends OptionsBase
     public List<String> colors = new ArrayList<String>();
     public Object dataSource;
     public Boolean enabled;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
     public Integer height;
     public Boolean readDataSource;
     public Object textTemplate;
@@ -115,7 +115,7 @@ public class TreeMapOptions extends OptionsBase
         return this;
     }
     
-    public TreeMapOptions setColorTemplate(JsonFunction colorTemplate) {
+    public TreeMapOptions setColorTemplate(JSONFunction colorTemplate) {
         this.colorTemplate = colorTemplate;
         return this;
     }
@@ -144,13 +144,13 @@ public class TreeMapOptions extends OptionsBase
         return this;
     }
     
-    public TreeMapOptions setDataSource(JsonFunction dataSource) {
+    public TreeMapOptions setDataSource(JSONFunction dataSource) {
         this.dataSource = dataSource;
         return this;
     }
     
     public TreeMapOptions setDataSource(DataSource dataSourceObject) {
-        this.dataSource = new JsonFunction("window." + dataSourceObject.getJsVariableName());
+        this.dataSource = new JSONFunction("window." + dataSourceObject.getJsVariableName());
         return this;
     }
 
@@ -163,11 +163,11 @@ public class TreeMapOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public TreeMapOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public TreeMapOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }
@@ -199,7 +199,7 @@ public class TreeMapOptions extends OptionsBase
         return this;
     }
     
-    public TreeMapOptions setTextTemplate(JsonFunction textTemplate) {
+    public TreeMapOptions setTextTemplate(JSONFunction textTemplate) {
         this.textTemplate = textTemplate;
         return this;
     }
@@ -240,7 +240,7 @@ public class TreeMapOptions extends OptionsBase
         return this;
     }
     
-    public TreeMapOptions setValueTemplate(JsonFunction valueTemplate) {
+    public TreeMapOptions setValueTemplate(JSONFunction valueTemplate) {
         this.valueTemplate = valueTemplate;
         return this;
     }

@@ -5,7 +5,7 @@ import com.shieldui.wicket.OptionsBase;
 import com.shieldui.wicket.datasource.DataSource;
 import com.shieldui.wicket.datasource.DataSourceOptions;
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class TabsOptions extends OptionsBase
 {
@@ -122,7 +122,7 @@ public class TabsOptions extends OptionsBase
     public Object dataSource;
     public Boolean readDataSource;
     public Trigger trigger;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
 
     public String getCls() {
         return cls;
@@ -169,7 +169,7 @@ public class TabsOptions extends OptionsBase
         return this;
     }
     
-    public TabsOptions setTitleTemplate(JsonFunction titleTemplate) {
+    public TabsOptions setTitleTemplate(JSONFunction titleTemplate) {
         this.titleTemplate = titleTemplate;
         return this;
     }
@@ -183,7 +183,7 @@ public class TabsOptions extends OptionsBase
         return this;
     }
     
-    public TabsOptions setTitleClsTemplate(JsonFunction titleClsTemplate) {
+    public TabsOptions setTitleClsTemplate(JSONFunction titleClsTemplate) {
         this.titleClsTemplate = titleClsTemplate;
         return this;
     }
@@ -197,7 +197,7 @@ public class TabsOptions extends OptionsBase
         return this;
     }
     
-    public TabsOptions setItemClsTemplate(JsonFunction itemClsTemplate) {
+    public TabsOptions setItemClsTemplate(JSONFunction itemClsTemplate) {
         this.itemClsTemplate = itemClsTemplate;
         return this;
     }
@@ -211,7 +211,7 @@ public class TabsOptions extends OptionsBase
         return this;
     }
     
-    public TabsOptions setHrefTemplate(JsonFunction hrefTemplate) {
+    public TabsOptions setHrefTemplate(JSONFunction hrefTemplate) {
         this.hrefTemplate = hrefTemplate;
         return this;
     }
@@ -225,7 +225,7 @@ public class TabsOptions extends OptionsBase
         return this;
     }
     
-    public TabsOptions setContentTemplate(JsonFunction contentTemplate) {
+    public TabsOptions setContentTemplate(JSONFunction contentTemplate) {
         this.contentTemplate = contentTemplate;
         return this;
     }
@@ -239,7 +239,7 @@ public class TabsOptions extends OptionsBase
         return this;
     }
     
-    public TabsOptions setDisabledTemplate(JsonFunction disabledTemplate) {
+    public TabsOptions setDisabledTemplate(JSONFunction disabledTemplate) {
         this.disabledTemplate = disabledTemplate;
         return this;
     }
@@ -253,7 +253,7 @@ public class TabsOptions extends OptionsBase
         return this;
     }
     
-    public TabsOptions setIconUrlTemplate(JsonFunction iconUrlTemplate) {
+    public TabsOptions setIconUrlTemplate(JSONFunction iconUrlTemplate) {
         this.iconUrlTemplate = iconUrlTemplate;
         return this;
     }
@@ -267,7 +267,7 @@ public class TabsOptions extends OptionsBase
         return this;
     }
     
-    public TabsOptions setIconClsTemplate(JsonFunction iconClsTemplate) {
+    public TabsOptions setIconClsTemplate(JSONFunction iconClsTemplate) {
         this.iconClsTemplate = iconClsTemplate;
         return this;
     }
@@ -291,13 +291,13 @@ public class TabsOptions extends OptionsBase
         return this;
     }
     
-    public TabsOptions setDataSource(JsonFunction dataSource) {
+    public TabsOptions setDataSource(JSONFunction dataSource) {
         this.dataSource = dataSource;
         return this;
     }
     
     public TabsOptions setDataSource(DataSource dataSourceObject) {
-        this.dataSource = new JsonFunction("window." + dataSourceObject.getJsVariableName());
+        this.dataSource = new JSONFunction("window." + dataSourceObject.getJsVariableName());
         return this;
     }
 
@@ -319,11 +319,11 @@ public class TabsOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public TabsOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public TabsOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

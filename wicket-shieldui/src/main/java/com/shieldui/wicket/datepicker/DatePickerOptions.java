@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class DatePickerOptions extends OptionsBase
 {
@@ -59,7 +59,7 @@ public class DatePickerOptions extends OptionsBase
     protected void serializeVariable(Class type, String name, Object value, HashMap<String, Object> result)
     {
         if (value != null && (name.equals("value") || name.equals("min") || name.equals("max"))) {
-            result.put(name, new JsonFunction("new Date(" + ((Date)value).getTime() + ")"));
+            result.put(name, new JSONFunction("new Date(" + ((Date)value).getTime() + ")"));
         }
         else {
             // default functionality
@@ -79,7 +79,7 @@ public class DatePickerOptions extends OptionsBase
     public Date min;
     public Date max;
     public MessagesOptions messages = new MessagesOptions();
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
 
     public CalendarOptions getCalendar() {
         return calendar;
@@ -108,7 +108,7 @@ public class DatePickerOptions extends OptionsBase
         return this;
     }
     
-    public DatePickerOptions setTextTemplate(JsonFunction textTemplate) {
+    public DatePickerOptions setTextTemplate(JSONFunction textTemplate) {
         this.textTemplate = textTemplate;
         return this;
     }
@@ -209,11 +209,11 @@ public class DatePickerOptions extends OptionsBase
         return this;
     }
 
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public DatePickerOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public DatePickerOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

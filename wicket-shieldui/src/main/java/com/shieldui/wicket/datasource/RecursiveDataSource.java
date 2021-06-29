@@ -1,7 +1,7 @@
 package com.shieldui.wicket.datasource;
 
 import java.util.HashMap;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class RecursiveDataSource extends DataSource 
 {
@@ -13,7 +13,7 @@ public class RecursiveDataSource extends DataSource
         String javascript = "window." + getJsVariableName() + " = new shield.RecursiveDataSource(" + getOptions().toJson() + ");";
         
         // add all server events if any
-        HashMap<String, JsonFunction> events = getServerEvents();
+        HashMap<String, JSONFunction> events = getServerEvents();
         if (events.size() > 0) {
             javascript += "window." + getJsVariableName();
             for (String event : events.keySet()) {

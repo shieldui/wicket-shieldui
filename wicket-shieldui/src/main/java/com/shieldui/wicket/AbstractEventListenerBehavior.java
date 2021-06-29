@@ -9,10 +9,10 @@ import org.apache.wicket.ajax.AbstractDefaultAjaxBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
 import org.apache.wicket.ajax.attributes.CallbackParameter;
-import org.apache.wicket.ajax.json.JSONArray;
-import org.apache.wicket.ajax.json.JSONException;
-import org.apache.wicket.ajax.json.JSONObject;
-import org.apache.wicket.ajax.json.JsonFunction;
+import com.github.openjson.JSONArray;
+import com.github.openjson.JSONException;
+import com.github.openjson.JSONObject;
+import org.apache.wicket.ajax.json.JSONFunction;
 import org.apache.wicket.request.cycle.RequestCycle;
 
 public abstract class AbstractEventListenerBehavior extends AbstractDefaultAjaxBehavior
@@ -44,7 +44,7 @@ public abstract class AbstractEventListenerBehavior extends AbstractDefaultAjaxB
         
         if (IWidget.class.isAssignableFrom(component.getClass())) {
             String callback = getCallbackFunction(CallbackParameter.converted(eventVarName, "JSON.stringify(" + toJson(eventVarName) + ")")).toString();
-            ((IWidget) component).setServerEvent(eventName, new JsonFunction(callback));
+            ((IWidget) component).setServerEvent(eventName, new JSONFunction(callback));
         }
     }
     

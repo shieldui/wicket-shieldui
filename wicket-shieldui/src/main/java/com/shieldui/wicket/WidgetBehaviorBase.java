@@ -7,7 +7,7 @@ import java.util.List;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.CallbackParameter;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 import org.apache.wicket.behavior.Behavior;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
@@ -21,7 +21,7 @@ public abstract class WidgetBehaviorBase extends Behavior implements IWidget
     private final String selector;
     private final String widgetType;
     private final Boolean priorityHI;
-    private final HashMap<String, JsonFunction> serverEvents = new HashMap<String, JsonFunction>();
+    private final HashMap<String, JSONFunction> serverEvents = new HashMap<String, JSONFunction>();
     private final List<AbstractEventListenerBehavior> listeners = new ArrayList<AbstractEventListenerBehavior>();
     
     public WidgetBehaviorBase(String selector, String type)
@@ -38,12 +38,12 @@ public abstract class WidgetBehaviorBase extends Behavior implements IWidget
     
     public abstract OptionsBase getOptions();
     
-    public void setServerEvent(String eventName, JsonFunction jsonFunc)
+    public void setServerEvent(String eventName, JSONFunction jsonFunc)
     {
         serverEvents.put(eventName, jsonFunc);
     }
     
-    public HashMap<String, JsonFunction> getServerEvents()
+    public HashMap<String, JSONFunction> getServerEvents()
     {
         return serverEvents;
     }
@@ -71,7 +71,7 @@ public abstract class WidgetBehaviorBase extends Behavior implements IWidget
         //attachServerEvents(compo);
         
         // add all server events if any
-        HashMap<String, JsonFunction> events = getServerEvents();
+        HashMap<String, JSONFunction> events = getServerEvents();
         if (events.size() > 0) {
             javascript += ".swidget('" + getWidgetType() + "')";
             for (String event : events.keySet()) {
@@ -130,7 +130,7 @@ public abstract class WidgetBehaviorBase extends Behavior implements IWidget
             component.add(listener);
             
             String callback = listener.getCallbackFunction(CallbackParameter.converted(listener.eventName, "JSON.stringify(" + listener.toJson(listener.eventVarName) + ")")).toString();
-            setServerEvent(listener.eventName, new JsonFunction(callback));
+            setServerEvent(listener.eventName, new JSONFunction(callback));
         }
     }
 }

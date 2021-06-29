@@ -5,7 +5,7 @@ import com.shieldui.wicket.datasource.DataSource;
 import com.shieldui.wicket.datasource.DataSourceOptions;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class ListBoxOptions extends OptionsBase
 {
@@ -42,7 +42,7 @@ public class ListBoxOptions extends OptionsBase
     public Integer width;
     public Integer height;
     public Integer maxHeight;
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
 
     public Boolean getEnabled() {
         return enabled;
@@ -72,13 +72,13 @@ public class ListBoxOptions extends OptionsBase
         return this;
     }
     
-    public ListBoxOptions setDataSource(JsonFunction dataSource) {
+    public ListBoxOptions setDataSource(JSONFunction dataSource) {
         this.dataSource = dataSource;
         return this;
     }
     
     public ListBoxOptions setDataSource(DataSource dataSourceObject) {
-        this.dataSource = new JsonFunction("window." + dataSourceObject.getJsVariableName());
+        this.dataSource = new JSONFunction("window." + dataSourceObject.getJsVariableName());
         return this;
     }
 
@@ -100,7 +100,7 @@ public class ListBoxOptions extends OptionsBase
         return this;
     }
     
-    public ListBoxOptions setTextTemplate(JsonFunction textTemplate) {
+    public ListBoxOptions setTextTemplate(JSONFunction textTemplate) {
         this.textTemplate = textTemplate;
         return this;
     }
@@ -114,7 +114,7 @@ public class ListBoxOptions extends OptionsBase
         return this;
     }
     
-    public ListBoxOptions setValueTemplate(JsonFunction valueTemplate) {
+    public ListBoxOptions setValueTemplate(JSONFunction valueTemplate) {
         this.valueTemplate = valueTemplate;
         return this;
     }

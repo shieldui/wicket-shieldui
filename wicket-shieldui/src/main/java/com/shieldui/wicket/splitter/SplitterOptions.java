@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.wicket.ajax.json.JsonFunction;
+import org.apache.wicket.ajax.json.JSONFunction;
 
 public class SplitterOptions extends OptionsBase
 {
@@ -144,7 +144,7 @@ public class SplitterOptions extends OptionsBase
     public String cls;
     public Orientation orientation;
     public List<PaneOptions> panes = new ArrayList<PaneOptions>();
-    public HashMap<Event, JsonFunction> events = new HashMap<Event, JsonFunction>();
+    public HashMap<Event, JSONFunction> events = new HashMap<Event, JSONFunction>();
     
     public String getCls() {
         return cls;
@@ -178,11 +178,11 @@ public class SplitterOptions extends OptionsBase
         return this;
     }
     
-    public HashMap<Event, JsonFunction> getEvents() {
+    public HashMap<Event, JSONFunction> getEvents() {
         return events;
     }
 
-    public SplitterOptions setEvents(HashMap<Event, JsonFunction> events) {
+    public SplitterOptions setEvents(HashMap<Event, JSONFunction> events) {
         this.events = events;
         return this;
     }

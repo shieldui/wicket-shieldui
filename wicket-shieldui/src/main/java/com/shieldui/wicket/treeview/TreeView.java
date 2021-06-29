@@ -4,8 +4,6 @@ import com.shieldui.wicket.WidgetComponentBase;
 import java.util.HashMap;
 import java.util.List;
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.json.JSONException;
-import org.apache.wicket.ajax.json.JSONStringer;
 
 public class TreeView extends WidgetComponentBase
 {
@@ -36,30 +34,6 @@ public class TreeView extends WidgetComponentBase
         }
         
         return result;
-    }
-    
-    private CharSequence hashToJson(HashMap<String, Object> dict)
-    {
-        try {
-            JSONStringer writer = new JSONStringer();
-            writer.object();
-            
-            if (dict != null) {
-                for (String key : dict.keySet()) {
-                    Object value = dict.get(key);
-                    if (value != null) {
-                        writer.key(key);
-                        writer.value(value);
-                    }
-                }
-            }
-            
-            writer.endObject();
-            return writer.toString();
-        }
-        catch (JSONException e) {
-            throw new RuntimeException("Could not convert HashMap object to Json", e);
-        }
     }
     
     public void setEnabled(AjaxRequestTarget target, Boolean enabled, List<Integer> path)
